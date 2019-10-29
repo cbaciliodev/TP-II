@@ -1,0 +1,69 @@
+﻿@model SGIAMTP.Models.TUsuarioModalidad
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>TUsuarioModalidad</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PkIumCodUm" />
+            <div class="form-group">
+                <label asp-for="FkIuDni" class="control-label"></label>
+                <select asp-for="FkIuDni" class="form-control" asp-items="ViewBag.FkIuDni"></select>
+                <span asp-validation-for="FkIuDni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FkIcIdConcurso" class="control-label"></label>
+                <select asp-for="FkIcIdConcurso" class="form-control" asp-items="ViewBag.FkIcIdConcurso"></select>
+                <span asp-validation-for="FkIcIdConcurso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FkImIdModalidad" class="control-label"></label>
+                <select asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad"></select>
+                <span asp-validation-for="FkImIdModalidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IumFase" class="control-label"></label>
+                <input asp-for="IumFase" class="form-control" />
+                <span asp-validation-for="IumFase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FkIuDniPareja" class="control-label"></label>
+                <select asp-for="FkIuDniPareja" class="form-control" asp-items="ViewBag.FkIuDniPareja"></select>
+                <span asp-validation-for="FkIuDniPareja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DumFechaIns" class="control-label"></label>
+                <input asp-for="DumFechaIns" class="form-control" />
+                <span asp-validation-for="DumFechaIns" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VmUmArchivoDni" class="control-label"></label>
+                <input asp-for="VmUmArchivoDni" class="form-control" />
+                <span asp-validation-for="VmUmArchivoDni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VmUmArchivoB" class="control-label"></label>
+                <input asp-for="VmUmArchivoB" class="form-control" />
+                <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
