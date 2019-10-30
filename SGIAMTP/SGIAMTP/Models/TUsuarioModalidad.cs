@@ -32,8 +32,8 @@ namespace SGIAMTP.Models
         public string IumFase { get; set; }
 
 
-        [Required(ErrorMessage = "Campo Requerido")]
-        [DisplayName("Pareja")]
+        //[Required(ErrorMessage = "Campo Requerido")]
+        //[DisplayName("Pareja")]
         public int? FkIuDniPareja { get; set; }
 
 

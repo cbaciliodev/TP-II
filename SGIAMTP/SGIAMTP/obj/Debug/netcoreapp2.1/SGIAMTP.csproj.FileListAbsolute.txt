@@ -37,3 +37,39 @@ D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAM
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.dll
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.pdb
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csproj.CopyComplete
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.deps.json
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.runtimeconfig.json
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.runtimeconfig.dev.json
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.dll
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.pdb
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.Views.dll
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.Views.pdb
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csproj.CoreCompileInputs.cache
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.RazorAssemblyInfo.cache
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.RazorAssemblyInfo.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.AssemblyInfoInputs.cache
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.AssemblyInfo.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.TagHelpers.input.cache
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.TagHelpers.output.cache
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.RazorCoreGenerate.cache
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuarioModalidad\Create.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuarioModalidad\Delete.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuarioModalidad\Details.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuarioModalidad\Edit.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuarioModalidad\Index.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.RazorTargetAssemblyInfo.cache
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.RazorTargetAssemblyInfo.cs
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.Views.pdb
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.dll
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.pdb
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csproj.CopyComplete

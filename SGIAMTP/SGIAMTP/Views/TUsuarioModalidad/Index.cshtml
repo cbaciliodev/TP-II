@@ -25,7 +25,7 @@
 
         <div class="panel panel-body form-group">
             <div class="table-responsive">
-                <table class="table table-condensed table-hover table-striped">
+                <table class="table table-condensed table-hover table-striped table-bordered">
                     <thead>
                         <tr>
                             <th class="text-center">
@@ -59,7 +59,7 @@
                         @foreach (var item in Model)
                         {
                         <tr>                      
-                            <td>
+                            <td class="text-center">
                                 @Html.DisplayFor(modelItem => item.IumFase)
                             </td>
 
@@ -67,29 +67,29 @@
                                 @Html.DisplayFor(modelItem => item.DumFechaIns)
                             </td>
 
-                            <td>
-                                <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoDni)" class="btn btn-primary openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
+                            <td class="text-center">
+                                <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoDni)" class="btn btn-success openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
                             </td>
 
-                            <td>
-                                <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoB)" class="btn btn-primary openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
+                            <td class="text-center">
+                                <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoB)" class="btn btn-success openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
                             </td>
 
-                            <td>
+                            <td class="text-center">
                                 @Html.DisplayFor(modelItem => item.FkIcIdConcursoNavigation.VcNombreCon)
                             </td>
 
-                            <td>
+                            <td class="text-center">
                                 @Html.DisplayFor(modelItem => item.FkImIdModalidadNavigation.VmNombreMod)
                             </td>
 
-                            <td>
+                            <td class="text-justify">
                                 @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuNombre)
                                 @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuApaterno)
                                 @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuAmaterno)
                             </td>
 
-                            <td>
+                            <td class="text-justify">
                                 @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuNombre)
                                 @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuApaterno)
                                 @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuAmaterno)

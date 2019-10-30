@@ -39,16 +39,21 @@
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+
+
                         <div class="row col-xs-12 col-md-12 col-lg-12">
 
+                            <!--Codigo de Participante - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkIuDni" class="control-label">Participante:</label>
-                                <select id="usuario" asp-for="FkIuDni" class="form-control" asp-items="ViewBag.FkIuDni">
+                                <select id="usuario" class="form-control" asp-items="ViewBag.FkIuDni" disabled>
                                     <option>Seleccione</option>
                                 </select>
+                                <input asp-for="FkIuDni" type="text" value="" id="FkIuDni" hidden />
                                 <span asp-validation-for="FkIuDni" class="text-danger"></span>
                             </div>
-
+                            <!--Codigo de Participante - Fin -->
+                            <!--Concurso - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkIcIdConcurso" class="control-label">Concurso:</label>
                                 <select asp-for="FkIcIdConcurso" class="form-control" asp-items="ViewBag.FkIcIdConcurso">
@@ -56,84 +61,84 @@
                                 </select>
                                 <span asp-validation-for="FkIcIdConcurso" class="text-danger"></span>
                             </div>
-
+                            <!--Concurso - Fin -->
+                            <!--Modalidad - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkImIdModalidad" class="control-label">Modalidad:</label>
-                                <select id="modalidad" onchange="habilitar(this.value)" asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad">
+                                <select id="modalidad" asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad" onchange="javascript: habilitar();">
                                     <option value="0">Seleccione</option>
                                 </select>
                                 <span asp-validation-for="FkImIdModalidad" class="text-danger"></span>
                             </div>
-
+                            <!--Modalidad - Fin -->
                         </div>
 
                         <div class="row col-xs-12 col-md-12 col-lg-12">
 
+                            <!--Fase - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
 
                                 <label asp-for="IumFase" class="control-label">Fase:</label>
-
                                 <select asp-for="IumFase" class="form-control" id="faseModalidad" disabled>
                                     <option value="">Seleccione</option>
                                     <option value="Eliminatorio">Eliminatorio</option>
                                     <option value="Final Uno">Final Uno</option>
                                 </select>
-
-
                                 <span asp-validation-for="IumFase" class="text-danger"></span>
                                 <input asp-for="IumFase" type="text" value="" id="fase" hidden />
                             </div>
-
+                            <!--Fase - Fin -->
+                            <!--Pareja - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkIuDniPareja" class="control-label">Pareja:</label>
                                 <select disabled id="pareja" asp-for="FkIuDniPareja" class="form-control" asp-items="ViewBag.FkIuDniPareja">
                                     <option value="">Seleccione</option>
                                 </select>
                             </div>
-
+                            <!--Pareja - Fin -->
+                            <!--Fecha de Inscripcion - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="DumFechaIns" class="control-label">Fecha de Inscripci&oacute;n:</label>
                                 <input asp-for="DumFechaIns" class="form-control" type="date" />
                                 <span asp-validation-for="DumFechaIns" class="text-danger"></span>
                             </div>
-
+                            <!--Fecha de Inscripcion - Fin -->
                         </div>
-
-
-
 
                         <div class="row col-xs-12 col-md-12 col-lg-12">
 
+                            <!--Archivo adjunto DNI - Inicio -->
                             <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                 <label asp-for="VmUmArchivoDni" class="control-label">Archivo Adjunto DNI:</label>
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
-                                    <input value="" onchange="javascript:archivo()" id="archivoDni" aria-describedby="basic-addon3" name="archivoDni" type="file" accept="application/pdf" class="form-control" />
-
+                                    <input onchange="javascript:archivoDnipdf();" id="VmUmArchivoDni" aria-describedby="basic-addon3" name="archivoDni" type="file" accept="application/pdf" class="form-control" />
                                 </div>
                                 <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
                                 <textarea value="" asp-for="VmUmArchivoDni" id="data" hidden></textarea>
                             </div>
-
+                            <!--Archivo adjunto DNI - Fin -->
+                            <!--Archivo adjunto Boleta de Pago - Inicio -->
                             <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                 <label asp-for="VmUmArchivoB" class="control-label">Voucher de Pago:</label>
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
-                                    <input value="" onchange="javascript:reciboPago()" id="archivoPago" aria-describedby="basic-addon3" name="archivoPago" type="file" accept="application/pdf" class="form-control" />
+                                    <input value="" onchange="javascript: reciboPago();" id="archivoPago" aria-describedby="basic-addon3" name="archivoPago" type="file" accept="application/pdf" class="form-control" />
                                 </div>
                                 <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
 
                             </div>
                             <textarea asp-for="VmUmArchivoB" id="recibo" hidden></textarea>
+                            <!--Archivo adjunto Boleta de Pago - Fin -->
                         </div>
 
                         <div class="row col-xs-12 col-md-12 col-lg-12">
-
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <button type="submit" value="Create" class="btn btn-primary form-control">Registrar</button>
                             </div>
-
                         </div>
+
+
                     </form>
                 </div>
             </div>
@@ -144,16 +149,13 @@
     <a class="btn btn-danger" asp-action="Index">Regresar a Lista</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-}
 
 <script type="text/javascript">
 
-    function archivo() {
+    function archivoDnipdf() {
 
-        var selectedFile = document.getElementById("archivoDni").files;
+        var selectedFile = document.getElementById("VmUmArchivoDni").files;
+
         if (selectedFile.length > 0) {
 
             var fileToLoad = selectedFile[0];
@@ -168,8 +170,10 @@
         };
 
         fileReader.readAsDataURL(fileToLoad);
-    }
+    };
 
+</script>
+<script type="text/javascript">
 
     function reciboPago() {
 
@@ -189,59 +193,63 @@
         };
 
         fileReader.readAsDataURL(fileToLoad);
-    }
+    };
+</script>
+
+
+<script type="text/javascript">
 
     window.onload = function () {
 
-        //var codigoUsuario = document.getElementById("usuarioCodigo").value;
+        var codigoUsuario = document.getElementById("usuarioCodigo").value;
 
-        // $('#usuario option[value=' + codigoUsuario + ']').attr("selected", true);
+        $('#usuario option[value=' + codigoUsuario + ']').attr("selected", true);
+
+        document.getElementById("FkIuDni").value = codigoUsuario;
 
     }
 
-    function habilitar(value) {
 
 
-        alert(value);
+    function habilitar() {
+
+        var valor = document.getElementById("modalidad").value;
 
 
-        if (value == 1) {
+        if (valor == 1) {
             var letra = "Final Uno"
-            // document.getElementById("nombreFase").value = letra;
             document.getElementById("fase").value = letra;
             document.getElementById("faseModalidad").value = letra;
-        } else if (value == 2) {
+        } else if (valor == 2) {
             var todos = "Eliminatorio"
-            //document.getElementById("nombreFase").value = todos;
             document.getElementById("fase").value = todos;
             document.getElementById("faseModalidad").value = todos;
         } else {
-            if (value == 0) {
+
+            if (valor == 0) {
                 document.getElementById("faseModalidad").value = "";
             }
         }
 
-        if (value === 1 || value == true) {
 
+        if (valor === 1 || valor == true) {
 
             document.getElementById("pareja").disabled = true;
-
-
         }
-        else if (value == 2 || value == false) {
+        else if (valor == 2 || valor == false) {
 
             document.getElementById("pareja").disabled = false;
-
         }
         else {
-
-            if (value == 0) {
+            if (valor == 0) {
                 document.getElementById("pareja").value = "";
                 document.getElementById("pareja").disabled = true;
             }
         }
     }
-
-
-
 </script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
