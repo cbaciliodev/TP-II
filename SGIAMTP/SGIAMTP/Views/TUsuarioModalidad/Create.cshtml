@@ -15,13 +15,16 @@
 </style>
 <br />
 <div class="label label-info" id="temporal">
-    <small class="text-right" style="font-size:10px">Mi Codigo: @ViewData["PK_IU_Dni"] - Mi nombre: @ViewData["VU_Nombre"]  - Fecha de Nacimiento: @ViewData["DU_FechaNacimiento"]</small>
+    <small class="text-right" style="font-size:10px">Mi Codigo: @ViewData["PK_IU_Dni"] - Mi nombre: @ViewData["VU_Nombre"]  - Fecha de Nacimiento: @ViewData["DU_FechaNacimiento"] - Sexo: @ViewData["Sexo"] </small>
 </div>
+
 
 <div id="contenedor" class="container-fluid" style="font-size:16px; font-family:'Century Gothic'">
 
     <input type="hidden" name="name" value="@ViewData["DU_FechaNacimiento"]" id="fechaModalidad" />
     <input type="hidden" name="name" value="@ViewData["PK_IU_Dni"]" id="usuarioCodigo" />
+
+    <input id="sexoParticipante" value="@ViewData["Sexo"]" type="text" hidden/>
 
     <div class="row col-xs-12 col-md-12 col-lg-12">
         <div class="col-lg-2"></div>
@@ -39,8 +42,6 @@
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-
-
                         <div class="row col-xs-12 col-md-12 col-lg-12">
 
                             <!--Codigo de Participante - Inicio -->
@@ -56,7 +57,7 @@
                             <!--Concurso - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkIcIdConcurso" class="control-label">Concurso:</label>
-                                <select asp-for="FkIcIdConcurso" class="form-control" asp-items="ViewBag.FkIcIdConcurso">
+                                <select asp-for="FkIcIdConcurso" class="form-control" asp-items="ViewBag.FkIcIdConcurso" id="codigoConcurso">
                                     <option value="">Seleccione</option>
                                 </select>
                                 <span asp-validation-for="FkIcIdConcurso" class="text-danger"></span>
@@ -65,8 +66,8 @@
                             <!--Modalidad - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkImIdModalidad" class="control-label">Modalidad:</label>
-                                <select id="modalidad" asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad" onchange="javascript: habilitar();">
-                                    <option value="0">Seleccione</option>
+                                <select id="modalidadConcurso" asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad" onchange="javascript: habilitar();">
+                                    <option value="">Seleccione</option>
                                 </select>
                                 <span asp-validation-for="FkImIdModalidad" class="text-danger"></span>
                             </div>
@@ -147,113 +148,7 @@
     <a class="btn btn-danger" asp-action="Index">Regresar a Lista</a>
 </div>
 
-<script type="text/javascript">
-
-    $('#pareja').
-
-</script>
-
-
-<script type="text/javascript">
-
-    function archivoDnipdf() {
-
-        var selectedFile = document.getElementById("VmUmArchivoDni").files;
-
-        if (selectedFile.length > 0) {
-
-            var fileToLoad = selectedFile[0];
-            var fileReader = new FileReader();
-            var base64;
-
-            fileReader.onload = function (fileLoadedEvent) {
-                base64 = fileLoadedEvent.target.result;
-                document.getElementById("data").innerHTML = base64;
-                alert(base64);
-            }
-        };
-
-        fileReader.readAsDataURL(fileToLoad);
-    };
-
-</script>
-<script type="text/javascript">
-
-    function reciboPago() {
-
-        var selectedFile = document.getElementById("archivoPago").files;
-
-        if (selectedFile.length > 0) {
-
-            var fileToLoad = selectedFile[0];
-            var fileReader = new FileReader();
-            var base64;
-
-            fileReader.onload = function (fileLoadedEvent) {
-                base64 = fileLoadedEvent.target.result;
-                document.getElementById("recibo").innerHTML = base64;
-                alert(base64);
-            }
-        };
-
-        fileReader.readAsDataURL(fileToLoad);
-    };
-</script>
-
-
-<script type="text/javascript">
-
-    window.onload = function () {
-
-        var codigoUsuario = document.getElementById("usuarioCodigo").value;
-
-        $('#usuario option[value=' + codigoUsuario + ']').attr("selected", true);
-
-        document.getElementById("FkIuDni").value = codigoUsuario;
-
-    }
-
-
-
-    function habilitar() {
-
-        var valor = document.getElementById("modalidad").value;
-
-
-        if (valor == 1) {
-            var letra = "Final Uno"
-            document.getElementById("fase").value = letra;
-            document.getElementById("faseModalidad").value = letra;
-        } else if (valor == 2) {
-            var todos = "Eliminatorio"
-            document.getElementById("fase").value = todos;
-            document.getElementById("faseModalidad").value = todos;
-        } else {
-
-            if (valor == 0) {
-                document.getElementById("faseModalidad").value = "";
-            }
-        }
-
-
-        if (valor === 1 || valor == true) {
-
-            document.getElementById("pareja").disabled = true;
-        }
-        else if (valor == 2 || valor == false) {
-
-            document.getElementById("pareja").disabled = false;
-        }
-        else {
-            if (valor == 0) {
-                document.getElementById("pareja").value = "";
-                document.getElementById("pareja").disabled = true;
-            }
-        }
-    }
-</script>
-
-
 @section Scripts {
+    <script src="~/js/RegistarParticipante.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

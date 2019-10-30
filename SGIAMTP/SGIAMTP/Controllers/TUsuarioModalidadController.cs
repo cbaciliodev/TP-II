@@ -55,20 +55,39 @@ namespace SGIAMTP.Controllers
         // GET: TUsuarioModalidad/Create
         public IActionResult Create()
         {
-
-            ViewData["PK_IU_Dni"] = "54321416";
+            ViewData["PK_IU_Dni"] = "74325186";
             ViewData["VU_Nombre"] = "Juan Diego";
             ViewData["VU_APaterno"] = "Perez";
             ViewData["VU_AMaterno"] = "velasquez";
             ViewData["DU_FechaNacimiento"] = "1999-02-09";
 
-            ViewData["FkIcIdConcurso"] = new SelectList(_context.TConcurso, "PkIcIdConcurso", "VcNombreCon");
+            ViewData["Sexo"] = "Femenino";
+
+            ViewData["DcFechaConcurso"]  = new SelectList(_context.TConcurso, "PkIcIdConcurso", "DcFechaConcurso");
+
+            //ViewData["FkIcIdConcurso"] = new SelectList(_context.TConcurso, "PkIcIdConcurso", "VcNombreCon");
             ViewData["FkImIdModalidad"] = new SelectList(_context.TModalidadCon, "PkImIdModalidad", "VmNombreMod");
             ViewData["FkIuDni"] = new SelectList(_context.TUsuario, "PkIuDni", "VuNombre");
             ViewData["FkIuDniPareja"] = new SelectList(_context.TUsuario, "PkIuDni", "VuNombre");
 
           
             return View();
+        }
+
+
+        [HttpGet]
+        public IActionResult GetConcurso()
+        {
+
+            var codigoConcurso = (from c in _context.TConcurso
+                          where c.FkIecIdEstado == 1
+                          select new Concurso()
+                          {
+                              codigo = c.PkIcIdConcurso,
+                              nombre = c.VcNombreCon
+                          }).ToList();
+                          
+            return Json(new { concurso = codigoConcurso });//dos listas vacias
         }
 
         // POST: TUsuarioModalidad/Create
@@ -191,5 +210,39 @@ namespace SGIAMTP.Controllers
         {
             return _context.TUsuarioModalidad.Any(e => e.PkIumCodUm == id);
         }
+
+        [HttpGet]
+        public IActionResult GetPareja(string ssexo)
+        {
+
+            var pareja = (from u in _context.TUsuario
+                                 // where u.VuSexo != "Masculino"
+                          where u.VuSexo != ssexo
+                          select new Pareja()
+                                  {
+                                      codigo = u.PkIuDni,
+                                      nombre = u.VuNombre,
+                                      paterno = u.VuApaterno,
+                                      materno = u.VuAmaterno
+                                  }).ToList();
+
+            return Json(new { parejaLista = pareja });//dos listas vacias
+        }
+
+    }
+
+
+    public class Concurso
+    {
+        public int codigo { get; set; }
+        public string nombre { get; set; }
+    }
+
+    public class Pareja
+    {
+        public int codigo { get; set; }
+        public string nombre { get; set; }
+        public string paterno { get; set; }
+        public string materno { get; set; }
     }
 }

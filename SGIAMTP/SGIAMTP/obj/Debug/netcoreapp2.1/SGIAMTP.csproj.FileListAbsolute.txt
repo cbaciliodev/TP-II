@@ -8,7 +8,6 @@ D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAM
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.pdb
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.Views.dll
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.Views.pdb
-D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csprojAssemblyReference.cache
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.RazorAssemblyInfo.cache
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.RazorAssemblyInfo.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.AssemblyInfoInputs.cache
