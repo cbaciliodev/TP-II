@@ -21,7 +21,12 @@ namespace SGIAMTP.Controllers
         // GET: TUsuarioModalidad
         public async Task<IActionResult> Index()
         {
-            var dB_A4F05E_SGIAMTPContext = _context.TUsuarioModalidad.Include(t => t.FkIcIdConcursoNavigation).Include(t => t.FkImIdModalidadNavigation).Include(t => t.FkIuDniNavigation).Include(t => t.FkIuDniParejaNavigation);
+            var dB_A4F05E_SGIAMTPContext = _context.TUsuarioModalidad
+                .Include(t => t.FkIcIdConcursoNavigation)
+                .Include(t => t.FkImIdModalidadNavigation)
+                .Include(t => t.FkIuDniNavigation)
+                .Include(t => t.FkIuDniParejaNavigation);
+
             return View(await dB_A4F05E_SGIAMTPContext.ToListAsync());
         }
 
@@ -61,6 +66,8 @@ namespace SGIAMTP.Controllers
             ViewData["FkImIdModalidad"] = new SelectList(_context.TModalidadCon, "PkImIdModalidad", "VmNombreMod");
             ViewData["FkIuDni"] = new SelectList(_context.TUsuario, "PkIuDni", "VuNombre");
             ViewData["FkIuDniPareja"] = new SelectList(_context.TUsuario, "PkIuDni", "VuNombre");
+
+          
             return View();
         }
 

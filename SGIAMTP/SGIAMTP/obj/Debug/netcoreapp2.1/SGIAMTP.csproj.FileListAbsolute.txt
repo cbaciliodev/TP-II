@@ -73,3 +73,4 @@ C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcor
 C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.dll
 C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.pdb
 C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csproj.CopyComplete
+C:\Users\alumno.LABORATORIOS\Source\Repos\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csprojAssemblyReference.cache
