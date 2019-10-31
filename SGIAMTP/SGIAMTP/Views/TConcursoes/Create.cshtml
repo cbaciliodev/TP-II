@@ -3,46 +3,75 @@
 @{
     ViewData["Title"] = "Create";
 }
-<section class="content-header">
-    <h2>Registrar Concurso</h2>
-</section>
+<style>
+    #contenedor {
+        margin-top: 20px;
+    }
 
-<section>
-    <div class="box box-default">
-        <div class="box-body">
-            <div class="row">
-                <div class="col-md-4">
+    #temporal {
+        margin-top: 10px;
+    }
+</style>
+<br />
+
+<div id="contenedor" class="container-fluid" style="font-size:16px; font-family:'Century Gothic'">
+    <div class="row col-xs-12 col-md-12 col-lg-12">
+        <div class="col-lg-2"></div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div>
+                    <h4 class="panel-title">Registro de Concurso</h4>
+                </div>
+            </div>
+            <div class="panel panel-body form-group">
+                <div class="form-group">
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                        <div class="form-row">
-                            <label asp-for="VcNombreCon" class="control-label">Nombre Concurso</label>
-                            <input asp-for="VcNombreCon" class="form-control" />
-                            <span asp-validation-for="VcNombreCon" class="text-danger"></span>
-                        </div>
-                        <div class="form-row">
-                            <label asp-for="VcLugarCon" class="control-label">Lugar del Concurso</label>
-                            <input id="locationid" asp-for="VcLugarCon" class="form-control" />
-                            <span asp-validation-for="VcLugarCon" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="DcFechaConcurso" class="control-label">Fecha del Concurso</label>
-                            <input asp-for="DcFechaConcurso" class="form-control" type="date" />
-                            <span asp-validation-for="DcFechaConcurso" class="text-danger"></span>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label asp-for="IcCantidadSeri" class="control-label">Cantidad P. Seriados</label>
-                                <input asp-for="IcCantidadSeri" class="form-control" />
-                                <span asp-validation-for="IcCantidadSeri" class="text-danger"></span>
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+
+                                <label asp-for="VcNombreCon" class="control-label">Nombre Concurso</label>
+                                <input asp-for="VcNombreCon" class="form-control" />
+                                <span asp-validation-for="VcNombreCon" class="text-danger"></span>
+
                             </div>
-                            <div class="form-group col-md-6">
-                                <label asp-for="IcCantidadNove" class="control-label">Cantidad P. Novel</label>
-                                <input asp-for="IcCantidadNove" class="form-control" />
-                                <span asp-validation-for="IcCantidadNove" class="text-danger"></span>
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                <label asp-for="VcNombreCon" class="control-label">Nombre Concurso</label>
+                                <input asp-for="VcNombreCon" class="form-control" />
+                                <span asp-validation-for="VcNombreCon" class="text-danger"></span>
                             </div>
                         </div>
-                        <br><br><br><br><br>
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                <label asp-for="VcLugarCon" class="control-label">Lugar del Concurso</label>
+                                <input id="locationid" asp-for="VcLugarCon" class="form-control" />
+                                <span asp-validation-for="VcLugarCon" class="text-danger"></span>
+                            </div>
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="DcFechaConcurso" class="control-label">Fecha del Concurso</label>
+                                <input asp-for="DcFechaConcurso" class="form-control" type="date" />
+                                <span asp-validation-for="DcFechaConcurso" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+                           
+                            <div class="form-row">
+                                <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                    <label asp-for="IcCantidadSeri" class="control-label">Cantidad P. Seriados</label>
+                                    <input asp-for="IcCantidadSeri" class="form-control" />
+                                    <span asp-validation-for="IcCantidadSeri" class="text-danger"></span>
+                                </div>
+                                <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                    <label asp-for="IcCantidadNove" class="control-label">Cantidad P. Novel</label>
+                                    <input asp-for="IcCantidadNove" class="form-control" />
+                                    <span asp-validation-for="IcCantidadNove" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+               
                         <div class="form-group">
                             <div class="form-group col-md-3">
                                 <input type="submit" value="Registrar" class="btn btn-success" />
@@ -56,7 +85,8 @@
             </div>
         </div>
     </div>
-</section>
+</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
