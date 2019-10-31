@@ -42,15 +42,9 @@ namespace SGIAMTP.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DumFechaIns { get; set; }
-
-
-        //[Required(ErrorMessage = "Campo Requerido")]
-        //[DisplayName("Archivo Adjunto DNI")]
+        [Required(ErrorMessage = "Campo Requerido")]
         public string VmUmArchivoDni { get; set; }
-
-
-        //[Required(ErrorMessage = "Campo Requerido")]
-        //[DisplayName("Voucher de Pago")]
+        [Required(ErrorMessage = "Campo Requerido")]
         public string VmUmArchivoB { get; set; }
 
         public TConcurso FkIcIdConcursoNavigation { get; set; }

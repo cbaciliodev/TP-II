@@ -63,7 +63,7 @@ namespace SGIAMTP
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=TUsuarioModalidad}/{action=Create}/{id?}");
             });
         }
     }

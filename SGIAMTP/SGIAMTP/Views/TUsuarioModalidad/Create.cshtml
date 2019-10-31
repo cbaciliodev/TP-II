@@ -15,7 +15,7 @@
 </style>
 <br />
 <div class="label label-info" id="temporal">
-    <small class="text-right" style="font-size:10px">Mi Codigo: @ViewData["PK_IU_Dni"] - Mi nombre: @ViewData["VU_Nombre"]  - Fecha de Nacimiento: @ViewData["DU_FechaNacimiento"] - Sexo: @ViewData["Sexo"] </small>
+    <small class="text-right" style="font-size:10px">Mi Codigo: @ViewData["PK_IU_Dni"]- Sexo: @ViewData["Sexo"] </small>
 </div>
 
 
@@ -24,7 +24,7 @@
     <input type="hidden" name="name" value="@ViewData["DU_FechaNacimiento"]" id="fechaModalidad" />
     <input type="hidden" name="name" value="@ViewData["PK_IU_Dni"]" id="usuarioCodigo" />
 
-    <input id="sexoParticipante" value="@ViewData["Sexo"]" type="text" hidden/>
+    <input id="sexoParticipante" value="@ViewData["Sexo"]" type="text" hidden />
 
     <div class="row col-xs-12 col-md-12 col-lg-12">
         <div class="col-lg-2"></div>
@@ -39,7 +39,7 @@
             <div class="panel panel-body form-group">
 
                 <div class="form-group">
-                    <form asp-action="Create">
+                    <form method="post" asp-controller="TUsuarioModalidad" asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="row col-xs-12 col-md-12 col-lg-12">
@@ -110,32 +110,46 @@
 
                             <!--Archivo adjunto DNI - Inicio -->
                             <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+
                                 <label asp-for="VmUmArchivoDni" class="control-label">Archivo Adjunto DNI:</label>
+
                                 <div class="input-group">
+
                                     <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
-                                    <input onchange="javascript:archivoDnipdf();" id="VmUmArchivoDni" aria-describedby="basic-addon3" name="archivoDni" type="file" accept="application/pdf" class="form-control" />
+                                    <input asp-for="VmUmArchivoDni" onchange="javascript:archivoDnipdf();" id="VmUmArchivoDni" aria-describedby="basic-addon3" name="archivoDni" type="file" accept="application/pdf" class="form-control" />
+                                    <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
+                                    <textarea value="" asp-for="VmUmArchivoDni" id="data" hidden></textarea>
                                 </div>
-                                <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
-                                <textarea value="" asp-for="VmUmArchivoDni" id="data" hidden></textarea>
+                                
+                               
+
+
                             </div>
                             <!--Archivo adjunto DNI - Fin -->
                             <!--Archivo adjunto Boleta de Pago - Inicio -->
                             <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+
                                 <label asp-for="VmUmArchivoB" class="control-label">Voucher de Pago:</label>
+
                                 <div class="input-group">
+
                                     <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
-                                    <input value="" onchange="javascript: reciboPago();" id="archivoPago" aria-describedby="basic-addon3" name="archivoPago" type="file" accept="application/pdf" class="form-control" />
+                                    <input asp-for="VmUmArchivoB" onchange="javascript: reciboPago();" id="archivoPago" aria-describedby="basic-addon3" name="archivoPago" type="file" accept="application/pdf" class="form-control" />
+                                    <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
+                                    <textarea asp-for="VmUmArchivoB" id="recibo" hidden></textarea>
                                 </div>
-                                <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
+                                
+                               
 
                             </div>
-                            <textarea asp-for="VmUmArchivoB" id="recibo" hidden></textarea>
+
+                           
                             <!--Archivo adjunto Boleta de Pago - Fin -->
                         </div>
 
                         <div class="row col-xs-12 col-md-12 col-lg-12">
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
-                                <button type="submit" value="Create" class="btn btn-primary form-control">Registrar</button>
+                                <button type="submit" value="Create" class="btn btn-primary form-control" onclick="validar()">Registrar</button>
                             </div>
                         </div>
                     </form>

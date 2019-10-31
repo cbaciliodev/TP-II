@@ -15,7 +15,9 @@ $(document).ready(function () {
     getListaPareja();
 
     var codigoUsuario = document.getElementById("usuarioCodigo").value;
+
     $('#usuario option[value=' + codigoUsuario + ']').attr("selected", true);
+
     document.getElementById("FkIuDni").value = codigoUsuario;
 });
 
@@ -160,3 +162,24 @@ var getListaParticipante = function () {
         }
     });
 };
+
+
+function validar() {
+
+
+    var selectedFileDni = document.getElementById("data").value;
+    var selectedFileRecibo = document.getElementById("recibo").value;
+
+   // alert(selectedFileDni)
+   // alert(selectedFileRecibo)
+    /*
+    if (selectedFileDni == "" && selectedFileRecibo == "") {
+        document.getElementById('alertaDcumentoDni').innerHTML = 'Tiene que Adjuntar su Documento Dni en PDf.'
+        document.getElementById('alertaDcumentoRecibo').innerHTML = 'Tiene que Adjuntar su Documento de Recibo en PDf.'
+    }
+    else {
+
+
+
+    }*/
+}

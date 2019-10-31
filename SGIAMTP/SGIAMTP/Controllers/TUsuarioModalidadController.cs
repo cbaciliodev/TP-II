@@ -55,17 +55,12 @@ namespace SGIAMTP.Controllers
         // GET: TUsuarioModalidad/Create
         public IActionResult Create()
         {
-            ViewData["PK_IU_Dni"] = "74325186";
-            ViewData["VU_Nombre"] = "Juan Diego";
-            ViewData["VU_APaterno"] = "Perez";
-            ViewData["VU_AMaterno"] = "velasquez";
-            ViewData["DU_FechaNacimiento"] = "1999-02-09";
-
-            ViewData["Sexo"] = "Femenino";
+            ViewData["PK_IU_Dni"] = "444910167";
+            ViewData["Sexo"] = "Masculino";
 
             ViewData["DcFechaConcurso"]  = new SelectList(_context.TConcurso, "PkIcIdConcurso", "DcFechaConcurso");
 
-            //ViewData["FkIcIdConcurso"] = new SelectList(_context.TConcurso, "PkIcIdConcurso", "VcNombreCon");
+            ViewData["FkIcIdConcurso"] = new SelectList(_context.TConcurso, "PkIcIdConcurso", "VcNombreCon");
             ViewData["FkImIdModalidad"] = new SelectList(_context.TModalidadCon, "PkImIdModalidad", "VmNombreMod");
             ViewData["FkIuDni"] = new SelectList(_context.TUsuario, "PkIuDni", "VuNombre");
             ViewData["FkIuDniPareja"] = new SelectList(_context.TUsuario, "PkIuDni", "VuNombre");
@@ -97,15 +92,16 @@ namespace SGIAMTP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PkIumCodUm,FkIuDni,FkIcIdConcurso,FkImIdModalidad,IumFase,FkIuDniPareja,DumFechaIns,VmUmArchivoDni,VmUmArchivoB")] TUsuarioModalidad tUsuarioModalidad)
         {
+
+
+
             if (ModelState.IsValid)
             {
 
                     _context.Add(tUsuarioModalidad);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
-
-               
-               
+                
             }
             ViewData["FkIcIdConcurso"] = new SelectList(_context.TConcurso, "PkIcIdConcurso", "PkIcIdConcurso", tUsuarioModalidad.FkIcIdConcurso);
             ViewData["FkImIdModalidad"] = new SelectList(_context.TModalidadCon, "PkImIdModalidad", "PkImIdModalidad", tUsuarioModalidad.FkImIdModalidad);
