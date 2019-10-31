@@ -4,51 +4,60 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles del Concurso</h2>
 
-<div>
-    <h4>TConcurso</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.VcNombreCon)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.VcNombreCon)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.VcLugarCon)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.VcLugarCon)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DcFechaConcurso)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DcFechaConcurso)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.IcCantidadSeri)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IcCantidadSeri)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.IcCantidadNove)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IcCantidadNove)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FkIecIdEstadoNavigation)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FkIecIdEstadoNavigation.PkIeIdEstado)
-        </dd>
-    </dl>
+<div class="col-lg-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div>
+                <h4 class="panel-title">Registro de Concurso</h4>
+            </div>
+        </div>
+        <div class="panel panel-body form-group">
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Nombre del Concurso:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.VcNombreCon)
+                </dd>
+                <dt>
+                    Lugar del Concurso:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.VcLugarCon)
+                </dd>
+                <dt>
+                    Fecha del Concurso:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DcFechaConcurso)
+                </dd>
+                <dt>
+                    Cantidad Seriado:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.IcCantidadSeri)
+                </dd>
+                <dt>
+                    Cantidad Novel:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.IcCantidadNove)
+                </dd>
+                <dt>
+                    Estado de Concurso:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FkIecIdEstadoNavigation.VeNombreEsta)
+                </dd>
+            </dl>
+            <div>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.PkIcIdConcurso">Editar</a>
+                <a class="btn btn-danger" asp-action="Index">Regresar</a>
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.PkIcIdConcurso">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+

@@ -3,55 +3,86 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<style>
+    #contenedor {
+        margin-top: 20px;
+    }
 
-<h2>Edit</h2>
+    #temporal {
+        margin-top: 10px;
+    }
+</style>
+<br />
+<div id="contenedor" class="container-fluid" style="font-size:16px; font-family:'Century Gothic'">
+    <div class="row col-xs-12 col-md-12 col-lg-12">
+        <div class="col-lg-2"></div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div>
+                    <h4 class="panel-title">Editar de Concurso</h4>
+                </div>
+            </div>
+            <div class="panel panel-body form-group">
+                <div class="form-group">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="PkIcIdConcurso" />
 
-<h4>TConcurso</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PkIcIdConcurso" />
-            <div class="form-group">
-                <label asp-for="VcNombreCon" class="control-label"></label>
-                <input asp-for="VcNombreCon" class="form-control" />
-                <span asp-validation-for="VcNombreCon" class="text-danger"></span>
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                <label asp-for="VcNombreCon" class="control-label">Nombre del concurso:</label>
+                                <input asp-for="VcNombreCon" class="form-control" />
+                                <span asp-validation-for="VcNombreCon" class="text-danger"></span>
+                            </div>
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                <label asp-for="VcLugarCon" class="control-label">Lugar del Concurso</label>
+                                <input asp-for="VcLugarCon" class="form-control" />
+                                <span asp-validation-for="VcLugarCon" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                <label asp-for="DcFechaConcurso" class="control-label">Fecha del Concurso:</label>
+                                <input asp-for="DcFechaConcurso" class="form-control" />
+                                <span asp-validation-for="DcFechaConcurso" class="text-danger"></span>
+                            </div>
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                <label asp-for="FkIecIdEstado" class="control-label">Estado del Concurso</label>
+                                <select asp-for="FkIecIdEstado" class="form-control" asp-items="ViewBag.FkIecIdEstado"></select>
+                                <span asp-validation-for="FkIecIdEstado" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                <label asp-for="IcCantidadSeri" class="control-label">Cantidad Seriado:</label>
+                                <input asp-for="IcCantidadSeri" class="form-control" />
+                                <span asp-validation-for="IcCantidadSeri" class="text-danger"></span>
+                            </div>
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                <label asp-for="IcCantidadNove" class="control-label">Cantidad Novel:</label>
+                                <input asp-for="IcCantidadNove" class="form-control" />
+                                <span asp-validation-for="IcCantidadNove" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <input type="submit" value="Actualizar" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="VcLugarCon" class="control-label"></label>
-                <input asp-for="VcLugarCon" class="form-control" />
-                <span asp-validation-for="VcLugarCon" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DcFechaConcurso" class="control-label"></label>
-                <input asp-for="DcFechaConcurso" class="form-control" />
-                <span asp-validation-for="DcFechaConcurso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FkIecIdEstado" class="control-label"></label>
-                <select asp-for="FkIecIdEstado" class="form-control" asp-items="ViewBag.FkIecIdEstado"></select>
-                <span asp-validation-for="FkIecIdEstado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IcCantidadSeri" class="control-label"></label>
-                <input asp-for="IcCantidadSeri" class="form-control" />
-                <span asp-validation-for="IcCantidadSeri" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IcCantidadNove" class="control-label"></label>
-                <input asp-for="IcCantidadNove" class="form-control" />
-                <span asp-validation-for="IcCantidadNove" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
-
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-danger" asp-action="Index">Regresar a Lista</a>
 </div>
 
 @section Scripts {

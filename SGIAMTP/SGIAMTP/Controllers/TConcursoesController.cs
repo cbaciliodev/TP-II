@@ -117,7 +117,7 @@ namespace SGIAMTP.Controllers
             {
                 return NotFound();
             }
-            ViewData["FkIecIdEstado"] = new SelectList(_context.TEstadoCon, "PkIeIdEstado", "PkIeIdEstado", tConcurso.FkIecIdEstado);
+            ViewData["FkIecIdEstado"] = new SelectList(_context.TEstadoCon, "PkIeIdEstado", "VeNombreEsta", tConcurso.FkIecIdEstado);
             return View(tConcurso);
         }
 
