@@ -18,11 +18,11 @@ namespace SGIAMTP.Controllers
             _context = context;
         }
 
-        // GET: TConcursoes
+        // GET:     
         public async Task<IActionResult> Index()
         {
-            var dB_A4F05E_SGIAMTPContext = _context.TConcurso.Include(t => t.FkIecIdEstadoNavigation);
-            return View(await dB_A4F05E_SGIAMTPContext.ToListAsync());
+            var dB_A4D4D9_BDSGIAMTContext = _context.TConcurso.Include(t => t.FkIecIdEstadoNavigation);
+            return View(await dB_A4D4D9_BDSGIAMTContext.ToListAsync());
         }
 
         // GET: TConcursoes/Details/5
@@ -58,13 +58,49 @@ namespace SGIAMTP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PkIcIdConcurso,VcNombreCon,VcLugarCon,DcFechaConcurso,FkIecIdEstado,IcCantidadSeri,IcCantidadNove")] TConcurso tConcurso)
         {
+            bool Isnomconexist = _context.TConcurso.Any
+             (x => x.VcNombreCon == tConcurso.VcNombreCon);
+            if (Isnomconexist == true)
+            {
+                ModelState.AddModelError("VcNombreCon", "ya existe este Nombre");
+            }
+
+            bool Isfechaconnexist = _context.TConcurso.Any
+             (x => x.DcFechaConcurso == tConcurso.DcFechaConcurso);
+            if (Isfechaconnexist == true)
+            {
+                ModelState.AddModelError("DcFechaConcurso", "Fecha No Permitida");
+            }
+
+            bool Isfechacnexist = _context.TConcurso.Any
+             (x => DateTime.Now >= tConcurso.DcFechaConcurso);
+            if (Isfechacnexist == true)
+            {
+                ModelState.AddModelError("DcFechaConcurso", "Fecha No Permitida");
+            }
+
+            bool Iscantsexist = _context.TConcurso.Any
+             (x => 50 <= tConcurso.IcCantidadSeri);
+            if (Iscantsexist == true)
+            {
+                ModelState.AddModelError("IcCantidadSeri", "Cantidad No Permitida");
+            }
+
+            bool Iscantnexist = _context.TConcurso.Any
+            (x => 50 <= tConcurso.IcCantidadNove);
+            if (Iscantnexist == true)
+            {
+                ModelState.AddModelError("IcCantidadNove", "Cantidad No Permitida");
+            }
+
             if (ModelState.IsValid)
             {
+                tConcurso.FkIecIdEstado = 1;
                 _context.Add(tConcurso);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FkIecIdEstado"] = new SelectList(_context.TEstadoCon, "PkIeIdEstado", "PkIeIdEstado", tConcurso.FkIecIdEstado);
+            //ViewData["FkIecIdEstado"] = new SelectList(_context.TEstadoCon, "PkIeIdEstado", "PkIeIdEstado", tConcurso.FkIecIdEstado);
             return View(tConcurso);
         }
 
@@ -95,6 +131,28 @@ namespace SGIAMTP.Controllers
             if (id != tConcurso.PkIcIdConcurso)
             {
                 return NotFound();
+            }
+
+            bool Isfechacnexist = _context.TConcurso.Any
+             (x => DateTime.Now >= tConcurso.DcFechaConcurso);
+            if (Isfechacnexist == true)
+            {
+                ModelState.AddModelError("DcFechaConcurso", "Fecha No Permitida");
+            }
+
+
+            bool Iscantsexist = _context.TConcurso.Any
+             (x => 51 <= tConcurso.IcCantidadSeri);
+            if (Iscantsexist == true)
+            {
+                ModelState.AddModelError("IcCantidadSeri", "Cantidad No Permitida");
+            }
+
+            bool Iscantnexist = _context.TConcurso.Any
+            (x => 51 <= tConcurso.IcCantidadNove);
+            if (Iscantnexist == true)
+            {
+                ModelState.AddModelError("IcCantidadNove", "Cantidad No Permitida");
             }
 
             if (ModelState.IsValid)
