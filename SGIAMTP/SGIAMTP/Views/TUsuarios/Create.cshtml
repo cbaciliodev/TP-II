@@ -1,0 +1,108 @@
+﻿@model SGIAMTP.Models.TUsuario
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    #contenedor {
+        margin-top: 20px;
+    }
+
+    #temporal {
+        margin-top: 10px;
+    }
+</style>
+<br />
+<div id="contenedor" class="container-fluid" style="font-size:16px; font-family:'Century Gothic'">
+
+    <div class="row col-xs-12 col-md-12 col-lg-12">
+        <div class="col-lg-2"></div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div>
+                    <h4 class="panel-title">Registro de Usuarios</h4>
+                </div>
+            </div>
+
+            <div class="panel panel-body form-group">
+
+                <div class="form-group">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="PkIuDni" class="control-label"></label>
+                            <input asp-for="PkIuDni" class="form-control" />
+                            <span asp-validation-for="PkIuDni" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="VuNombre" class="control-label"></label>
+                            <input asp-for="VuNombre" class="form-control" />
+                            <span asp-validation-for="VuNombre" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="VuApaterno" class="control-label"></label>
+                            <input asp-for="VuApaterno" class="form-control" />
+                            <span asp-validation-for="VuApaterno" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="VuAmaterno" class="control-label"></label>
+                            <input asp-for="VuAmaterno" class="form-control" />
+                            <span asp-validation-for="VuAmaterno" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DuFechaNacimiento" class="control-label"></label>
+                            <input asp-for="DuFechaNacimiento" class="form-control" />
+                            <span asp-validation-for="DuFechaNacimiento" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="VuContraseña" class="control-label"></label>
+                            <input asp-for="VuContraseña" class="form-control" />
+                            <span asp-validation-for="VuContraseña" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="VuSexo" class="control-label"></label>
+                            <input asp-for="VuSexo" class="form-control" />
+                            <span asp-validation-for="VuSexo" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="VuNacademia" class="control-label"></label>
+                            <input asp-for="VuNacademia" class="form-control" />
+                            <span asp-validation-for="VuNacademia" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FkIuCodCategoria" class="control-label"></label>
+                            <select asp-for="FkIuCodCategoria" class="form-control" asp-items="ViewBag.FkIuCodCategoria"></select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FkItuTipoUsuario" class="control-label"></label>
+                            <select asp-for="FkItuTipoUsuario" class="form-control" asp-items="ViewBag.FkItuTipoUsuario"></select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FkIuIdEstado" class="control-label"></label>
+                            <select asp-for="FkIuIdEstado" class="form-control" asp-items="ViewBag.FkIuIdEstado"></select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="VuFoto" class="control-label"></label>
+                            <input asp-for="VuFoto" class="form-control" />
+                            <span asp-validation-for="VuFoto" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-danger" asp-action="Index">Regresar</a>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
