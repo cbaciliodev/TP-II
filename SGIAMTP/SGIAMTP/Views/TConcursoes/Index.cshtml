@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SGIAMTP.Models.TConcurso>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid col-xs-12 col-md-12 col-lg-12" style="font-size:16px; font-family:'Century Gothic'">
+
+    <div class="form-group " style="margin-top:10px">
+        <a asp-action="Create" class="btn btn-primary">Registar Concurso</a>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div>
+                <h4 class="panel-title">Lista de Concursos</h4>
+            </div>
+        </div>
+        <div class="panel panel-body form-group">
+            <div class="table-responsive">
+                <table class="table table-condensed table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                Nombre Concurso
+                            </th>
+                            <th class="text-center">
+                                Lugar Concurso
+                            </th>
+                            <th class="text-center">
+                                Fecha Concurso
+                            </th>
+                            <th class="text-center">
+                                Estado Concurso
+                            </th>
+                            <th> Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VcNombreCon)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VcLugarCon)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.DcFechaConcurso)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FkIecIdEstadoNavigation.VeNombreEsta)
+                                </td>
+                                <td>
+                                    @if (item.FkIecIdEstadoNavigation.VeNombreEsta == "Finalizado")
+                                    {
+                                        <a  class="btn btn-primary" asp-action="Details" asp-route-id="@item.PkIcIdConcurso">Detalle</a>
+
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PkIcIdConcurso"> Editar </a>
+                                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PkIcIdConcurso">Eliminar</a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

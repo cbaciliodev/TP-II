@@ -73,3 +73,8 @@ D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAM
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.dll
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.pdb
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csproj.CopyComplete
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TConcursoes\Create.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TConcursoes\Delete.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TConcursoes\Details.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TConcursoes\Edit.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TConcursoes\Index.cshtml.g.cs

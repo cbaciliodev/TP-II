@@ -1,0 +1,59 @@
+﻿@model SGIAMTP.Models.TConcurso
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>TConcurso</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PkIcIdConcurso" />
+            <div class="form-group">
+                <label asp-for="VcNombreCon" class="control-label"></label>
+                <input asp-for="VcNombreCon" class="form-control" />
+                <span asp-validation-for="VcNombreCon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VcLugarCon" class="control-label"></label>
+                <input asp-for="VcLugarCon" class="form-control" />
+                <span asp-validation-for="VcLugarCon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DcFechaConcurso" class="control-label"></label>
+                <input asp-for="DcFechaConcurso" class="form-control" />
+                <span asp-validation-for="DcFechaConcurso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FkIecIdEstado" class="control-label"></label>
+                <select asp-for="FkIecIdEstado" class="form-control" asp-items="ViewBag.FkIecIdEstado"></select>
+                <span asp-validation-for="FkIecIdEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IcCantidadSeri" class="control-label"></label>
+                <input asp-for="IcCantidadSeri" class="form-control" />
+                <span asp-validation-for="IcCantidadSeri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IcCantidadNove" class="control-label"></label>
+                <input asp-for="IcCantidadNove" class="form-control" />
+                <span asp-validation-for="IcCantidadNove" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
