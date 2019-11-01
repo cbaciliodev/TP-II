@@ -91,7 +91,6 @@ C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netco
 C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.pdb
 C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.Views.dll
 C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\bin\Debug\netcoreapp2.1\SGIAMTP.Views.pdb
-C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csprojAssemblyReference.cache
 C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csproj.CoreCompileInputs.cache
 C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.RazorAssemblyInfo.cache
 C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.RazorAssemblyInfo.cs
@@ -126,3 +125,10 @@ C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netco
 C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.dll
 C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.pdb
 C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csproj.CopyComplete
+C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\AdministarParticipante\Create.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\AdministarParticipante\Delete.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\AdministarParticipante\Details.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\AdministarParticipante\Edit.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\AdministarParticipante\Index.g.cshtml.cs
+C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csprojAssemblyReference.cache
+C:\Users\alumno.LABORATORIOS\Downloads\git\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\RegistarUsuarioAdmin\RegistroUsuarioModal.g.cshtml.cs

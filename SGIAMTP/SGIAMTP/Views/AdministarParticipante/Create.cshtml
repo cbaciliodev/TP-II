@@ -4,61 +4,209 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<style>
+    #contenedor {
+        margin-top: 20px;
+    }
 
-<h4>TUsuarioModalidad</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="FkIuDni" class="control-label"></label>
-                <select asp-for="FkIuDni" class ="form-control" asp-items="ViewBag.FkIuDni"></select>
+    #temporal {
+        margin-top: 10px;
+    }
+</style>
+<br />
+<div class="label label-info" id="temporal">
+    <small class="text-right" style="font-size:10px">Mi Codigo: @ViewData["PK_IU_Dni"]- Sexo: @ViewData["Sexo"] </small>
+</div>
+
+
+<div id="contenedor" class="container-fluid" style="font-size:16px; font-family:'Century Gothic'">
+    <a class="btn btn-success" onclick="javascript:openModal();">Registrar Usuarios</a>
+    <br /><br />
+    <input type="hidden" name="name" value="@ViewData["DU_FechaNacimiento"]" id="fechaModalidad" />
+    <input type="hidden" name="name" value="@ViewData["PK_IU_Dni"]" id="usuarioCodigo" />
+    <input id="sexoParticipante" value="@ViewData["Sexo"]" type="text" hidden />
+
+
+    <div class="row col-xs-12 col-md-12 col-lg-12">
+        <div class="col-lg-2"></div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div>
+                    <h4 class="panel-title">Registro de Participantes - Administardor</h4>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="FkIcIdConcurso" class="control-label"></label>
-                <select asp-for="FkIcIdConcurso" class ="form-control" asp-items="ViewBag.FkIcIdConcurso"></select>
+
+            <div class="panel panel-body form-group">
+
+                <div class="form-group">
+
+
+
+                    <form method="post" asp-controller="TUsuarioModalidad" asp-action="Create">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+
+                            <!--Codigo de Participante - Inicio -->
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="FkIuDni" class="control-label">Participante:</label>
+                                <select id="usuario" class="form-control" asp-items="ViewBag.FkIuDni">
+                                    <option>Seleccione</option>
+                                </select>
+                                <input asp-for="FkIuDni" type="text" value="" id="FkIuDni" hidden />
+                                <span asp-validation-for="FkIuDni" class="text-danger"></span>
+                            </div>
+                            <!--Codigo de Participante - Fin -->
+                            <!--Concurso - Inicio -->
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="FkIcIdConcurso" class="control-label">Concurso:</label>
+                                <select asp-for="FkIcIdConcurso" class="form-control" asp-items="ViewBag.FkIcIdConcurso" id="codigoConcurso">
+                                    <option value="">Seleccione</option>
+                                </select>
+                                <span asp-validation-for="FkIcIdConcurso" class="text-danger"></span>
+                            </div>
+                            <!--Concurso - Fin -->
+                            <!--Modalidad - Inicio -->
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="FkImIdModalidad" class="control-label">Modalidad:</label>
+                                <select id="modalidadConcurso" asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad" onchange="javascript: habilitar();">
+                                    <option value="">Seleccione</option>
+                                </select>
+                                <span asp-validation-for="FkImIdModalidad" class="text-danger"></span>
+                            </div>
+                            <!--Modalidad - Fin -->
+                        </div>
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+
+                            <!--Fase - Inicio -->
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+
+                                <label asp-for="IumFase" class="control-label">Fase:</label>
+                                <select asp-for="IumFase" class="form-control" id="faseModalidad" disabled>
+                                    <option value="">Seleccione</option>
+                                    <option value="Eliminatorio">Eliminatorio</option>
+                                    <option value="Final Uno">Final Uno</option>
+                                </select>
+                                <span asp-validation-for="IumFase" class="text-danger"></span>
+                                <input asp-for="IumFase" type="text" value="" id="fase" hidden />
+                            </div>
+                            <!--Fase - Fin -->
+                            <!--Pareja - Inicio -->
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="FkIuDniPareja" class="control-label">Pareja:</label>
+                                <select disabled id="pareja" asp-for="FkIuDniPareja" class="form-control" asp-items="ViewBag.FkIuDniPareja">
+                                    <option value="">Seleccione</option>
+                                </select>
+                            </div>
+                            <!--Pareja - Fin -->
+                            <!--Fecha de Inscripcion - Inicio -->
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="DumFechaIns" class="control-label">Fecha de Inscripci&oacute;n:</label>
+                                <input asp-for="DumFechaIns" class="form-control" type="date" />
+                                <span asp-validation-for="DumFechaIns" class="text-danger"></span>
+                            </div>
+                            <!--Fecha de Inscripcion - Fin -->
+                        </div>
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+
+                            <!--Archivo adjunto DNI - Inicio -->
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+
+                                <label asp-for="VmUmArchivoDni" class="control-label">Archivo Adjunto DNI:</label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
+                                    <input asp-for="VmUmArchivoDni" onchange="javascript:archivoDnipdf();" id="VmUmArchivoDni" aria-describedby="basic-addon3" name="archivoDni" type="file" accept="application/pdf" class="form-control" />
+                                    <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
+                                    <textarea value="" asp-for="VmUmArchivoDni" id="data" hidden></textarea>
+                                </div>
+
+
+
+
+                            </div>
+                            <!--Archivo adjunto DNI - Fin -->
+                            <!--Archivo adjunto Boleta de Pago - Inicio -->
+                            <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+
+                                <label asp-for="VmUmArchivoB" class="control-label">Voucher de Pago:</label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
+                                    <input asp-for="VmUmArchivoB" onchange="javascript: reciboPago();" id="archivoPago" aria-describedby="basic-addon3" name="archivoPago" type="file" accept="application/pdf" class="form-control" />
+                                    <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
+                                    <textarea asp-for="VmUmArchivoB" id="recibo" hidden></textarea>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <!--Archivo adjunto Boleta de Pago - Fin -->
+                        </div>
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <button type="submit" value="Create" class="btn btn-primary form-control" onclick="validar()">Registrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="FkImIdModalidad" class="control-label"></label>
-                <select asp-for="FkImIdModalidad" class ="form-control" asp-items="ViewBag.FkImIdModalidad"></select>
+        </div>
+    </div>
+</div>
+<div>
+    <a class="btn btn-danger" asp-action="Index">Regresar a Lista</a>
+</div>
+
+
+
+
+<div class="modal fade" id="OpenModalRegistroUsuario" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Registro de Usuario - Administardor</h4>
             </div>
-            <div class="form-group">
-                <label asp-for="IumFase" class="control-label"></label>
-                <input asp-for="IumFase" class="form-control" />
-                <span asp-validation-for="IumFase" class="text-danger"></span>
+            <div class="modal-body">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div>
+                            <h4 class="panel-title">Registro de Usuario - Administardor</h4>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-body form-group">
+
+                        <div class="form-group">
+
+
+                            @Html.PartialAsync("~/Views/RegistarUsuarioAdmin/RegistroUsuarioModal.cshtml");
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="FkIuDniPareja" class="control-label"></label>
-                <select asp-for="FkIuDniPareja" class ="form-control" asp-items="ViewBag.FkIuDniPareja"></select>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
             </div>
-            <div class="form-group">
-                <label asp-for="DumFechaIns" class="control-label"></label>
-                <input asp-for="DumFechaIns" class="form-control" />
-                <span asp-validation-for="DumFechaIns" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VmUmArchivoDni" class="control-label"></label>
-                <input asp-for="VmUmArchivoDni" class="form-control" />
-                <span asp-validation-for="VmUmArchivoDni" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VmUmArchivoB" class="control-label"></label>
-                <input asp-for="VmUmArchivoB" class="form-control" />
-                <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
+    <script src="~/js/AdministrarParticipante.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
