@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SGIAMTP.Models.TUsuarioModalidad>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IumFase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DumFechaIns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VmUmArchivoDni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VmUmArchivoB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkIcIdConcursoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkImIdModalidadNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkIuDniNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkIuDniParejaNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IumFase)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DumFechaIns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VmUmArchivoDni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VmUmArchivoB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FkIcIdConcursoNavigation.VcLugarCon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FkImIdModalidadNavigation.PkImIdModalidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FkIuDniNavigation.PkIuDni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.PkIuDni)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PkIumCodUm">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PkIumCodUm">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PkIumCodUm">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
