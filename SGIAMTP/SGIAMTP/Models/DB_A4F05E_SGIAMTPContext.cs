@@ -30,7 +30,6 @@ namespace SGIAMTP.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=sql5047.site4now.net;Database=DB_A4F05E_SGIAMTP;User Id=DB_A4F05E_SGIAMTP_admin;Password=123456789gg;MultipleActiveResultSets=True;");
             }
         }
@@ -127,19 +126,17 @@ namespace SGIAMTP.Models
 
                 entity.Property(e => e.PkIpCodP).HasColumnName("PK_IP_CodP");
 
-                entity.Property(e => e.FkVumtCod)
-                    .IsRequired()
-                    .HasColumnName("FK_VUMT_COD")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                entity.Property(e => e.FkIumtCodpar).HasColumnName("FK_IUMT_CODPAR");
+
+                entity.Property(e => e.FkIumtCodta).HasColumnName("FK_IUMT_CODTA");
 
                 entity.Property(e => e.IpNumeroJurado).HasColumnName("IP_NumeroJurado");
 
                 entity.Property(e => e.IpPuntaje).HasColumnName("IP_Puntaje");
 
-                entity.HasOne(d => d.FkVumtCodNavigation)
+                entity.HasOne(d => d.FkIumtCod)
                     .WithMany(p => p.TPuntaje)
-                    .HasForeignKey(d => d.FkVumtCod)
+                    .HasForeignKey(d => new { d.FkIumtCodpar, d.FkIumtCodta })
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_T_Puntaje_T_Usuario_Modalidad_Tanda");
             });
@@ -152,22 +149,11 @@ namespace SGIAMTP.Models
 
                 entity.Property(e => e.PkItCodTan).HasColumnName("PK_IT_CodTan");
 
-                entity.Property(e => e.DtFechaHora)
-                    .HasColumnName("DT_FechaHora")
-                    .HasColumnType("smalldatetime");
-
-                entity.Property(e => e.ItEstado).HasColumnName("IT_Estado");
-
                 entity.Property(e => e.ItGanador).HasColumnName("IT_Ganador");
 
                 entity.Property(e => e.VtDescripcion)
                     .IsRequired()
                     .HasColumnName("VT_Descripcion")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.VtDescripcion1)
-                    .HasColumnName("VT_Descripcion1")
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
@@ -211,8 +197,6 @@ namespace SGIAMTP.Models
 
                 entity.Property(e => e.FkIuCodCategoria).HasColumnName("FK_IU_CodCategoria");
 
-                entity.Property(e => e.FkIuIdEstado).HasColumnName("FK_IU_IdEstado");
-
                 entity.Property(e => e.VuAmaterno)
                     .HasColumnName("VU_AMaterno")
                     .HasMaxLength(50)
@@ -226,10 +210,6 @@ namespace SGIAMTP.Models
                 entity.Property(e => e.VuContraseña)
                     .HasColumnName("VU_Contraseña")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.VuFoto)
-                    .HasColumnName("VU_Foto")
                     .IsUnicode(false);
 
                 entity.Property(e => e.VuNacademia)
@@ -256,11 +236,6 @@ namespace SGIAMTP.Models
                     .WithMany(p => p.TUsuario)
                     .HasForeignKey(d => d.FkIuCodCategoria)
                     .HasConstraintName("FK_T_Usuario_T_Categoria");
-
-                entity.HasOne(d => d.FkIuIdEstadoNavigation)
-                    .WithMany(p => p.TUsuario)
-                    .HasForeignKey(d => d.FkIuIdEstado)
-                    .HasConstraintName("FK_T_Usuario_T_EstadoCon");
             });
 
             modelBuilder.Entity<TUsuarioModalidad>(entity =>
@@ -323,21 +298,13 @@ namespace SGIAMTP.Models
 
             modelBuilder.Entity<TUsuarioModalidadTanda>(entity =>
             {
-                entity.HasKey(e => e.PkVumtCod);
+                entity.HasKey(e => new { e.FkIumtCodPart, e.FkIumtCodTan });
 
                 entity.ToTable("T_Usuario_Modalidad_Tanda");
-
-                entity.Property(e => e.PkVumtCod)
-                    .HasColumnName("PK_VUMT_COD")
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .ValueGeneratedNever();
 
                 entity.Property(e => e.FkIumtCodPart).HasColumnName("FK_IUMT_CodPart");
 
                 entity.Property(e => e.FkIumtCodTan).HasColumnName("FK_IUMT_CodTan");
-
-                entity.Property(e => e.IumtEstado).HasColumnName("IUMT_Estado");
 
                 entity.Property(e => e.IumtPista).HasColumnName("IUMT_Pista");
 
@@ -347,13 +314,13 @@ namespace SGIAMTP.Models
                     .WithMany(p => p.TUsuarioModalidadTanda)
                     .HasForeignKey(d => d.FkIumtCodPart)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_T_Usuario_Modalidad_Tanda_T_Usuario_Modalidad1");
+                    .HasConstraintName("FK_T_Usuario_Modalidad_Tanda_T_Usuario_Modalidad");
 
                 entity.HasOne(d => d.FkIumtCodTanNavigation)
                     .WithMany(p => p.TUsuarioModalidadTanda)
                     .HasForeignKey(d => d.FkIumtCodTan)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_T_Usuario_Modalidad_Tanda_T_Tanda1");
+                    .HasConstraintName("FK_T_Usuario_Modalidad_Tanda_T_Tanda");
             });
         }
     }
