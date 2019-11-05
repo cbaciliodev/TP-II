@@ -188,25 +188,20 @@
 
                     <div class="panel panel-body form-group">
 
-                        <div class="form-group">
-
-
-                            @Html.PartialAsync("~/Views/RegistarUsuarioAdmin/RegistroUsuarioModal.cshtml");
-
+                        <div class="form-group" id="RegistroUsuario">
                         </div>
-
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-@section Scripts {
-    <script src="~/js/AdministrarParticipante.js"></script>
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        <script src="~/js/AdministrarParticipante.js"></script>
+        <script src="~/js/RegistrarUsuario.js"></script>
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
