@@ -1,145 +1,33 @@
 ﻿$(document).ready(function () {
-    mostarFormularioRegistroUsuario();
+   // mostarFormularioRegistroUsuario();
+    getListaCategoria();
 });
 
-function mostarFormularioRegistroUsuario() {
 
-    var dataHtml = `<div class="form-group">
-                         <form method="post">
-                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                    <div class="row col-xs-12 col-md-12 col-lg-12">
-                                        <!-- DNI - Inicio -->
-                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
-                                            <label for="identificacion" class="control-label">Documento:</label>
-                                           <input type="text" class="form-control" placeholder="DNI" id="identificacion"/>
-                                            <input type="text" value="" hidden />
-                                            <span class="text-danger"></span>
-                                        </div>
-                                        <!-- DNI - Fin -->
+var getListaCategoria = function () {
 
-                                        <!-- Nombre - Inicio -->
-                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">               
-                                           <label for="nombre" class="control-label">Nombre:</label>
-                                           <input type="text" class="form-control" placeholder="Nombre de usuario" id="nombre" value=""/>
-                                            <span class="text-danger"></span>
-                                        </div>
-                                        <!--- Nombre - Fin -->
-                                    </div>
-                                    
-                                    <div class="row col-xs-12 col-md-12 col-lg-12">
+    $.ajax({
+        url: "/RegistarUsuarioAdmin/GetListaCategoria",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
 
-                                        <!-- Apellido Paterno - Inicio -->
-                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
-                                            <label for="apaterno" class="control-label">Apellido Paterno:</label>
-                                           <input type="text" class="form-control" placeholder="Apellido Paterno" id="apaterno"/>
-                                            <input type="text" value="" hidden />
-                                            <span class="text-danger"></span>
-                                        </div>
-                                        <!-- Apellido Paterno - Fin -->
+            var selectCategoria = $('#categoria');
+            selectCategoria.find('option').remove();
+            selectCategoria.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
-                                        <!-- Apellido Materno - Inicio -->
-                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">               
-                                           <label for="amaterno" class="control-label">Apellido Materno:</label>
-                                           <input type="text" class="form-control" placeholder="Apellido Materno" id="amaterno" value=""/>
-                                            <span class="text-danger"></span>
-                                        </div>
-                                        <!-- Apellido Paterno - Fin -->
-                                    </div>
-
-                                    <div class="row col-xs-12 col-md-12 col-lg-12">
-                                        <!--Fecha de Nacimiento - Inicio -->
-                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
-                                            <label for="nacimiento" class="control-label">Fecha de Nacimiento:</label>
-                                           <input type="date" class="form-control pull-right" id="nacimiento" onchange="javascript: calcularEdad();"/>                                           
-                                            <span class="text-danger" id="resultado"></span>
-                                        </div>
-                                       <!--Fecha de Nacimiento - Fin -->
-
-                                        <!--Contraseña - Inicio -->
-                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">               
-                                           <label for="password" class="control-label">Contraseña:</label>
-                                           <input type="password" class="form-control" placeholder="Contraseña" id="password" value=""/>                                            
-                                            <span class="text-danger"></span>
-                                        </div>
-                                        <!--Contraseña - Fin -->
-                                    </div>
-
-                                    <div class="row col-xs-12 col-md-12 col-lg-12">
-                                        <!--Sexo - Inicio -->
-                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
-                                            <label for="sexo" class="control-label">Sexo:</label>
-                                           <select id="sexo" class="form-control">
-                                                <option value="" selected>Seleccione...</option>
-                                                <option value="Masculino">Masculino</option>
-                                                <option value="Femenino">Femenino</option>
-                                            </select>
-                                            <span class="text-danger"></span>
-                                        </div>
-                                        <!--Sexo - Fin -->   
-                                        <!--Categoria - Inicio -->
-                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
-                                            <label for="categoria" class="control-label">Categoria:</label>
-                                           <select id="categoria" class="form-control">
-                                                <option value="" selected>Seleccione...</option>
-                                                <option value="Masculino">Masculino</option>
-                                                <option value="Femenino">Femenino</option>
-                                            </select>
-                                            <span class="text-danger"></span>
-                                        </div>
-                                        <!--Sexo - Fin -->     
-
-                                    </div>
-
-                                    <div class="row col-xs-12 col-md-12 col-lg-12">                                       
-                                        <!--Foto - Inicio -->
-                                        <div class="form-group  col-xs-12 col-md-12 col-lg-12">               
-                                           <label for="imagen" class="control-label">Imagen:</label>
-                                           <input type="file" class="form-control" placeholder="Imagen" id="imagen" value=""/>
-                                            <span class="text-danger"></span>
-                                        </div>
-                                        <!--Foto - Fin -->
-                                    </div>
-
-                                    <div class="row col-xs-12 col-md-12 col-lg-12">                                       
-                                        <!--Foto - Inicio -->
-                                        <div class="form-group  col-xs-12 col-md-12 col-lg-12">               
-                                           <label for="academia" class="control-label">Nombre de Academia:</label>
-                                           <input type="text" class="form-control" placeholder="Nombre de Academia" id="academia" value=""/>
-                                            <span class="text-danger"></span>
-                                        </div>
-                                        <!--Foto - Fin -->
-                                    </div>
-
-                                    <div class="row col-xs-12 col-md-12 col-lg-12">
-                                        <div class="form-group  col-xs-4 col-md-4 col-lg-4">
-                                            <button type="button" value="Create" class="btn btn-primary form-control" 
-                                                     onclick="javascript:guardarRegistroUsuario();">Registrar</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>`;
-
-    $("#RegistroUsuario").html(dataHtml);
-
-
-    
-}
-
-function validate_fecha(fecha) {
-
-    var patron = new RegExp("^([0-9]{1,2})([-])([0-9]{1,2})([-])(19|20)+([0-9]{2})$");
-
-    if (fecha.search(patron) == 0) {
-        var values = fecha.split("-");
-        if (isValidDate(values[0], values[1], values[2])) {
-            return true;
+            $.each(response.categoria, function (key, value) {
+                selectCategoria.append('<option value=' + value.codigo + '>' + value.nombre + '</option>');
+            });
+        },
+        error: function (response) {
         }
-    }
-    return false;
-}
+    });
+};
 
+function calcularEdad() {
 
-/*function calcularEdad(fecha) {
+    var fecha = document.getElementById("nacimiento").value;
     var hoy = new Date();
     var cumpleanos = new Date(fecha);
     var edad = hoy.getFullYear() - cumpleanos.getFullYear();
@@ -149,117 +37,126 @@ function validate_fecha(fecha) {
         edad--;
     }
 
+    var categoria = document.getElementById("categoria");
+
+    console.log(categoria);
+
+    var categoria = document.getElementById("categoria");
+
+    if (4 <= edad && edad <= 6) {
+        categoria.selectedIndex = 3;
+    }
+    else if (7 <= edad && edad <= 9) {
+        categoria.selectedIndex = 2;
+    }
+    else if (10 <= edad && edad <= 13) {
+        categoria.selectedIndex = 4;
+    }
+    else if (14 <= edad && edad <= 17) {
+        categoria.selectedIndex = 5;
+    }
+    else if (18 <= edad && edad <= 21) {
+        çategoria.selectedIndex = 6;
+    }
+    else if (22 <= edad && edad <= 34) {
+        categoria.selectedIndex = 7;
+    }
+    else if (35 <= edad && edad <= 49) {
+        categoria.selectedIndex = 8;
+    }
+    else if (50 <= edad && edad <= 62) {
+        categoria.selectedIndex = 1;
+    }
+    else {
+        categoria.selectedIndex = 0;
+    }
+
+    console.log(edad)
+    document.getElementById("resultado").innerHTML = `Tienes ${edad} años.`;
     return edad;
-}*/
-
-
-
-function calcularEdad() {
-    
-    var fecha = document.getElementById("nacimiento").value;
-
-    console.log(fecha);
-
-    var valorfecha = fecha.split('-');
-
-    var dia = valorfecha[2];
-    var mes = valorfecha[1];
-    var anio = valorfecha[0];
-
-    console.log(dia, ' dia');
-    console.log(mes, ' mes');
-    console.log(anio , ' anio');
-
-    var fechaActual = new Date();
-
-    console.log(fechaActual, ' fechaActual')
-
-    console.log(fechaActual.getDate(), ' Dia')
-    console.log(fechaActual.getMonth() + 1, ' Mes')
-    console.log(fechaActual.getFullYear(), ' Anio')
-
-    var edad = fechaActual.getFullYear() - anio;
-
-    if (fechaActual.getMonth() + 1 < mes) {
-        edad--;
-    }
-    if (fechaActual.getMonth() + 1 == mes && fechaActual.getDate() < dia) {
-        edad--;
-    }
-
-    var meses = 0;
-
-    if (fechaActual.getMonth() + 1 > mes) {
-        meses = (fechaActual.getMonth() + 1) - mes;
-    }
-    if (fechaActual.getMonth() + 1 < mes) {
-        meses = 12 - (mes - (fechaActual.getMonth() + 1));
-    }
-
-
-    console.log(edad, ' edad');
-
-
-       if (validate_fecha(fecha) == true) {
-           
-
-           
-
-           
-
-
-            if (ahora_mes < mes)
-                meses = 12 - (mes - ahora_mes);
-            if (ahora_mes == mes && dia > ahora_dia)
-                meses = 11;
-
-            // calculamos los dias
-            var dias = 0;
-            if (ahora_dia > dia)
-                dias = ahora_dia - dia;
-            if (ahora_dia < dia) {
-                ultimoDiaMes = new Date(ahora_ano, ahora_mes, 0);
-                dias = ultimoDiaMes.getDate() - (dia - ahora_dia);
-            }
-
-           document.getElementById("resultado").innerHTML = "Tienes " + edad + " años, " + meses + " meses y " + dias + " días";
-
-            var categoria = document.getElementById("categoria");
-
-            if (4 <= edad && edad <= 6) {
-                categoria.selectedIndex = 3;
-            }
-            else if (7 <= edad && edad <= 9) {
-                categoria.selectedIndex = 2;
-            }
-            else if (10 <= edad && edad <= 13) {
-                categoria.selectedIndex = 4;
-            }
-            else if (14 <= edad && edad <= 17) {
-                categoria.selectedIndex = 5;
-            }
-            else if (18 <= edad && edad <= 21) {
-                çategoria.selectedIndex = 6;
-            }
-            else if (22 <= edad && edad <= 34) {
-                categoria.selectedIndex = 7;
-            }
-            else if (35 <= edad && edad <= 49) {
-                categoria.selectedIndex = 8;
-            }
-            else if (50 <= edad && edad <= 62) {
-                categoria.selectedIndex = 1;
-            }
-            else {
-                categoria.selectedIndex = 0;
-            }
-
-
-        } else {
-           document.getElementById("resultado").innerHTML = "La fecha " + fecha + " es incorrecta";
-        }
-        
 }
+
+
+function validarIdentificacion(numero) {
+
+    if (!/^([0-9])*$/.test(numero)) {
+        
+        document.getElementById("ident_result").innerHTML = `El valor ${numero}  no es un dni valido`;
+        $('#identificacion').focus();
+    }
+    else if (numero == '') {
+       
+        document.getElementById("ident_result").innerHTML = `Este Campo es requerido`;
+        $('#identificacion').focus();
+    }
+    else {
+        document.getElementById("ident_result").innerHTML = ``;
+    }
+}
+
+
+function validarNombre(nombre) {
+
+    if (nombre == '') {
+        document.getElementById("nomb_result").innerHTML = `Este Campo es requerido`;
+    } else {
+        document.getElementById("nomb_result").innerHTML = ``;
+    }
+}
+function validarApaterno(paterno) {
+
+    if (paterno == '') {
+        document.getElementById("paterno_result").innerHTML = `Este Campo es requerido`;
+    } else {
+        document.getElementById("paterno_result").innerHTML = ``;
+    }
+}
+function validarAmaterno(materno) {
+
+    if (materno == '') {
+        document.getElementById("materno_result").innerHTML = `Este Campo es requerido`;
+    } else {
+        document.getElementById("materno_result").innerHTML = ``;
+    }
+}
+function validarPassword(password) {
+
+    if (password == '') {
+        document.getElementById("pass_result").innerHTML = `Este Campo es requerido`;
+    } else {
+        document.getElementById("pass_result").innerHTML = ``;
+    }
+}
+function validarSexo(sexo) {
+
+    if (sexo == '') {
+        document.getElementById("sexo_result").innerHTML = `Este Campo es requerido`;
+    } else {
+        document.getElementById("sexo_result").innerHTML = ``;
+    }
+}
+function validarImagen(imagen) {
+
+    if (imagen == '') {
+        document.getElementById("imagen_result").innerHTML = `Este Campo es requerido`;
+    } else {
+        document.getElementById("imagen_result").innerHTML = ``;
+    }
+}
+
+function validarAcademia(academia) {
+
+    if (academia == '') {
+        document.getElementById("academia_result").innerHTML = `Este Campo es requerido`;
+    } else {
+        document.getElementById("academia_result").innerHTML = ``;
+    }
+}
+
+
+var funcion = 0;
+
+Usuario newUsuario = new Usuario();
 
 function guardarRegistroUsuario() {
 
@@ -267,26 +164,100 @@ function guardarRegistroUsuario() {
     var nombre = document.getElementById('nombre').value;
     var apaterno = document.getElementById('apaterno').value;
     var amaterno = document.getElementById('amaterno').value;
-
+    var nacimiento = document.getElementById('nacimiento').value;
+    var password = document.getElementById('password').value;
+    var sexo = document.getElementById('sexo').value;
+    var categoria = document.getElementById('categoria').value;
+    var imagen = document.getElementById('imagen').value;
+    var academia = document.getElementById('academia').value;
+   
     if (identificacion == '') {
         $('#identificacion').focus();
+        document.getElementById("ident_result").innerHTML = `Este Campo es requerido`;
         console.log(identificacion);
     }
     else if (nombre == '') {
         $('#nombre').focus();
+        document.getElementById("nomb_result").innerHTML = `Este Campo es requerido`;
         console.log(nombre);
     }
     else if (apaterno == '') {
         $('#apaterno').focus();
+        document.getElementById("paterno_result").innerHTML = `Este Campo es requerido`;
         console.log(apaterno);
     }
     else if (amaterno == '') {
         $('#amaterno').focus();
+        document.getElementById("materno_result").innerHTML = `Este Campo es requerido`;
         console.log(amaterno);
+    }
+    else if (nacimiento == '') {
+        document.getElementById("resultado").innerHTML = `Este Campo es requerido`;
+        $('#nacimiento').focus();
+        console.log(nacimiento);
+    }
+    else if (password == '') {
+        $('#password').focus();
+        document.getElementById("pass_result").innerHTML = `Este Campo es requerido`;
+        console.log(password);
+    }
+    else if (sexo == '') {
+        $('#sexo').focus();
+        document.getElementById("sexo_result").innerHTML = `Este Campo es requerido`;
+        console.log(sexo);
+    }
+    else if (categoria == '') {
+        $('#categoria').focus();
+        console.log(categoria);
+    }
+    else if (imagen == '') {
+        $('#imagen').focus();
+        document.getElementById("imagen_result").innerHTML = `Este Campo es requerido`;
+        console.log(imagen);
+    }
+    else if (academia == '') {
+        $('#academia').focus();
+        console.log(academia);
     } else {
+
         console.log(identificacion);
         console.log(nombre);
         console.log(apaterno);
         console.log(amaterno);
+        console.log(nacimiento);
+        console.log(password);
+        console.log(sexo);
+        console.log(categoria);
+        console.log(imagen);
+        console.log(academia);
+
+        var action_user = 'AdministarParticipante/guardarUsuario'
+        var identificacion_user = identificacion;
+        var nombre_user = nombre;
+        var apaterno_user = apaterno;
+        var amaterno_user = amaterno;
+        var nacimiento_user = nacimiento;
+        var password_user = password;
+        var sexo_user = sexo;
+        var categoria_user = categoria
+        var imagen_user = imagen;
+        var academia_user = academia;
+
+        alert(identificacion_user);
+
+       
+
+        usuario.guardarUsuarioRegistro(funcion,
+            action_user,
+            identificacion_user,
+            nombre_user,
+            apaterno_user,
+            amaterno_user,
+            nacimiento_user,
+            password_user,
+            sexo_user,
+            categoria_user,
+            imagen_user,
+            academia_user);
     }                                                                 
 }

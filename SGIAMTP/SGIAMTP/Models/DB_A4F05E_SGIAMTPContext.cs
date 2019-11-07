@@ -271,7 +271,7 @@ namespace SGIAMTP.Models
                     .IsRequired()
                     .HasColumnName("VM_UM_ArchivoDni")
                     .IsUnicode(false);
-
+                //VmUmArchivoB
                 entity.HasOne(d => d.FkIcIdConcursoNavigation)
                     .WithMany(p => p.TUsuarioModalidad)
                     .HasForeignKey(d => d.FkIcIdConcurso)

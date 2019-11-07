@@ -170,8 +170,8 @@
 
 
 
-<div class="modal fade" id="OpenModalRegistroUsuario" role="dialog">
-    <div class="modal-dialog">
+<div class="modal fade bd-example-modal-lg" id="OpenModalRegistroUsuario" role="dialog">
+    <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
@@ -190,19 +190,132 @@
 
                         <div class="form-group" id="RegistroUsuario">
                             <!--Aqui viene el formulario-->
+                            <div class="form-group">
+                                <form asp-action="">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="row col-xs-12 col-md-12 col-lg-12">
+                                        <!-- DNI - Inicio -->
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                            <label for="identificacion" class="control-label">Documento:</label>
+                                            <input onchange="javascript:validarIdentificacion(this.value);" maxlength="8" type="text" class="form-control" placeholder="DNI" id="identificacion" />
+                                            <input type="text" value="" hidden />
+                                            <span class="text-danger" id="ident_result"></span>
+                                        </div>
+                                        <!-- DNI - Fin -->
+                                        <!-- Nombre - Inicio -->
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                            <label for="nombre" class="control-label">Nombre:</label>
+                                            <input onchange="javascript:validarNombre(this.value);" type="text" class="form-control" placeholder="Nombre de usuario" id="nombre" value="" />
+                                            <span class="text-danger" id="nomb_result"></span>
+                                        </div>
+                                        <!--- Nombre - Fin -->
+                                    </div>
+
+                                    <div class="row col-xs-12 col-md-12 col-lg-12">
+
+                                        <!-- Apellido Paterno - Inicio -->
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                            <label for="apaterno" class="control-label">Apellido Paterno:</label>
+                                            <input onchange="javascript:validarApaterno(this.value);" type="text" class="form-control" placeholder="Apellido Paterno" id="apaterno" />
+                                            <span class="text-danger" id="paterno_result"></span>
+                                        </div>
+                                        <!-- Apellido Paterno - Fin -->
+                                        <!-- Apellido Materno - Inicio -->
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                            <label for="amaterno" class="control-label">Apellido Materno:</label>
+                                            <input onchange="javascript:validarAmaterno(this.value);" type="text" class="form-control" placeholder="Apellido Materno" id="amaterno" value="" />
+                                            <span class="text-danger" id="materno_result"></span>
+                                        </div>
+                                        <!-- Apellido Paterno - Fin -->
+                                    </div>
+
+                                    <div class="row col-xs-12 col-md-12 col-lg-12">
+                                        <!--Fecha de Nacimiento - Inicio -->
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                            <label for="nacimiento" class="control-label">Fecha de Nacimiento:</label>
+                                            <input onchange="javascript:calcularEdad(this.value);" type="date" class="form-control pull-right" id="nacimiento" onchange="javascript: calcularEdad();" />
+                                            <span class="text-danger" id="resultado"></span>
+                                        </div>
+                                        <!--Fecha de Nacimiento - Fin -->
+                                        <!--Contraseña - Inicio -->
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                            <label for="password" class="control-label">Contraseña:</label>
+                                            <input onchange="javascript:validarPassword(this.value);" type="password" class="form-control" placeholder="Contraseña" id="password" value="" /><br>
+                                            <span class="text-danger" id="pass_result"></span>
+                                        </div>
+                                        <!--Contraseña - Fin -->
+                                    </div>
+
+                                    <div class="row col-xs-12 col-md-12 col-lg-12">
+                                        <!--Sexo - Inicio -->
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                            <label for="sexo" class="control-label">Sexo:</label>
+                                            <select onchange="javascript:validarSexo(this.value);" id="sexo" class="form-control">
+                                                <option value="" selected>Seleccione...</option>
+                                                <option value="Masculino">Masculino</option>
+                                                <option value="Femenino">Femenino</option>
+                                            </select>
+                                            <span class="text-danger" id="sexo_result"></span>
+                                        </div>
+                                        <!--Sexo - Fin -->
+                                        <!--Categoria - Inicio -->
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                            <label for="categoria" class="control-label">Categoria:</label>
+                                            <select id="categoria" class="form-control" disabled>
+                                                <option value="" selected>Seleccione...</option>
+
+                                            </select>
+                                            <span class="text-danger" id="categoria_result"></span>
+                                        </div>
+                                        <!--Sexo - Fin -->
+
+                                    </div>
+
+                                    <div class="row col-xs-12 col-md-12 col-lg-12">
+                                        <!--Foto - Inicio -->
+                                        <div class="form-group  col-xs-12 col-md-12 col-lg-12">
+                                            <label for="imagen" class="control-label">Imagen:</label>
+                                            <input onchange="javascript:validarImagen(this.value);" type="file" class="form-control" placeholder="Imagen" id="imagen" value="" />
+                                            <span class="text-danger" id="imagen_result"></span>
+                                        </div>
+                                        <!--Foto - Fin -->
+                                    </div>
+
+                                    <div class="row col-xs-12 col-md-12 col-lg-12">
+                                        <!--Foto - Inicio -->
+                                        <div class="form-group  col-xs-12 col-md-12 col-lg-12">
+                                            <label for="academia" class="control-label">Nombre de Academia:</label>
+                                            <input onchange="javascript:validarAcademia(this.value);" type="text" class="form-control" placeholder="Nombre de Academia" id="academia" value="" />
+                                            <span class="text-danger" id="academia_result"></span>
+                                        </div>
+                                        <!--Foto - Fin -->
+                                    </div>
+
+                                    <div class="row col-xs-12 col-md-12 col-lg-12">
+                                        <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                            <button type="button" value="Create" class="btn btn-primary form-control"
+                                                    onclick="javascript:guardarRegistroUsuario();">
+                                                Registrar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 </div>
+                <p id="mensaje"></p>
             </div>
         </div>
     </div>
 </div>
 
-    @section Scripts {
-        <script src="~/js/AdministrarParticipante.js"></script>
-        <script src="~/js/RegistrarUsuario.js"></script>
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+@section Scripts {
+    <script src="~/js/AdministrarParticipante.js"></script>
+    <script src="~/js/RegistrarUsuario.js"></script>
+    <script src="~/js/Usuario.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

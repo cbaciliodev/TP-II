@@ -196,6 +196,8 @@ namespace SGIAMTP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+
+         
             var tUsuarioModalidad = await _context.TUsuarioModalidad.FindAsync(id);
             _context.TUsuarioModalidad.Remove(tUsuarioModalidad);
             await _context.SaveChangesAsync();
@@ -222,6 +224,8 @@ namespace SGIAMTP.Controllers
                                       materno = u.VuAmaterno
                                   }).ToList();
 
+
+            
             return Json(new { parejaLista = pareja });//dos listas vacias
         }
 
