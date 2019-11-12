@@ -81,12 +81,9 @@ var guardarRegistroParticipante = () => {
     console.log(VmUmArchivoB + ' VmUmArchivoB');
     console.log(FkIeEstado + ' FkIeEstado');
 
-
-
     console.log('usuarioModalidad INICIO');
 
-
-    var usuarioModalidad = new UsuarioModalidad(
+    var usuarioModalidades = new UsuarioModalidad(
         accion,
         PkIumCodUm,
         FkIuDni,
@@ -99,10 +96,11 @@ var guardarRegistroParticipante = () => {
         VmUmArchivoB,
         FkIeEstado
     );
+
     console.log('usuarioModalidad FIN');
 
     console.log('metodo INICIO');
-    usuarioModalidad.guardarParticipante();
+    usuarioModalidades.guardarParticipante();
     console.log('metodo FIN');
 }
 

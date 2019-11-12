@@ -13,7 +13,7 @@ namespace SGIAMTP.Controllers
     public class TUsuarioModalidadController : Controller
     {
         private readonly DB_A4F05E_SGIAMTPContext _context;
-        private ModelContex participanteModel;
+        private readonly ModelContex participanteModel;
 
         public TUsuarioModalidadController(DB_A4F05E_SGIAMTPContext context)
         {
@@ -82,8 +82,8 @@ namespace SGIAMTP.Controllers
                                   where c.FkIecIdEstado == 1
                                   select new Concurso()
                                   {
-                                      codigo = c.PkIcIdConcurso,
-                                      nombre = c.VcNombreCon
+                                      Codigo = c.PkIcIdConcurso,
+                                      Nombre = c.VcNombreCon
                                   }).ToList();
 
             return Json(new { concurso = codigoConcurso });//dos listas vacias
@@ -222,10 +222,10 @@ namespace SGIAMTP.Controllers
                           where u.VuSexo != ssexo
                           select new Pareja()
                           {
-                              codigo = u.PkIuDni,
-                              nombre = u.VuNombre,
-                              paterno = u.VuApaterno,
-                              materno = u.VuAmaterno
+                              Codigo = u.PkIuDni,
+                              Nombre = u.VuNombre,
+                              Paterno = u.VuApaterno,
+                              Materno = u.VuAmaterno
                           }).ToList();
 
 
@@ -262,15 +262,15 @@ namespace SGIAMTP.Controllers
 
     public class Concurso
     {
-        public int codigo { get; set; }
-        public string nombre { get; set; }
+        public int Codigo { get; set; }
+        public string Nombre { get; set; }
     }
 
     public class Pareja
     {
-        public int codigo { get; set; }
-        public string nombre { get; set; }
-        public string paterno { get; set; }
-        public string materno { get; set; }
+        public int Codigo { get; set; }
+        public string Nombre { get; set; }
+        public string Paterno { get; set; }
+        public string Materno { get; set; }
     }
 }

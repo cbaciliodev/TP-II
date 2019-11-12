@@ -18,7 +18,7 @@ class UsuarioModalidad {
         FkIeEstado
     ) {
         console.log(accion + " 1");
-
+        console.log(PkIumCodUm + " PkIumCodUm");
         this.accion = accion;
         this.PkIumCodUm = PkIumCodUm;
         this.FkIuDni = FkIuDni;
@@ -31,101 +31,107 @@ class UsuarioModalidad {
         this.VmUmArchivoB = VmUmArchivoB;
         this.FkIeEstado = FkIeEstado;
         console.log(this.accion + " 2");
+
+        console.log(FkIuDni + " FkIuDni");
     }
+
+    
 
     guardarParticipante() {
 
-        if (this.accion = "") {
-            console.log("No ingrese accion");
-        } else {
-            if (this.PkIumCodUm == "") {
+        console.log("entro")
 
-            } else {
-                if (this.FkIuDni == "") {
+        //if (this.accion = "") {
+        //    console.log("No ingrese accion");
+        //} else {
+        //    if (this.PkIumCodUm == "") {
 
-                } else {
-                    if (this.FkIcIdConcurso == "") {
+        //    } else {
+        //        if (this.FkIuDni == "") {
 
-                    } else {
-                        if (this.FkImIdModalidad == "") {
+        //        } else {
+        //            if (this.FkIcIdConcurso == "") {
 
-                        } else {
-                            if (this.IumFase == "") {
+        //            } else {
+        //                if (this.FkImIdModalidad == "") {
 
-                            } else {
-                                if (this.FkIuDniPareja == "") {
+        //                } else {
+        //                    if (this.IumFase == "") {
 
-                                } else {
-                                    if (this.DumFechaIns == "") {
+        //                    } else {
+        //                        if (this.FkIuDniPareja == "") {
 
-                                    } else {
+        //                        } else {
+        //                            if (this.DumFechaIns == "") {
 
-                                        if (this.VmUmArchivoDni == "") {
+        //                            } else {
 
-                                        } else {
-                                            if (this.VmUmArchivoB == "") {
+        //                                if (this.VmUmArchivoDni == "") {
 
-                                            } else {
-                                                if (this.FkIeEstado == "") {
+        //                                } else {
+        //                                    if (this.VmUmArchivoB == "") {
 
-                                                } else {
+        //                                    } else {
+        //                                        if (this.FkIeEstado == "") {
 
-                                                    console.log('aqui entra el post ' + this.accion);
+        //                                        } else {
 
-                                                    var _accion = this.accion;
-                                                    var PkIumCodUm = this.PkIumCodUm;
-                                                    var FkIuDni = this.FkIuDni;
-                                                    var FkIcIdConcurso = this.FkIcIdConcurso;
-                                                    var FkImIdModalidad = this.FkImIdModalidad;
-                                                    var IumFase = this.IumFase;
-                                                    var FkIuDniPareja = this.FkIuDniPareja;
-                                                    var DumFechaIns = this.DumFechaIns;
-                                                    var VmUmArchivoDni = this.VmUmArchivoDni;
-                                                    var VmUmArchivoB = this.VmUmArchivoB;
-                                                    var FkIeEstado = this.FkIeEstado;
+        //                                            console.log('aqui entra el post ' + this.accion);
 
-                                                    console.log('aqui sale el post ' + _accion);
+        //                                            var _accion = this.accion;
+        //                                            var PkIumCodUm = this.PkIumCodUm;
+        //                                            var FkIuDni = this.FkIuDni;
+        //                                            var FkIcIdConcurso = this.FkIcIdConcurso;
+        //                                            var FkImIdModalidad = this.FkImIdModalidad;
+        //                                            var IumFase = this.IumFase;
+        //                                            var FkIuDniPareja = this.FkIuDniPareja;
+        //                                            var DumFechaIns = this.DumFechaIns;
+        //                                            var VmUmArchivoDni = this.VmUmArchivoDni;
+        //                                            var VmUmArchivoB = this.VmUmArchivoB;
+        //                                            var FkIeEstado = this.FkIeEstado;
 
-                                                    $.ajax({
+        //                                            console.log('aqui sale el post ' + _accion);
 
-                                                        type: "POST",
-                                                        url: _accion,
-                                                        data: {
+        //                                            $.ajax({
 
-                                                            PkIumCodUm,
-                                                            FkIuDni,
-                                                            FkIcIdConcurso,
-                                                            FkImIdModalidad,
-                                                            IumFase,
-                                                            FkIuDniPareja,
-                                                            DumFechaIns,
-                                                            VmUmArchivoDni,
-                                                            VmUmArchivoB,
-                                                            FkIeEstado
-                                                        }, success: (response) => {
+        //                                                type: "POST",
+        //                                                url: _accion,
+        //                                                data: {
 
-                                                            if ("Save" == response[0].code) {
-                                                                swal('Participante', 'Registrado correctamente.', 'success');
-                                                                this.restablecer();
-                                                            } else if ("Existe" == response[0].code) {
-                                                                console.log(response[0].code);
-                                                                swal('Usuario', `El usuario ${PkIuDni} ya existe en la Base de datos.`, 'info');
-                                                            } else {
-                                                                swal('Error', `Ocurrio un error en el servidor.`, 'error');
-                                                            }
-                                                        }
-                                                    });
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //                                                    PkIumCodUm,
+        //                                                    FkIuDni,
+        //                                                    FkIcIdConcurso,
+        //                                                    FkImIdModalidad,
+        //                                                    IumFase,
+        //                                                    FkIuDniPareja,
+        //                                                    DumFechaIns,
+        //                                                    VmUmArchivoDni,
+        //                                                    VmUmArchivoB,
+        //                                                    FkIeEstado
+        //                                                }, success: (response) => {
+
+        //                                                    if ("Save" == response[0].code) {
+        //                                                        swal('Participante', 'Registrado correctamente.', 'success');
+        //                                                        this.restablecer();
+        //                                                    } else if ("Existe" == response[0].code) {
+        //                                                        console.log(response[0].code);
+        //                                                        swal('Usuario', `El usuario ${PkIuDni} ya existe en la Base de datos.`, 'info');
+        //                                                    } else {
+        //                                                        swal('Error', `Ocurrio un error en el servidor.`, 'error');
+        //                                                    }
+        //                                                }
+        //                                            });
+        //                                        }
+        //                                    }
+        //                                }
+        //                            }
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
     }
 

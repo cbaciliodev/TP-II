@@ -109,7 +109,7 @@ var getListaConcurso = function () {
             selectConcurso.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
             $.each(response.concurso, function (key, value) { 
-                selectConcurso.append('<option value=' + value.codigo + '>' + value.nombre + '</option>');
+                selectConcurso.append('<option value=' + value.Codigo + '>' + value.Nombre + '</option>');
             });
            },
         error: function (response) {
@@ -135,7 +135,7 @@ var getListaPareja = function () {
             selectPareja.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
             $.each(response.parejaLista, function (key, value) { //temp es la lista que va recorrer 
-                selectPareja.append('<option value=' + value.codigo + '>' + value.nombre + ' ' + value.paterno + ' ' + value.materno + '</option>');
+                selectPareja.append('<option value=' + value.Codigo + '>' + value.Nombre + ' ' + value.Paterno + ' ' + value.Materno + '</option>');
             });
         },
         error: function (response) {
@@ -155,7 +155,7 @@ var getListaParticipante = function () {
             selectPareja.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
             $.each(response.parejaLista, function (key, value) {
-                selectPareja.append('<option value=' + value.codigo + '>' + value.nombre + ' ' + value.paterno + ' ' + value.materno + '</option>');
+                selectPareja.append('<option value=' + value.Codigo + '>' + value.Nombre + ' ' + value.Materno + ' ' + value.Materno + '</option>');
             });
         },
         error: function (response) {
@@ -170,16 +170,4 @@ function validar() {
     var selectedFileDni = document.getElementById("data").value;
     var selectedFileRecibo = document.getElementById("recibo").value;
 
-   // alert(selectedFileDni)
-   // alert(selectedFileRecibo)
-    /*
-    if (selectedFileDni == "" && selectedFileRecibo == "") {
-        document.getElementById('alertaDcumentoDni').innerHTML = 'Tiene que Adjuntar su Documento Dni en PDf.'
-        document.getElementById('alertaDcumentoRecibo').innerHTML = 'Tiene que Adjuntar su Documento de Recibo en PDf.'
-    }
-    else {
-
-
-
-    }*/
 }
