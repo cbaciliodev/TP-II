@@ -180,3 +180,4 @@ D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAM
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.dll
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.pdb
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csproj.CopyComplete
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csprojAssemblyReference.cache
