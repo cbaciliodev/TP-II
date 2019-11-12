@@ -38,15 +38,17 @@ function calcularEdadUsuario() {
         var cumpleanos = new Date(fecha);
 
         var edad = hoy.getFullYear() - cumpleanos.getFullYear();
-
+        console.log(edad);
         var m = hoy.getMonth() - cumpleanos.getMonth();
 
         if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+            console.log(edad);
             edad--;
         }
 
         var categoria = document.getElementById("categoria");
 
+        console.log(edad);
         if (4 <= edad && edad <= 6) {
             categoria.selectedIndex = 3;
         }
@@ -60,6 +62,7 @@ function calcularEdadUsuario() {
             categoria.selectedIndex = 5;
         }
         else if (18 <= edad && edad <= 21) {
+            alert(edad);
             çategoria.selectedIndex = 6;
         }
         else if (22 <= edad && edad <= 34) {
@@ -75,6 +78,8 @@ function calcularEdadUsuario() {
             edad = 0;
             categoria.selectedIndex = 0;
         }
+
+        console.log(edad);
 
     } 
   

@@ -238,3 +238,8 @@ C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsu
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Edit.cshtml.g.cs
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Index.cshtml.g.cs
 >>>>>>> 4b1659bb7826f0d28a8b56487166837f689f3ac3
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Create.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Delete.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Details.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Edit.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Index.cshtml.g.cs

@@ -12623,23 +12623,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Christian\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Developer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Proyectos\\TPII\\TP-II\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj",
+      "projectUniqueName": "D:\\universidad\\taller de proyectos\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj",
       "projectName": "SGIAMTP",
-      "projectPath": "C:\\Proyectos\\TPII\\TP-II\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj",
-      "packagesPath": "C:\\Users\\Christian\\.nuget\\packages\\",
-      "outputPath": "C:\\Proyectos\\TPII\\TP-II\\SGIAMTP\\SGIAMTP\\obj\\",
+      "projectPath": "D:\\universidad\\taller de proyectos\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj",
+      "packagesPath": "C:\\Users\\Developer\\.nuget\\packages\\",
+      "outputPath": "D:\\universidad\\taller de proyectos\\SGIAMTP\\SGIAMTP\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Christian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Developer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
