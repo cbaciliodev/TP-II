@@ -206,7 +206,6 @@ C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Home
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.cshtml.g.cs
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\RegistarUsuarioAdmin\RegistroUsuarioModal.cshtml.g.cs
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -230,3 +229,8 @@ C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.dll
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.pdb
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csproj.CopyComplete
 C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.csprojAssemblyReference.cache
+C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Create.cshtml.g.cs
+C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Delete.cshtml.g.cs
+C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Details.cshtml.g.cs
+C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Edit.cshtml.g.cs
+C:\Proyectos\TPII\TP-II\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Index.cshtml.g.cs

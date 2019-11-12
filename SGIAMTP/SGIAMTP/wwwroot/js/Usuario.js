@@ -162,11 +162,14 @@ class Usuario {
 
                                                             }, success: (response) => {
                                                                 if ("Save" == response[0].code) {
-                                                                    swal('Usuario','Registrado correctamente', 'success');
+                                                                    swal('Usuario', 'Registrado correctamente.', 'success');
 
                                                                     this.restablecer();
+                                                                } else if ("Existe" == response[0].code) {
+                                                                    console.log(response[0].code)
+                                                                    swal('Usuario', `El usuario ${PkIuDni} ya existe en la Base de datos.`, 'info');
                                                                 } else {
-                                                                    swal('Usuario', 'no se ha registrado', 'error');                                                               
+                                                                    swal('Error', `Ocurrio un error en el servidor.`, 'error');
                                                                 }
                                                             }
                                                         });
@@ -193,7 +196,7 @@ class Usuario {
         document.getElementById('nacimiento').value = "";
         document.getElementById('password').value = "";
         document.getElementById('sexo').value = "";
-        document.getElementById('categoria').value = "";
+        document.getElementById('categoria').selectedIndex = 0;
         document.getElementById('imagen').value = "";
         document.getElementById('academia').value = "";
     };

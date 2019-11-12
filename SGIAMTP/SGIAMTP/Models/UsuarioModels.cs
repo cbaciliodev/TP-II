@@ -48,17 +48,36 @@ namespace SGIAMTP.Models
                 VuFoto = VuFoto
             };
 
+            
+
             try
             {
                 Console.WriteLine(usuario.PkIuDni);
-                _context.Add(usuario);
-                _context.SaveChanges();
-                code = "Save";
-                des = "Save";
+                //var codigoUsuario = _context.TUsuario.SingleOrDefault(u => u.PkIuDni == usuario.PkIuDni);
+
+                var codigoUsuario = (from u in _context.TUsuario
+                                     where u.PkIuDni == usuario.PkIuDni
+                                     select u.PkIuDni);
+
+                int cantidad = codigoUsuario.Count();
+
+                if(cantidad == 0)
+                {
+                    _context.Add(usuario);
+                    _context.SaveChanges();
+                    code = "Save";
+                    des = "Save";
+                }
+                else
+                {
+                    code = "Existe";
+                    //des = "Save";
+                }
+                
             }
             catch (Exception e)
             {
-                code = "erro";
+                code = "error" + e.Message + " ";
                 des = e.Message;
             }
 

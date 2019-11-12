@@ -3,75 +3,140 @@
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+    #contenedor {
+        margin-top: 20px;
+    }
 
-<h2>Index</h2>
+    #temporal {
+        margin-top: 10px;
+    }
+</style>
+<br />
+<div id="contenedor" class="container-fluid" style="font-size:16px; font-family:'Century Gothic'">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IumFase)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DumFechaIns)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VmUmArchivoDni)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VmUmArchivoB)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FkIcIdConcursoNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FkImIdModalidadNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FkIuDniNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FkIuDniParejaNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IumFase)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DumFechaIns)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VmUmArchivoDni)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VmUmArchivoB)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FkIcIdConcursoNavigation.VcLugarCon)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FkImIdModalidadNavigation.PkImIdModalidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FkIuDniNavigation.PkIuDni)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.PkIuDni)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PkIumCodUm">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PkIumCodUm">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PkIumCodUm">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <a class="btn btn-success" asp-action="Create">Registrar Participante</a>
+    <br /><br />
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div>
+                <h4 class="panel-title">Lista de Participantes</h4>
+            </div>
+        </div>
+
+        <div class="panel panel-body form-group">
+            <div class="table-responsive">
+                <table class="table table-condensed table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                Fase
+                            </th>
+                            <th class="text-center">
+                                Fecha Inscripci&oacute;n
+                            </th>
+                            <th class="text-center">
+                                Dni
+                            </th>
+                            <th class="text-center">
+                                Pago
+                            </th>
+                            <th class="text-center">
+                                Concurso
+                            </th>
+                            <th class="text-center">
+                                Modalidad
+                            </th>
+                            <th class="text-center">
+                                PArticipante
+                            </th>
+                            <th class="text-center">
+                                Pareja
+                            </th>
+                            <th class="text-center" colspan="3">Acci&oacute;n</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.IumFase)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.DumFechaIns)
+                                </td>
+                                <td class="text-center">
+                                    <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoDni)" class="btn btn-success openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
+                                </td>
+                                <td class="text-center">
+                                    <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoB)" class="btn btn-success openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.FkIcIdConcursoNavigation.VcNombreCon)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.FkImIdModalidadNavigation.VmNombreMod)
+                                </td>
+                                <td class="text-justify">
+                                    @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuNombre)
+                                    @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuApaterno)
+                                    @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuAmaterno)
+                                </td>
+                                <td class="text-justify">
+                                    @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuNombre)
+                                    @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuApaterno)
+                                    @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuAmaterno)
+                                </td>
+                                <td class="text-center">
+                                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PkIumCodUm">Editar</a>
+                                </td>
+
+                                <td class="text-center">
+                                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PkIumCodUm">Detalles</a>
+                                </td>
+
+                                <td class="text-center">
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PkIumCodUm">Eliminar</a>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Archivo Adjunto</h4>
+            </div>
+            <div class="modal-body">
+                <embed id="mostarPdf" width="580" height="375"
+                       type="application/pdf" src="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function openModal(value) {
+
+
+        $("#mostarPdf").attr("src", value);
+
+        $('#myModal').modal({ show: true, backdrop: 'static', keyboard: false });
+
+    }
+
+</script>

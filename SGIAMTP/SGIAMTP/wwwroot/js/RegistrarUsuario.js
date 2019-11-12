@@ -17,7 +17,7 @@ var getListaCategoria = function () {
             selectCategoria.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
             $.each(response.categoria, function (key, value) {
-                selectCategoria.append('<option value=' + value.codigo + '>' + value.nombre + '</option>');
+                selectCategoria.append('<option value=' + value.codigo + '>' + value.nombre + '</option>');                
             });
         },
         error: function (response) {
@@ -25,56 +25,59 @@ var getListaCategoria = function () {
     });
 };
 
-function calcularEdad() {
+function calcularEdadUsuario() {
 
     var fecha = document.getElementById("nacimiento").value;
 
-    console.log(fecha)
+    if (fecha != "") {
 
-    var hoy = new Date();
-    var cumpleanos = new Date(fecha);
-    var edad = hoy.getFullYear() - cumpleanos.getFullYear();
-    var m = hoy.getMonth() - cumpleanos.getMonth();
+        document.getElementById("nacimiento_result").innerHTML = ``;
 
-    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
-        edad--;
-    }
+        var hoy = new Date();
 
-    var categoria = document.getElementById("categoria");
+        var cumpleanos = new Date(fecha);
 
-    console.log(categoria);
+        var edad = hoy.getFullYear() - cumpleanos.getFullYear();
 
-    var categoria = document.getElementById("categoria");
+        var m = hoy.getMonth() - cumpleanos.getMonth();
 
-    if (4 <= edad && edad <= 6) {
-        categoria.selectedIndex = 3;
-    }
-    else if (7 <= edad && edad <= 9) {
-        categoria.selectedIndex = 2;
-    }
-    else if (10 <= edad && edad <= 13) {
-        categoria.selectedIndex = 4;
-    }
-    else if (14 <= edad && edad <= 17) {
-        categoria.selectedIndex = 5;
-    }
-    else if (18 <= edad && edad <= 21) {
-        çategoria.selectedIndex = 6;
-    }
-    else if (22 <= edad && edad <= 34) {
-        categoria.selectedIndex = 7;
-    }
-    else if (35 <= edad && edad <= 49) {
-        categoria.selectedIndex = 8;
-    }
-    else if (50 <= edad && edad <= 62) {
-        categoria.selectedIndex = 1;
-    }
-    else {
-        edad = 0;
-        categoria.selectedIndex = 0;
-    }
-    
+        if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+            edad--;
+        }
+
+        var categoria = document.getElementById("categoria");
+
+        if (4 <= edad && edad <= 6) {
+            categoria.selectedIndex = 3;
+        }
+        else if (7 <= edad && edad <= 9) {
+            categoria.selectedIndex = 2;
+        }
+        else if (10 <= edad && edad <= 13) {
+            categoria.selectedIndex = 4;
+        }
+        else if (14 <= edad && edad <= 17) {
+            categoria.selectedIndex = 5;
+        }
+        else if (18 <= edad && edad <= 21) {
+            çategoria.selectedIndex = 6;
+        }
+        else if (22 <= edad && edad <= 34) {
+            categoria.selectedIndex = 7;
+        }
+        else if (35 <= edad && edad <= 49) {
+            categoria.selectedIndex = 8;
+        }
+        else if (50 <= edad && edad <= 62) {
+            categoria.selectedIndex = 1;
+        }
+        else {
+            edad = 0;
+            categoria.selectedIndex = 0;
+        }
+
+    } 
+  
     return edad;
 }
 
@@ -93,5 +96,47 @@ function validarIdentificacion(numero) {
     }
     else {
         document.getElementById("ident_result").innerHTML = ``;
+    }
+}
+
+function validarNombre(nombre) {
+    if (nombre != "") {
+        document.getElementById("nomb_result").innerHTML = ``;
+    }
+}
+
+function validarApaterno(apaterno) {
+    if (apaterno != "") {
+        document.getElementById("paterno_result").innerHTML = ``;
+    }
+}
+
+function validarAmaterno(amaterno) {
+    if (amaterno != "") {
+        document.getElementById("materno_result").innerHTML = ``;
+    }
+}
+
+function validarPassword(password) {
+    if (password != "") {
+        document.getElementById("pass_result").innerHTML = ``;
+    }
+}
+
+function validarSexo(sexo) {
+    if (sexo != "") {
+        document.getElementById("sexo_result").innerHTML = ``;
+    }
+}
+
+function validarImagen(imagen) {
+    if (imagen != "") {
+        document.getElementById("imagen_result").innerHTML = ``;
+    }
+}
+
+function validarAcademia(academia) {
+    if (academia != "") {
+        document.getElementById("academia_result").innerHTML = ``;
     }
 }

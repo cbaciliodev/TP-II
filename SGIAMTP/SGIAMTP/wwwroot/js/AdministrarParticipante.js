@@ -1,25 +1,19 @@
-﻿/*window.onload = function () {
-
-    var codigoUsuario = document.getElementById("usuarioCodigo").value;
-
-    $('#usuario option[value=' + codigoUsuario + ']').attr("selected", true);
-
-    document.getElementById("FkIuDni").value = codigoUsuario;
-
-}*/
-
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
     getListaConcurso();
     getListaPareja();
     getListaParticipantes();
-    //var codigoUsuario = document.getElementById("usuarioCodigo").value;
 
-    //$('#usuario option[value=' + codigoUsuario + ']').attr("selected", true);
-
-    //document.getElementById("FkIuDni").value = codigoUsuario;
 });
+
+
+function obtenerInfoParticipante() {
+
+    var dni = document.getElementById("usuario").value;
+    
+    alert(dni);
+}
+
 
 
 function archivoDnipdf() {
@@ -120,7 +114,6 @@ var getListaConcurso = function () {
 var getListaPareja = function () {
 
     var sexo = document.getElementById('sexoParticipante').value;
-    console.log(sexo, ' sexo');
 
     $.ajax({
         url: "/AdministarParticipante/GetPareja",
