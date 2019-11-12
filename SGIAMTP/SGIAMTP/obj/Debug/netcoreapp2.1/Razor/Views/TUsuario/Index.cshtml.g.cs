@@ -71,7 +71,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n    <div class=\"container-fluid col-xs-12 col-md-12 col-lg-12\" style=\"font-size:16px; font-family:\'Century Gothic\'\">\r\n\r\n        <div class=\"form-group \" style=\"margin-top:10px\">\r\n            ");
             EndContext();
             BeginContext(281, 112, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7fba80b78a814b1c95efb38c5cff4840", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f7c3843cc2b47b396d3e9c65150c597", async() => {
                 BeginContext(368, 21, true);
                 WriteLiteral("Registar Participante");
                 EndContext();
@@ -251,7 +251,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n                                    </td>\r\n                                    <td class=\"text-center\">\r\n                                        ");
             EndContext();
             BeginContext(4728, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "068fac97b297452f95763e3aec05bcb9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e7c77993d93348ae9dd576bfcd0e6890", async() => {
                 BeginContext(4802, 6, true);
                 WriteLiteral("Editar");
                 EndContext();
@@ -287,7 +287,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n                                        ");
             EndContext();
             BeginContext(4854, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3fa9d14e0e8146e9a1bb68d44f41c2b9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f033f9e5288f418ca852f210261f3d7c", async() => {
                 BeginContext(4928, 7, true);
                 WriteLiteral("Detalle");
                 EndContext();
@@ -323,7 +323,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n                                        ");
             EndContext();
             BeginContext(4981, 87, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2229ecf4dd284734bca0e77b35cb82b1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7a8bd4fa61fe43e694e011a6021f825a", async() => {
                 BeginContext(5056, 8, true);
                 WriteLiteral("Eliminar");
                 EndContext();

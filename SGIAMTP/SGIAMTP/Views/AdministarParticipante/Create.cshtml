@@ -21,7 +21,7 @@
 
 <div id="contenedor" class="container-fluid" style="font-size:16px; font-family:'Century Gothic'">
     <a class="btn btn-success" onclick="javascript:openModal();">Registrar Usuarios</a>
-    <a class="btn btn-warning" asp-controller="TUsuario" asp-action="Index" >Listar Usuarios</a>
+    <a class="btn btn-warning" asp-controller="TUsuario" asp-action="Index">Listar Usuarios</a>
 
     <a class="btn btn-danger" asp-action="Index">Listar Participantes</a>
     <br /><br />
@@ -162,6 +162,24 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div >
+        <div class="row">
+            <small style="color:black" class="text-right label label-info col-lg-2" style="font-size:15px" id="codigo_ajax"></small>
+        </div>
+        <div class="row">
+            <small style="color:black" class="text-right label label-info col-lg-2" style="font-size:15px" id="nombre_ajax"></small>
+        </div>
+        <div class="row">
+            <small  style="color:black" class="text-right label label-info col-lg-2" style="font-size:15px" id="apaterno_ajax"></small>
+        </div>
+        <div class="row">
+            <small style="color:black" class="text-right label label-info col-lg-2 text-info" style="font-size:15px" id="amaterno_ajax"></small>
+        </div>
+        <div class="row">
+            <small style="color:black" class="text-right label label-info col-lg-2" style="font-size:15px" id="sexo_ajax"></small>
         </div>
     </div>
 </div>

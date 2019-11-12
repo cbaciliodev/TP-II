@@ -228,6 +228,24 @@ namespace SGIAMTP.Controllers
             return Json(new { participanteLista = participante });//dos listas vacias
         }
 
+
+        public IActionResult GetParticipanteDatos(int ddni)
+        {
+
+            var usuarioDatos = (from u in _context.TUsuario
+                                    where u.PkIuDni == ddni
+                                select new Participante()
+                                {
+                                    codigo = u.PkIuDni,
+                                    nombre = u.VuNombre,
+                                    paterno = u.VuApaterno,
+                                    materno = u.VuAmaterno,
+                                    sexo = u.VuSexo
+                                });
+
+            return Json(new { usuarioDatosRegistro = usuarioDatos });//dos listas vacias
+        }
+
         public class Concurso
         {
             public int codigo { get; set; }
@@ -248,7 +266,7 @@ namespace SGIAMTP.Controllers
             public string nombre { get; set; }
             public string paterno { get; set; }
             public string materno { get; set; }
+            public string sexo { get; set; }
         }
-
     }
 }
