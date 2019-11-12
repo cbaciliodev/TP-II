@@ -18,14 +18,14 @@ namespace SGIAMTP.Models
         }
 
         public List<IdentityError> AgregarParticipante(
-            int FkIuDni, 
-            int FkIcIdConcurso, 
-            int FkImIdModalidad, 
-            string IumFase, 
-            int FkIuDniPareja, 
-            DateTime DumFechaIns, 
-            string VmUmArchivoDni, 
-            string VmUmArchivoB, 
+            int FkIuDni,
+            int FkIcIdConcurso,
+            int FkImIdModalidad,
+            string IumFase,
+            int FkIuDniPareja,
+            DateTime DumFechaIns,
+            string VmUmArchivoDni,
+            string VmUmArchivoB,
             int FkIeEstado
             )
         {
@@ -48,7 +48,7 @@ namespace SGIAMTP.Models
                 //var codigoUsuario = _context.TUsuario.SingleOrDefault(u => u.PkIuDni == usuario.PkIuDni);
 
                 var codigoParticipante = (from u in _context.TUsuarioModalidad
-                                     where u.FkIuDni == usuarioModalidad.FkIuDni
+                                          where u.FkIuDni == usuarioModalidad.FkIuDni
                                           select u.FkIuDni);
 
                 int cantidad = codigoParticipante.Count();

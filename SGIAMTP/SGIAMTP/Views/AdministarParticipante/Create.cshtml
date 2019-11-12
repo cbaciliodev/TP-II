@@ -53,30 +53,32 @@
 
                             <!--Codigo de Participante - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
-                                <label asp-for="FkIuDni" class="control-label">Participante:</label>
-                                <select onchange="obtenerInfoParticipante()" id="usuario" class="form-control" asp-items="ViewBag.FkIuDni">
-                                    <option value="">Seleccione</option>
+                                <label for="usuario" class="control-label">Participante:</label>
+                                <select onchange="obtenerInfoParticipante()" id="usuario" class="form-control">
+                                    <option value="0">Seleccione</option>
                                 </select>
-                                <input asp-for="FkIuDni" type="text" value="" id="FkIuDni" hidden />
-                                <span asp-validation-for="FkIuDni" class="text-danger"></span>
+                                <span class="text-danger" id="usuario_result"></span>
+                                @*<input asp-for="FkIuDni" type="text" value="" id="FkIuDni" hidden />
+                                    <span asp-validation-for="FkIuDni" class="text-danger"></span>*@
                             </div>
                             <!--Codigo de Participante - Fin -->
                             <!--Concurso - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
-                                <label asp-for="FkIcIdConcurso" class="control-label">Concurso:</label>
-                                <select asp-for="FkIcIdConcurso" class="form-control" asp-items="ViewBag.FkIcIdConcurso" id="codigoConcurso">
-                                    <option value="">Seleccione</option>
+                                <label for="codigoConcurso" class="control-label">Concurso:</label>
+                                <select  onclick="javascript: validarConcurso(this.value);" class="form-control" id="codigoConcurso">
+                                    <option value="0">Seleccione</option>
                                 </select>
-                                <span asp-validation-for="FkIcIdConcurso" class="text-danger"></span>
+                                <span class="text-danger" id="codigoConcurso_result"></span>
+                                @*<span asp-validation-for="FkIcIdConcurso" class="text-danger"></span>*@
                             </div>
                             <!--Concurso - Fin -->
                             <!--Modalidad - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
-                                <label asp-for="FkImIdModalidad" class="control-label">Modalidad:</label>
-                                <select id="modalidadConcurso" asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad" onchange="javascript: habilitar();">
-                                    <option value="">Seleccione</option>
+                                <label class="control-label">Modalidad:</label>
+                                <select id="modalidadConcurso" class="form-control" onchange="javascript: habilitar();">
+                                    <option value="0">Seleccione</option>
                                 </select>
-                                <span asp-validation-for="FkImIdModalidad" class="text-danger"></span>
+                                @*<span asp-validation-for="FkImIdModalidad" class="text-danger"></span>*@
                             </div>
                             <!--Modalidad - Fin -->
                         </div>
@@ -86,29 +88,30 @@
                             <!--Fase - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
 
-                                <label asp-for="IumFase" class="control-label">Fase:</label>
-                                <select asp-for="IumFase" class="form-control" id="faseModalidad" disabled>
+                                <label class="control-label">Fase:</label>
+                                <select class="form-control" id="faseModalidad" disabled>
                                     <option value="">Seleccione</option>
                                     <option value="Eliminatorio">Eliminatorio</option>
                                     <option value="Final Uno">Final Uno</option>
                                 </select>
-                                <span asp-validation-for="IumFase" class="text-danger"></span>
-                                <input asp-for="IumFase" type="text" value="" id="fase" hidden />
+                                @*<span asp-validation-for="IumFase" class="text-danger"></span>
+                                    <input asp-for="IumFase" type="text" value="" id="fase" hidden />*@
                             </div>
                             <!--Fase - Fin -->
                             <!--Pareja - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
-                                <label asp-for="FkIuDniPareja" class="control-label">Pareja:</label>
-                                <select disabled id="pareja" asp-for="FkIuDniPareja" class="form-control" asp-items="ViewBag.FkIuDniPareja">
+                                <label class="control-label">Pareja:</label>
+                                <select disabled id="pareja" class="form-control">
                                     <option value="">Seleccione</option>
                                 </select>
                             </div>
                             <!--Pareja - Fin -->
                             <!--Fecha de Inscripcion - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
-                                <label asp-for="DumFechaIns" class="control-label">Fecha de Inscripci&oacute;n:</label>
-                                <input asp-for="DumFechaIns" class="form-control" type="date" id="fechaIncripcion" />
-                                <span asp-validation-for="DumFechaIns" class="text-danger"></span>
+                                <label for="fechaIncripcion" class="control-label">Fecha de Inscripci&oacute;n:</label>
+                                <input onchange="javascript: validarFecha(this.value);" class="form-control" type="date" id="fechaIncripcion" />
+                                <span class="text-danger" id="fecha_result"></span>
+                                @*<span asp-validation-for="DumFechaIns" class="text-danger"></span>*@
                             </div>
                             <!--Fecha de Inscripcion - Fin -->
                         </div>
@@ -118,14 +121,15 @@
                             <!--Archivo adjunto DNI - Inicio -->
                             <div class="form-group  col-xs-6 col-md-6 col-lg-6">
 
-                                <label asp-for="VmUmArchivoDni" class="control-label">Archivo Adjunto DNI:</label>
+                                <label class="control-label">Archivo Adjunto DNI:</label>
 
                                 <div class="input-group">
 
                                     <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
-                                    <input asp-for="VmUmArchivoDni" onchange="javascript:archivoDnipdf();" id="VmUmArchivoDni" aria-describedby="basic-addon3" name="archivoDni" type="file" accept="application/pdf" class="form-control" />
-                                    <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
-                                    <textarea value="" asp-for="VmUmArchivoDni" id="data" hidden></textarea>
+                                    <input onchange="javascript:archivoDnipdf();" id="VmUmArchivoDni" aria-describedby="basic-addon3" name="archivoDni" type="file" accept="application/pdf" class="form-control" />
+                                    <span class="text-danger" id="dni_result"></span>
+                                    @*<span asp-validation-for="VmUmArchivoB" class="text-danger"></span>*@
+                                    @*<textarea value="" asp-for="VmUmArchivoDni" id="data" hidden></textarea>*@
                                 </div>
 
 
@@ -136,14 +140,15 @@
                             <!--Archivo adjunto Boleta de Pago - Inicio -->
                             <div class="form-group  col-xs-6 col-md-6 col-lg-6">
 
-                                <label asp-for="VmUmArchivoB" class="control-label">Voucher de Pago:</label>
+                                <label class="control-label">Voucher de Pago:</label>
 
                                 <div class="input-group">
 
                                     <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
-                                    <input asp-for="VmUmArchivoB" onchange="javascript: reciboPago();" id="archivoPago" aria-describedby="basic-addon3" name="archivoPago" type="file" accept="application/pdf" class="form-control" />
-                                    <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
-                                    <textarea asp-for="VmUmArchivoB" id="recibo" hidden></textarea>
+                                    <input onchange="javascript: reciboPago();" id="archivoPago" aria-describedby="basic-addon3" name="archivoPago" type="file" accept="application/pdf" class="form-control" />
+                                    <span class="text-danger" id="recibo_result"></span>
+                                    @*<span asp-validation-for="VmUmArchivoB" class="text-danger"></span>*@
+                                    @*<textarea asp-for="VmUmArchivoB" id="recibo" hidden></textarea>*@
                                 </div>
 
 
@@ -165,7 +170,7 @@
         </div>
     </div>
 
-    <div >
+    <div>
         <div class="row">
             <small class="text-right label label-info col-lg-2" style="font-size:15px;color:black" id="codigo_ajax"></small>
         </div>
@@ -215,7 +220,7 @@
                                         <!-- DNI - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="identificacion" class="control-label">Documento:</label>
-                                            <input value="44910167"  onchange="javascript:validarIdentificacion(this.value);" maxlength="8" type="text" class="form-control" placeholder="DNI" id="identificacion" />
+                                            <input value="44910167" onchange="javascript:validarIdentificacion(this.value);" maxlength="8" type="text" class="form-control" placeholder="DNI" id="identificacion" />
                                             <input type="text" value="" hidden />
                                             <span class="text-danger" id="ident_result"></span>
                                         </div>
@@ -223,7 +228,7 @@
                                         <!-- Nombre - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="nombre" class="control-label">Nombre:</label>
-                                            <input  value="Christian"  onchange="javascript:validarNombre(this.value);" type="text" class="form-control" placeholder="Nombre de usuario" id="nombre"/>
+                                            <input value="Christian" onchange="javascript:validarNombre(this.value);" type="text" class="form-control" placeholder="Nombre de usuario" id="nombre" />
                                             <span class="text-danger" id="nomb_result"></span>
                                         </div>
                                         <!--- Nombre - Fin -->
@@ -241,7 +246,7 @@
                                         <!-- Apellido Materno - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="amaterno" class="control-label">Apellido Materno:</label>
-                                            <input  value="Bacilio"  onchange="javascript:validarAmaterno(this.value);" type="text" class="form-control" placeholder="Apellido Materno" id="amaterno"/>
+                                            <input value="Bacilio" onchange="javascript:validarAmaterno(this.value);" type="text" class="form-control" placeholder="Apellido Materno" id="amaterno" />
                                             <span class="text-danger" id="materno_result"></span>
                                         </div>
                                         <!-- Apellido Paterno - Fin -->
@@ -279,7 +284,7 @@
                                         <!--Categoria - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="categoria" class="control-label">Categoria:</label>
-                                            <select id="categoria" class="form-control" >
+                                            <select id="categoria" class="form-control">
                                                 <option value="0" selected>Seleccione...</option>
 
                                             </select>
@@ -340,8 +345,10 @@
 @section Scripts {
 
     <script src="~/js/site.js"></script>
+    <script src="~/js/UsuarioModalidad.js"></script>
     <script src="~/js/AdministrarParticipante.js"></script>
     <script src="~/js/RegistrarUsuario.js"></script>
     <script src="~/js/Usuario.js"></script>
+    
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

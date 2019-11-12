@@ -58,7 +58,6 @@ var guardarRegistroUsuario = () => {
 var guardarRegistroParticipante = () => {
 
     var accion = "RegistarUsuarioAdmin/AgregarParticipante";
-    var PkIumCodUm = document.getElementById('identificacion').value;
     var FkIuDni = document.getElementById('usuario').value;
     var FkIcIdConcurso = document.getElementById('codigoConcurso').value;
     var FkImIdModalidad = document.getElementById('modalidadConcurso').value;
@@ -69,23 +68,9 @@ var guardarRegistroParticipante = () => {
     var VmUmArchivoB = document.getElementById('archivoPago').value;
     var FkIeEstado = 3;
 
-    console.log(accion + ' accion');
-    console.log(PkIumCodUm + ' PkIumCodUm');
-    console.log(FkIuDni + ' FkIuDni');
-    console.log(FkIcIdConcurso + ' FkIcIdConcurso');
-    console.log(FkImIdModalidad + ' FkImIdModalidad');
-    console.log(IumFase + ' IumFase');
-    console.log(FkIuDniPareja + ' FkIuDniPareja');
-    console.log(DumFechaIns + ' DumFechaIns');
-    console.log(VmUmArchivoDni + ' VmUmArchivoDni');
-    console.log(VmUmArchivoB + ' VmUmArchivoB');
-    console.log(FkIeEstado + ' FkIeEstado');
 
-    console.log('usuarioModalidad INICIO');
-
-    var usuarioModalidades = new UsuarioModalidad(
+    var usuarioModalidad = new UsuarioModalidad(
         accion,
-        PkIumCodUm,
         FkIuDni,
         FkIcIdConcurso,
         FkImIdModalidad,
@@ -96,11 +81,8 @@ var guardarRegistroParticipante = () => {
         VmUmArchivoB,
         FkIeEstado
     );
+    console.log("*************");
 
-    console.log('usuarioModalidad FIN');
-
-    console.log('metodo INICIO');
-    usuarioModalidades.guardarParticipante();
-    console.log('metodo FIN');
-}
+    usuarioModalidad.guardarParticipante();
+};
 

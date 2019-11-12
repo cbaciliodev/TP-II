@@ -6,7 +6,6 @@ class UsuarioModalidad {
 
     constructor(
         accion,
-        PkIumCodUm,
         FkIuDni,
         FkIcIdConcurso,
         FkImIdModalidad,
@@ -17,10 +16,8 @@ class UsuarioModalidad {
         VmUmArchivoB,
         FkIeEstado
     ) {
-        console.log(accion + " 1");
-        console.log(PkIumCodUm + " PkIumCodUm");
+
         this.accion = accion;
-        this.PkIumCodUm = PkIumCodUm;
         this.FkIuDni = FkIuDni;
         this.FkIcIdConcurso = FkIcIdConcurso;
         this.FkImIdModalidad = FkImIdModalidad;
@@ -30,109 +27,89 @@ class UsuarioModalidad {
         this.VmUmArchivoDni = VmUmArchivoDni;
         this.VmUmArchivoB = VmUmArchivoB;
         this.FkIeEstado = FkIeEstado;
-        console.log(this.accion + " 2");
-
-        console.log(FkIuDni + " FkIuDni");
     }
 
-    
+
 
     guardarParticipante() {
 
-        console.log("entro")
 
-        //if (this.accion = "") {
-        //    console.log("No ingrese accion");
-        //} else {
-        //    if (this.PkIumCodUm == "") {
+        if (this.accion = "") {
+            console.log("No ingrese accion");
+        } else {
+            if (this.FkIuDni == 0) {
+                document.getElementById('usuario').focus();
+                document.getElementById("usuario_result").innerHTML = `Este Campo es requerido`;
+            } else {
+                if (this.FkIcIdConcurso == 0) {
+                    document.getElementById('codigoConcurso').focus();
+                    document.getElementById("codigoConcurso_result").innerHTML = `Este Campo es requerido`;
+                } else {
+                    if (this.DumFechaIns == "") {
+                        document.getElementById('fechaIncripcion').focus();
+                        document.getElementById("fecha_result").innerHTML = `Este Campo es requerido`;
+                    } else {
+                        if (this.VmUmArchivoDni == "") {
+                            document.getElementById('VmUmArchivoDni').focus();
+                            document.getElementById("dni_result").innerHTML = `Este Campo es requerido`;
+                        } else {
+                            if (this.VmUmArchivoB == "") {
+                                document.getElementById('archivoPago').focus();
+                                document.getElementById("recibo_result").innerHTML = `Este Campo es requerido`;
+                            } else {
+                                if (this.FkIeEstado == "") {
 
-        //    } else {
-        //        if (this.FkIuDni == "") {
+                                } else {
+                                    console.log('aqui entra el post ' + this.accion);
+                                    var _accion = this.accion;
+                                    var FkIuDni = this.FkIuDni;
+                                    var FkIcIdConcurso = this.FkIcIdConcurso;
+                                    var FkImIdModalidad = this.FkImIdModalidad;
+                                    var IumFase = this.IumFase;
+                                    var FkIuDniPareja = this.FkIuDniPareja;
+                                    var DumFechaIns = this.DumFechaIns;
+                                    var VmUmArchivoDni = this.VmUmArchivoDni;
+                                    var VmUmArchivoB = this.VmUmArchivoB;
+                                    var FkIeEstado = this.FkIeEstado;
 
-        //        } else {
-        //            if (this.FkIcIdConcurso == "") {
+                                    console.log('aqui sale el post ' + _accion);
 
-        //            } else {
-        //                if (this.FkImIdModalidad == "") {
+                                    $.ajax({
 
-        //                } else {
-        //                    if (this.IumFase == "") {
+                                        type: "POST",
+                                        url: _accion,
+                                        data: {
+                                            FkIuDni,
+                                            FkIcIdConcurso,
+                                            FkImIdModalidad,
+                                            IumFase,
+                                            FkIuDniPareja,
+                                            DumFechaIns,
+                                            VmUmArchivoDni,
+                                            VmUmArchivoB,
+                                            FkIeEstado
+                                        }, success: (response) => {
 
-        //                    } else {
-        //                        if (this.FkIuDniPareja == "") {
+                                            if ("Save" == response[0].code) {
+                                                swal('Participante', 'Registrado correctamente.', 'success');
+                                                this.restablecer();
+                                            } else if ("Existe" == response[0].code) {
+                                                console.log(response[0].code);
+                                                swal('Usuario', `El usuario ${PkIuDni} ya existe en la Base de datos.`, 'info');
+                                            } else {
+                                                swal('Error', `Ocurrio un error en el servidor.`, 'error');
+                                            }
+                                        }
+                                    });
 
-        //                        } else {
-        //                            if (this.DumFechaIns == "") {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
-        //                            } else {
-
-        //                                if (this.VmUmArchivoDni == "") {
-
-        //                                } else {
-        //                                    if (this.VmUmArchivoB == "") {
-
-        //                                    } else {
-        //                                        if (this.FkIeEstado == "") {
-
-        //                                        } else {
-
-        //                                            console.log('aqui entra el post ' + this.accion);
-
-        //                                            var _accion = this.accion;
-        //                                            var PkIumCodUm = this.PkIumCodUm;
-        //                                            var FkIuDni = this.FkIuDni;
-        //                                            var FkIcIdConcurso = this.FkIcIdConcurso;
-        //                                            var FkImIdModalidad = this.FkImIdModalidad;
-        //                                            var IumFase = this.IumFase;
-        //                                            var FkIuDniPareja = this.FkIuDniPareja;
-        //                                            var DumFechaIns = this.DumFechaIns;
-        //                                            var VmUmArchivoDni = this.VmUmArchivoDni;
-        //                                            var VmUmArchivoB = this.VmUmArchivoB;
-        //                                            var FkIeEstado = this.FkIeEstado;
-
-        //                                            console.log('aqui sale el post ' + _accion);
-
-        //                                            $.ajax({
-
-        //                                                type: "POST",
-        //                                                url: _accion,
-        //                                                data: {
-
-        //                                                    PkIumCodUm,
-        //                                                    FkIuDni,
-        //                                                    FkIcIdConcurso,
-        //                                                    FkImIdModalidad,
-        //                                                    IumFase,
-        //                                                    FkIuDniPareja,
-        //                                                    DumFechaIns,
-        //                                                    VmUmArchivoDni,
-        //                                                    VmUmArchivoB,
-        //                                                    FkIeEstado
-        //                                                }, success: (response) => {
-
-        //                                                    if ("Save" == response[0].code) {
-        //                                                        swal('Participante', 'Registrado correctamente.', 'success');
-        //                                                        this.restablecer();
-        //                                                    } else if ("Existe" == response[0].code) {
-        //                                                        console.log(response[0].code);
-        //                                                        swal('Usuario', `El usuario ${PkIuDni} ya existe en la Base de datos.`, 'info');
-        //                                                    } else {
-        //                                                        swal('Error', `Ocurrio un error en el servidor.`, 'error');
-        //                                                    }
-        //                                                }
-        //                                            });
-        //                                        }
-        //                                    }
-        //                                }
-        //                            }
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
+        }
     }
 
     restablecer() {
@@ -153,6 +130,17 @@ class UsuarioModalidad {
 
 
 
+function validarConcurso(concurso) {
+    if (concurso != "") {
+        document.getElementById("codigoConcurso_result").innerHTML = ``;
+    }
+}
+
+function validarFecha(fecha) {
+    if (fecha != "") {
+        document.getElementById("fecha_result").innerHTML = ``;
+    }
+}
 
 
 

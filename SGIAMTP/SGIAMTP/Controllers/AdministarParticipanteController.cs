@@ -194,6 +194,21 @@ namespace SGIAMTP.Controllers
         }
 
         [HttpGet]
+        public IActionResult GetModalidad()
+        {
+
+            var codigoModalidad = (from m in _context.TModalidadCon
+                                  //where m.PkImIdModalidad == 1
+                                  select new Concurso()
+                                  {
+                                      Codigo = m.PkImIdModalidad,
+                                      Nombre = m.VmNombreMod
+                                  }).ToList();
+
+            return Json(new { modalidad = codigoModalidad });//dos listas vacias
+        }
+
+        [HttpGet]
         public IActionResult GetPareja(string ssexo)
         {
 
@@ -247,6 +262,12 @@ namespace SGIAMTP.Controllers
         }
 
         public class Concurso
+        {
+            public int Codigo { get; set; }
+            public string Nombre { get; set; }
+        }
+
+        public class Modalidad
         {
             public int Codigo { get; set; }
             public string Nombre { get; set; }

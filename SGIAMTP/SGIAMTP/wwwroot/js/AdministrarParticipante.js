@@ -3,7 +3,7 @@
     getListaConcurso();
     getListaPareja();
     getListaParticipantes();
-
+    getListarModaliad();
 });
 
 
@@ -24,6 +24,7 @@ function archivoDnipdf() {
     };
 
     fileReader.readAsDataURL(fileToLoad);
+    document.getElementById("dni_result").innerHTML = ``;
 };
 
 
@@ -44,6 +45,7 @@ function reciboPago() {
     };
 
     fileReader.readAsDataURL(fileToLoad);
+    document.getElementById("recibo_result").innerHTML = ``;
 };
 
 function habilitar() {
@@ -53,21 +55,21 @@ function habilitar() {
     if (valor == 1) {
 
         var letra = "Final Uno"
-        document.getElementById("fase").value = letra;
+        //document.getElementById("fase").value = letra;
         document.getElementById("faseModalidad").value = letra;
         document.getElementById("pareja").disabled = true;
 
     } else if (valor == 2) {
 
         var todos = "Eliminatorio"
-        document.getElementById("fase").value = todos;
+        //document.getElementById("fase").value = todos;
         document.getElementById("faseModalidad").value = todos;
         document.getElementById("pareja").disabled = false;
         getListaPareja();
 
     } else {
 
-        if (valor == "") {
+        if (valor == 0) {
             document.getElementById("faseModalidad").value = "";
             document.getElementById("pareja").value = "";
 
@@ -93,13 +95,37 @@ var getListaConcurso = function () {
             selectConcurso.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
             $.each(response.concurso, function (key, value) {
-                selectConcurso.append('<option value=' + value.Codigo + '>' + value.Nombre + '</option>');
+                selectConcurso.append('<option value=' + value.codigo + '>' + value.nombre + '</option>');
             });
         },
         error: function (response) {
         }
     });
 };
+
+
+var getListarModaliad = function () {
+
+    $.ajax({
+        url: "/AdministarParticipante/GetModalidad",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            console.log(response.modalidad)
+
+            var selectConcurso = $('#modalidadConcurso');
+            selectConcurso.find('option').remove();
+            selectConcurso.append('<option value= 0 >' + 'Seleccione' + '</option>');
+
+            $.each(response.modalidad, function (key, value) {
+                selectConcurso.append('<option value=' + value.codigo + '>' + value.nombre + '</option>');
+            });
+        },
+        error: function (response) {
+        }
+    });
+};
+
 
 var getListaPareja = function () {
 
@@ -118,7 +144,7 @@ var getListaPareja = function () {
             selectPareja.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
             $.each(response.parejaLista, function (key, value) { //temp es la lista que va recorrer 
-                selectPareja.append('<option value=' + value.Codigo + '>' + value.Nombre + ' ' + value.Paterno + ' ' + value.Materno + '</option>');
+                selectPareja.append('<option value=' + value.codigo + '>' + value.nombre + ' ' + value.paterno + ' ' + value.materno + '</option>');
             });
         },
         error: function (response) {
@@ -138,7 +164,7 @@ var getListaParticipantes = function () {
             selectPareja.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
             $.each(response.participanteLista, function (key, value) {
-                selectPareja.append('<option value=' + value.Codigo + '>' + value.Nombre + ' ' + value.Paterno + ' ' + value.Materno + '</option>');
+                selectPareja.append('<option value=' + value.codigo + '>' + value.nombre + ' ' + value.paterno + ' ' + value.materno + '</option>');
             });
         },
         error: function (response) {
@@ -149,7 +175,6 @@ var getListaParticipantes = function () {
 function obtenerInfoParticipante() {
 
     var dni = document.getElementById("usuario").value;
-
 
     $.ajax({
         url: "/AdministarParticipante/GetParticipanteDatos",
@@ -163,11 +188,11 @@ function obtenerInfoParticipante() {
             //nombreAjax.add(`<small class="text-right" style="font-size:10px" id="amaterno_ajax"> Documento: ${response.usuarioDatosRegistro[0].paterno}</small>`);
             //nombreAjax.add(`<small class="text-right" style="font-size:10px" id="sexo_ajax"> Documento: ${response.usuarioDatosRegistro[0].materno}</small>`);
 
-            document.getElementById("codigo_ajax").innerHTML = response.usuarioDatosRegistro[0].Codigo;
-            document.getElementById("nombre_ajax").innerHTML = response.usuarioDatosRegistro[0].Nombre;
-            document.getElementById("apaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].Paterno;
-            document.getElementById("amaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].Materno;
-            document.getElementById("sexo_ajax").innerHTML = response.usuarioDatosRegistro[0].Sexo;
+            document.getElementById("codigo_ajax").innerHTML = response.usuarioDatosRegistro[0].codigo;
+            document.getElementById("nombre_ajax").innerHTML = response.usuarioDatosRegistro[0].nombre;
+            document.getElementById("apaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].paterno;
+            document.getElementById("amaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].materno;
+            document.getElementById("sexo_ajax").innerHTML = response.usuarioDatosRegistro[0].sexo;
 
             console.log(response.usuarioDatosRegistro);
 
@@ -176,6 +201,8 @@ function obtenerInfoParticipante() {
 
     }
     });
+
+    document.getElementById("usuario_result").innerHTML = ``;
 }
 
 
