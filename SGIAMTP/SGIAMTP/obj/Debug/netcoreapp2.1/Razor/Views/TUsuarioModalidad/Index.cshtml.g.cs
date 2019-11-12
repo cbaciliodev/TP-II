@@ -70,7 +70,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n\r\n\r\n<div class=\"container-fluid col-xs-12 col-md-12 col-lg-12\" style=\"font-size:16px; font-family:\'Century Gothic\'\">\r\n\r\n    <div class=\"form-group \" style=\"margin-top:10px\">\r\n        ");
             EndContext();
             BeginContext(282, 72, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "681662a463224ceb84264c746164e780", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3dee359fa8d74d7cbaf5e45bf2868d76", async() => {
                 BeginContext(329, 21, true);
                 WriteLiteral("Registar Participante");
                 EndContext();
@@ -265,7 +265,7 @@ WriteAttributeValue("", 2904, Html.DisplayFor(modelItem => item.VmUmArchivoB), 2
             WriteLiteral("\r\n                            </td>\r\n\r\n                            <td class=\"text-center\">\r\n                                ");
             EndContext();
             BeginContext(4350, 87, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10e5968992a94b8b89f9b6cb8460b403", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d94581fcd6ce4aaf982afa420fa5c179", async() => {
                 BeginContext(4427, 6, true);
                 WriteLiteral("Editar");
                 EndContext();
@@ -301,7 +301,7 @@ WriteAttributeValue("", 2904, Html.DisplayFor(modelItem => item.VmUmArchivoB), 2
             WriteLiteral("\r\n                            </td>\r\n\r\n                            <td class=\"text-center\">\r\n                                ");
             EndContext();
             BeginContext(4562, 89, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ba7f1992a35441379c2c6342f8c68fd8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c506603e8d240e18d9ed1ec9c173dab", async() => {
                 BeginContext(4639, 8, true);
                 WriteLiteral("Detalles");
                 EndContext();
@@ -337,7 +337,7 @@ WriteAttributeValue("", 2904, Html.DisplayFor(modelItem => item.VmUmArchivoB), 2
             WriteLiteral("\r\n                            </td>\r\n\r\n                            <td class=\"text-center\">\r\n                                ");
             EndContext();
             BeginContext(4776, 90, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1a6b3bb7a5b14b20ba36d290fa15085f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a316b553654d70b6f2d81ed0e3e40a", async() => {
                 BeginContext(4854, 8, true);
                 WriteLiteral("Eliminar");
                 EndContext();

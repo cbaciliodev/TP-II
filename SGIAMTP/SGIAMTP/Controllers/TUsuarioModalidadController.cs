@@ -1,22 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SGIAMTP.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SGIAMTP.Controllers
 {
     public class TUsuarioModalidadController : Controller
     {
         private readonly DB_A4F05E_SGIAMTPContext _context;
+        private ModelContex participanteModel;
 
         public TUsuarioModalidadController(DB_A4F05E_SGIAMTPContext context)
         {
             _context = context;
+            participanteModel = new ModelContex(context);
         }
+
 
         // GET: TUsuarioModalidad
         public async Task<IActionResult> Index()
@@ -55,17 +59,17 @@ namespace SGIAMTP.Controllers
         // GET: TUsuarioModalidad/Create
         public IActionResult Create()
         {
-            ViewData["PK_IU_Dni"] = "444910167";
+            ViewData["PK_IU_Dni"] = "44910167";
             ViewData["Sexo"] = "Masculino";
 
-            ViewData["DcFechaConcurso"]  = new SelectList(_context.TConcurso, "PkIcIdConcurso", "DcFechaConcurso");
+            ViewData["DcFechaConcurso"] = new SelectList(_context.TConcurso, "PkIcIdConcurso", "DcFechaConcurso");
 
             ViewData["FkIcIdConcurso"] = new SelectList(_context.TConcurso, "PkIcIdConcurso", "VcNombreCon");
             ViewData["FkImIdModalidad"] = new SelectList(_context.TModalidadCon, "PkImIdModalidad", "VmNombreMod");
             ViewData["FkIuDni"] = new SelectList(_context.TUsuario, "PkIuDni", "VuNombre");
             ViewData["FkIuDniPareja"] = new SelectList(_context.TUsuario, "PkIuDni", "VuNombre");
 
-          
+
             return View();
         }
 
@@ -75,13 +79,13 @@ namespace SGIAMTP.Controllers
         {
 
             var codigoConcurso = (from c in _context.TConcurso
-                          where c.FkIecIdEstado == 1
-                          select new Concurso()
-                          {
-                              codigo = c.PkIcIdConcurso,
-                              nombre = c.VcNombreCon
-                          }).ToList();
-                          
+                                  where c.FkIecIdEstado == 1
+                                  select new Concurso()
+                                  {
+                                      codigo = c.PkIcIdConcurso,
+                                      nombre = c.VcNombreCon
+                                  }).ToList();
+
             return Json(new { concurso = codigoConcurso });//dos listas vacias
         }
 
@@ -98,10 +102,10 @@ namespace SGIAMTP.Controllers
             if (ModelState.IsValid)
             {
 
-                    _context.Add(tUsuarioModalidad);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                
+                _context.Add(tUsuarioModalidad);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
             }
             ViewData["FkIcIdConcurso"] = new SelectList(_context.TConcurso, "PkIcIdConcurso", "PkIcIdConcurso", tUsuarioModalidad.FkIcIdConcurso);
             ViewData["FkImIdModalidad"] = new SelectList(_context.TModalidadCon, "PkImIdModalidad", "PkImIdModalidad", tUsuarioModalidad.FkImIdModalidad);
@@ -197,7 +201,7 @@ namespace SGIAMTP.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
 
-         
+
             var tUsuarioModalidad = await _context.TUsuarioModalidad.FindAsync(id);
             _context.TUsuarioModalidad.Remove(tUsuarioModalidad);
             await _context.SaveChangesAsync();
@@ -214,19 +218,43 @@ namespace SGIAMTP.Controllers
         {
 
             var pareja = (from u in _context.TUsuario
-                                 // where u.VuSexo != "Masculino"
+                              // where u.VuSexo != "Masculino"
                           where u.VuSexo != ssexo
                           select new Pareja()
-                                  {
-                                      codigo = u.PkIuDni,
-                                      nombre = u.VuNombre,
-                                      paterno = u.VuApaterno,
-                                      materno = u.VuAmaterno
-                                  }).ToList();
+                          {
+                              codigo = u.PkIuDni,
+                              nombre = u.VuNombre,
+                              paterno = u.VuApaterno,
+                              materno = u.VuAmaterno
+                          }).ToList();
 
 
-            
+
             return Json(new { parejaLista = pareja });//dos listas vacias
+        }
+
+
+        public List<IdentityError> AgregarParticipante(
+            int FkIuDni,
+            int FkIcIdConcurso,
+            int FkImIdModalidad,
+            string IumFase,
+            int FkIuDniPareja,
+            DateTime DumFechaIns,
+            string VmUmArchivoDni,
+            string VmUmArchivoB,
+            int FkIeEstado)
+        {
+            return participanteModel.AgregarParticipante(
+                 FkIuDni,
+             FkIcIdConcurso,
+             FkImIdModalidad,
+             IumFase,
+             FkIuDniPareja,
+             DumFechaIns,
+             VmUmArchivoDni,
+             VmUmArchivoB,
+             FkIeEstado);
         }
 
     }

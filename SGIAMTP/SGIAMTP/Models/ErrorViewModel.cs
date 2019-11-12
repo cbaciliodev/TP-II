@@ -1,5 +1,3 @@
-using System;
-
 namespace SGIAMTP.Models
 {
     public class ErrorViewModel

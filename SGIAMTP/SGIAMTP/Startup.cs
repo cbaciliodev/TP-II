@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -36,7 +31,7 @@ namespace SGIAMTP
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            
+
             var connection = @"Server=sql5047.site4now.net;Database=DB_A4F05E_SGIAMTP;User Id=DB_A4F05E_SGIAMTP_admin;Password=123456789gg;MultipleActiveResultSets=True;ConnectRetryCount=0";
             services.AddDbContext<DB_A4F05E_SGIAMTPContext>(options => options.UseSqlServer(connection));
 

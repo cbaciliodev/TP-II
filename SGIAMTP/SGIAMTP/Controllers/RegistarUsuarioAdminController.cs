@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SGIAMTP.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SGIAMTP.Controllers
 {
@@ -12,11 +11,11 @@ namespace SGIAMTP.Controllers
     {
 
         private readonly DB_A4F05E_SGIAMTPContext _context;
-        private UsuarioModels usuarioModel;
+        private readonly ModelContex usuarioModel;
         public RegistarUsuarioAdminController(DB_A4F05E_SGIAMTPContext context)
         {
             _context = context;
-            usuarioModel = new UsuarioModels(context);
+            usuarioModel = new ModelContex(context);
         }
 
         public IActionResult RegistroUsuarioModal()
@@ -32,14 +31,14 @@ namespace SGIAMTP.Controllers
                                       // where c.FkIecIdEstado == 1
                                   select new CategoriaUsuario()
                                   {
-                                      codigo = c.PkIcCodCat,
-                                      nombre = c.VcNomCategoria
+                                      Codigo = c.PkIcCodCat,
+                                      Nombre = c.VcNomCategoria
                                   }).ToList();
 
             return Json(new { categoria = listaCategoria });
         }
 
-        public List<IdentityError> agregarUsuario(
+        public List<IdentityError> AgregarUsuario(
             int PkIuDni,
             string VuNombre,
             string VuApaterno,
@@ -55,7 +54,7 @@ namespace SGIAMTP.Controllers
         {
 
             Console.WriteLine("DNI este es eñ dmo" + PkIuDni);
-            return usuarioModel.agregarUsuario(
+            return usuarioModel.AgregarUsuario(
                 PkIuDni,
                 VuNombre,
                 VuApaterno,
@@ -69,11 +68,34 @@ namespace SGIAMTP.Controllers
                 VuFoto
          );
         }
+
+        public List<IdentityError> AgregarParticipante(
+           int FkIuDni,
+           int FkIcIdConcurso,
+           int FkImIdModalidad,
+           string IumFase,
+           int FkIuDniPareja,
+           DateTime DumFechaIns,
+           string VmUmArchivoDni,
+           string VmUmArchivoB,
+           int FkIeEstado)
+        {
+            return usuarioModel.AgregarParticipante(
+                 FkIuDni,
+             FkIcIdConcurso,
+             FkImIdModalidad,
+             IumFase,
+             FkIuDniPareja,
+             DumFechaIns,
+             VmUmArchivoDni,
+             VmUmArchivoB,
+             FkIeEstado);
+        }
     }
 
     public class CategoriaUsuario
     {
-        public int codigo { get; set; }
-        public string nombre { get; set; }
+        public int Codigo { get; set; }
+        public string Nombre { get; set; }
     }
 }

@@ -3,7 +3,8 @@
 });
 class Usuario {
 
-    constructor(accion,
+    constructor(
+        accion,
         PkIuDni,
         VuNombre,
         VuApaterno,

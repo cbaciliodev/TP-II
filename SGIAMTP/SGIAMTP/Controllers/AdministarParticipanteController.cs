@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SGIAMTP.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SGIAMTP.Controllers
 {
@@ -49,7 +49,7 @@ namespace SGIAMTP.Controllers
         public IActionResult Create()
         {
 
-            ViewData["PK_IU_Dni"] = "444910167";
+            ViewData["PK_IU_Dni"] = "44910167";
             ViewData["Sexo"] = "Masculino";
 
             ViewData["DcFechaConcurso"] = new SelectList(_context.TConcurso, "PkIcIdConcurso", "DcFechaConcurso");
@@ -186,8 +186,8 @@ namespace SGIAMTP.Controllers
                                   where c.FkIecIdEstado == 1
                                   select new Concurso()
                                   {
-                                      codigo = c.PkIcIdConcurso,
-                                      nombre = c.VcNombreCon
+                                      Codigo = c.PkIcIdConcurso,
+                                      Nombre = c.VcNombreCon
                                   }).ToList();
 
             return Json(new { concurso = codigoConcurso });//dos listas vacias
@@ -202,10 +202,10 @@ namespace SGIAMTP.Controllers
                           where u.VuSexo != ssexo
                           select new Pareja()
                           {
-                              codigo = u.PkIuDni,
-                              nombre = u.VuNombre,
-                              paterno = u.VuApaterno,
-                              materno = u.VuAmaterno
+                              Codigo = u.PkIuDni,
+                              Nombre = u.VuNombre,
+                              Paterno = u.VuApaterno,
+                              Materno = u.VuAmaterno
                           }).ToList();
 
             return Json(new { parejaLista = pareja });//dos listas vacias
@@ -216,14 +216,14 @@ namespace SGIAMTP.Controllers
         {
 
             var participante = (from u in _context.TUsuario
-                          //where u.VuSexo != ssexo
-                          select new Participante()
-                          {
-                              codigo = u.PkIuDni,
-                              nombre = u.VuNombre,
-                              paterno = u.VuApaterno,
-                              materno = u.VuAmaterno
-                          }).ToList();
+                                    //where u.VuSexo != ssexo
+                                select new Participante()
+                                {
+                                    Codigo = u.PkIuDni,
+                                    Nombre = u.VuNombre,
+                                    Paterno = u.VuApaterno,
+                                    Materno = u.VuAmaterno
+                                }).ToList();
 
             return Json(new { participanteLista = participante });//dos listas vacias
         }
@@ -233,14 +233,14 @@ namespace SGIAMTP.Controllers
         {
 
             var usuarioDatos = (from u in _context.TUsuario
-                                    where u.PkIuDni == ddni
+                                where u.PkIuDni == ddni
                                 select new Participante()
                                 {
-                                    codigo = u.PkIuDni,
-                                    nombre = u.VuNombre,
-                                    paterno = u.VuApaterno,
-                                    materno = u.VuAmaterno,
-                                    sexo = u.VuSexo
+                                    Codigo = u.PkIuDni,
+                                    Nombre = u.VuNombre,
+                                    Paterno = u.VuApaterno,
+                                    Materno = u.VuAmaterno,
+                                    Sexo = u.VuSexo
                                 });
 
             return Json(new { usuarioDatosRegistro = usuarioDatos });//dos listas vacias
@@ -248,25 +248,25 @@ namespace SGIAMTP.Controllers
 
         public class Concurso
         {
-            public int codigo { get; set; }
-            public string nombre { get; set; }
+            public int Codigo { get; set; }
+            public string Nombre { get; set; }
         }
 
         public class Pareja
         {
-            public int codigo { get; set; }
-            public string nombre { get; set; }
-            public string paterno { get; set; }
-            public string materno { get; set; }
+            public int Codigo { get; set; }
+            public string Nombre { get; set; }
+            public string Paterno { get; set; }
+            public string Materno { get; set; }
         }
 
         public class Participante
         {
-            public int codigo { get; set; }
-            public string nombre { get; set; }
-            public string paterno { get; set; }
-            public string materno { get; set; }
-            public string sexo { get; set; }
+            public int Codigo { get; set; }
+            public string Nombre { get; set; }
+            public string Paterno { get; set; }
+            public string Materno { get; set; }
+            public string Sexo { get; set; }
         }
     }
 }

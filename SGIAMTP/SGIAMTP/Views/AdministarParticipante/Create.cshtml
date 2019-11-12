@@ -45,8 +45,8 @@
                 <div class="form-group">
 
 
-                    <form method="post" asp-controller="TUsuarioModalidad" asp-action="Create">
-
+                    @*<form method="post" asp-controller="TUsuarioModalidad" asp-action="Create">*@
+                    <form>
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="row col-xs-12 col-md-12 col-lg-12">
@@ -107,7 +107,7 @@
                             <!--Fecha de Inscripcion - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="DumFechaIns" class="control-label">Fecha de Inscripci&oacute;n:</label>
-                                <input asp-for="DumFechaIns" class="form-control" type="date" />
+                                <input asp-for="DumFechaIns" class="form-control" type="date" id="fechaIncripcion" />
                                 <span asp-validation-for="DumFechaIns" class="text-danger"></span>
                             </div>
                             <!--Fecha de Inscripcion - Fin -->
@@ -156,7 +156,7 @@
 
                         <div class="row col-xs-12 col-md-12 col-lg-12">
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
-                                <button type="submit" value="Create" class="btn btn-primary form-control" onclick="validar()">Registrar</button>
+                                <button type="button" value="Create" class="btn btn-primary form-control" onclick="javascript: guardarRegistroParticipante();">Registrar</button>
                             </div>
                         </div>
                     </form>

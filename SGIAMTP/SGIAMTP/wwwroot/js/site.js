@@ -8,7 +8,7 @@
 
 var guardarRegistroUsuario = () => {
 
-    var accion = "RegistarUsuarioAdmin/agregarUsuario";
+    var accion = "RegistarUsuarioAdmin/AgregarUsuario";
     var PkIuDni = document.getElementById('identificacion').value;
     var VuNombre = document.getElementById('nombre').value;
     var VuApaterno = document.getElementById('apaterno').value;
@@ -22,18 +22,18 @@ var guardarRegistroUsuario = () => {
     var FkItuTipoUsuario = 1;
 
     console.log('SiTE INICIO');
-     console.log(accion + ' accion ');
-     console.log(PkIuDni + ' PkIuDni ');
-     console.log(VuNombre + ' VuNombre ');
-     console.log(VuApaterno + ' VuApaterno ');
-     console.log(VuAmaterno + ' VuAmaterno ');
-     console.log(DuFechaNacimiento + ' DuFechaNacimiento ');
-     console.log(VuContraseña + ' VuContraseña ');
-     console.log(VuSexo + ' VuSexo ');
-     console.log(VuNacademia + ' VuNacademia ');
-     console.log(FkIuCodCategoria + ' FkIuCodCategoria ');
-     console.log(FkItuTipoUsuario + ' FkItuTipoUsuario ');
-     console.log(VuFoto + ' VuFoto ');
+    console.log(accion + ' accion ');
+    console.log(PkIuDni + ' PkIuDni ');
+    console.log(VuNombre + ' VuNombre ');
+    console.log(VuApaterno + ' VuApaterno ');
+    console.log(VuAmaterno + ' VuAmaterno ');
+    console.log(DuFechaNacimiento + ' DuFechaNacimiento ');
+    console.log(VuContraseña + ' VuContraseña ');
+    console.log(VuSexo + ' VuSexo ');
+    console.log(VuNacademia + ' VuNacademia ');
+    console.log(FkIuCodCategoria + ' FkIuCodCategoria ');
+    console.log(FkItuTipoUsuario + ' FkItuTipoUsuario ');
+    console.log(VuFoto + ' VuFoto ');
     console.log('SiTE fin');
 
     var usuario = new Usuario(
@@ -53,3 +53,56 @@ var guardarRegistroUsuario = () => {
 
     usuario.agregarUsuario();
 }
+
+
+var guardarRegistroParticipante = () => {
+
+    var accion = "RegistarUsuarioAdmin/AgregarParticipante";
+    var PkIumCodUm = document.getElementById('identificacion').value;
+    var FkIuDni = document.getElementById('usuario').value;
+    var FkIcIdConcurso = document.getElementById('codigoConcurso').value;
+    var FkImIdModalidad = document.getElementById('modalidadConcurso').value;
+    var IumFase = document.getElementById('faseModalidad').value;
+    var FkIuDniPareja = document.getElementById('pareja').value;
+    var DumFechaIns = document.getElementById('fechaIncripcion').value;
+    var VmUmArchivoDni = document.getElementById('VmUmArchivoDni').value;
+    var VmUmArchivoB = document.getElementById('archivoPago').value;
+    var FkIeEstado = 3;
+
+    console.log(accion + ' accion');
+    console.log(PkIumCodUm + ' PkIumCodUm');
+    console.log(FkIuDni + ' FkIuDni');
+    console.log(FkIcIdConcurso + ' FkIcIdConcurso');
+    console.log(FkImIdModalidad + ' FkImIdModalidad');
+    console.log(IumFase + ' IumFase');
+    console.log(FkIuDniPareja + ' FkIuDniPareja');
+    console.log(DumFechaIns + ' DumFechaIns');
+    console.log(VmUmArchivoDni + ' VmUmArchivoDni');
+    console.log(VmUmArchivoB + ' VmUmArchivoB');
+    console.log(FkIeEstado + ' FkIeEstado');
+
+
+
+    console.log('usuarioModalidad INICIO');
+
+
+    var usuarioModalidad = new UsuarioModalidad(
+        accion,
+        PkIumCodUm,
+        FkIuDni,
+        FkIcIdConcurso,
+        FkImIdModalidad,
+        IumFase,
+        FkIuDniPareja,
+        DumFechaIns,
+        VmUmArchivoDni,
+        VmUmArchivoB,
+        FkIeEstado
+    );
+    console.log('usuarioModalidad FIN');
+
+    console.log('metodo INICIO');
+    usuarioModalidad.guardarParticipante();
+    console.log('metodo FIN');
+}
+

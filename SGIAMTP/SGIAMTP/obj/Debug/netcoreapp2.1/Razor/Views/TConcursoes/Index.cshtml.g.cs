@@ -69,7 +69,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n<div class=\"container-fluid col-xs-12 col-md-12 col-lg-12\" style=\"font-size:16px; font-family:\'Century Gothic\'\">\r\n    <div class=\"form-group \" style=\"margin-top:10px\">\r\n        ");
             EndContext();
             BeginContext(268, 141, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c03bb3370f7a41d699a5eac036fa28cc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bdbbcacf2b4043eebed4eb2119f6456a", async() => {
                 BeginContext(315, 90, true);
                 WriteLiteral("Registar Concurso\r\n            <span class=\"glyphicon glyphicon-registration-mark\"></span>");
                 EndContext();
@@ -178,7 +178,7 @@ using SGIAMTP.Models;
             WriteLiteral("                                        ");
             EndContext();
             BeginContext(2713, 226, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "52321dff27914229b1d7a59da61fb476", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "91ef4c31a6174df790741404087027a6", async() => {
                 BeginContext(2797, 138, true);
                 WriteLiteral("\r\n                                            <span class=\"glyphicon glyphicon-eye-open\"></span>\r\n                                        ");
                 EndContext();
@@ -224,7 +224,7 @@ using SGIAMTP.Models;
             WriteLiteral("                                        ");
             EndContext();
             BeginContext(3101, 221, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a79f6ea4c5ed4da888afc3060d68144f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a4e199d50d4c4ee4b061695411199d34", async() => {
                 BeginContext(3182, 136, true);
                 WriteLiteral("\r\n                                            <span class=\"glyphicon glyphicon-pencil\"></span>\r\n                                        ");
                 EndContext();
@@ -260,7 +260,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n                                        ");
             EndContext();
             BeginContext(3364, 221, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8eb7e217300e4d4eb80654cadfb300f0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "25bbb997a0284c7b8127379a5df94c24", async() => {
                 BeginContext(3446, 135, true);
                 WriteLiteral("\r\n                                            <span class=\"glyphicon glyphicon-trash\"></span>\r\n                                        ");
                 EndContext();

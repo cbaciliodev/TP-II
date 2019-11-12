@@ -93,7 +93,7 @@ var getListaConcurso = function () {
             selectConcurso.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
             $.each(response.concurso, function (key, value) {
-                selectConcurso.append('<option value=' + value.codigo + '>' + value.nombre + '</option>');
+                selectConcurso.append('<option value=' + value.Codigo + '>' + value.Nombre + '</option>');
             });
         },
         error: function (response) {
@@ -118,7 +118,7 @@ var getListaPareja = function () {
             selectPareja.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
             $.each(response.parejaLista, function (key, value) { //temp es la lista que va recorrer 
-                selectPareja.append('<option value=' + value.codigo + '>' + value.nombre + ' ' + value.paterno + ' ' + value.materno + '</option>');
+                selectPareja.append('<option value=' + value.Codigo + '>' + value.Nombre + ' ' + value.Paterno + ' ' + value.Materno + '</option>');
             });
         },
         error: function (response) {
@@ -138,7 +138,7 @@ var getListaParticipantes = function () {
             selectPareja.append('<option value= 0 >' + 'Seleccione' + '</option>');
 
             $.each(response.participanteLista, function (key, value) {
-                selectPareja.append('<option value=' + value.codigo + '>' + value.nombre + ' ' + value.paterno + ' ' + value.materno + '</option>');
+                selectPareja.append('<option value=' + value.Codigo + '>' + value.Nombre + ' ' + value.Paterno + ' ' + value.Materno + '</option>');
             });
         },
         error: function (response) {
@@ -163,11 +163,11 @@ function obtenerInfoParticipante() {
             //nombreAjax.add(`<small class="text-right" style="font-size:10px" id="amaterno_ajax"> Documento: ${response.usuarioDatosRegistro[0].paterno}</small>`);
             //nombreAjax.add(`<small class="text-right" style="font-size:10px" id="sexo_ajax"> Documento: ${response.usuarioDatosRegistro[0].materno}</small>`);
 
-            document.getElementById("codigo_ajax").innerHTML = response.usuarioDatosRegistro[0].codigo;
-            document.getElementById("nombre_ajax").innerHTML = response.usuarioDatosRegistro[0].nombre;
-            document.getElementById("apaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].paterno;
-            document.getElementById("amaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].materno;
-            document.getElementById("sexo_ajax").innerHTML = response.usuarioDatosRegistro[0].sexo;
+            document.getElementById("codigo_ajax").innerHTML = response.usuarioDatosRegistro[0].Codigo;
+            document.getElementById("nombre_ajax").innerHTML = response.usuarioDatosRegistro[0].Nombre;
+            document.getElementById("apaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].Paterno;
+            document.getElementById("amaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].Materno;
+            document.getElementById("sexo_ajax").innerHTML = response.usuarioDatosRegistro[0].Sexo;
 
             console.log(response.usuarioDatosRegistro);
 
