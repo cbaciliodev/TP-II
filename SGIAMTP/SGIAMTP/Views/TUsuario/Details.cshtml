@@ -1,0 +1,78 @@
+﻿@model SGIAMTP.Models.TUsuario
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TUsuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VuNombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VuNombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VuApaterno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VuApaterno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VuAmaterno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VuAmaterno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DuFechaNacimiento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DuFechaNacimiento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VuContraseña)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VuContraseña)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VuSexo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VuSexo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VuNacademia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VuNacademia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VuFoto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VuFoto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FkItuTipoUsuarioNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FkItuTipoUsuarioNavigation.PkItuTipoUsuario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FkIuCodCategoriaNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FkIuCodCategoriaNavigation.PkIcCodCat)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PkIuDni">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

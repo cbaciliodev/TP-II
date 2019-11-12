@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\universidad\\taller de proyectos\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj": {}
+    "C:\\Proyectos\\TPII\\TP-II\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj": {}
   },
   "projects": {
-    "D:\\universidad\\taller de proyectos\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj": {
+    "C:\\Proyectos\\TPII\\TP-II\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\universidad\\taller de proyectos\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj",
+        "projectUniqueName": "C:\\Proyectos\\TPII\\TP-II\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj",
         "projectName": "SGIAMTP",
-        "projectPath": "D:\\universidad\\taller de proyectos\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj",
-        "packagesPath": "C:\\Users\\Developer\\.nuget\\packages\\",
-        "outputPath": "D:\\universidad\\taller de proyectos\\SGIAMTP\\SGIAMTP\\obj\\",
+        "projectPath": "C:\\Proyectos\\TPII\\TP-II\\SGIAMTP\\SGIAMTP\\SGIAMTP.csproj",
+        "packagesPath": "C:\\Users\\Christian\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyectos\\TPII\\TP-II\\SGIAMTP\\SGIAMTP\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Developer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Christian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -48,6 +51,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.11, )"
             },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",

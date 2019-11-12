@@ -1,24 +1,9 @@
-﻿/*window.onload = function () {
-
-    var codigoUsuario = document.getElementById("usuarioCodigo").value;
-
-    $('#usuario option[value=' + codigoUsuario + ']').attr("selected", true);
-
-    document.getElementById("FkIuDni").value = codigoUsuario;
-
-}*/
-
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
     getListaConcurso();
     getListaPareja();
     getListaParticipantes();
-    //var codigoUsuario = document.getElementById("usuarioCodigo").value;
 
-    //$('#usuario option[value=' + codigoUsuario + ']').attr("selected", true);
-
-    //document.getElementById("FkIuDni").value = codigoUsuario;
 });
 
 
@@ -64,7 +49,6 @@ function reciboPago() {
 function habilitar() {
 
     var valor = document.getElementById("modalidadConcurso").value;
-    console.log(valor, ' modalidad')
 
     if (valor == 1) {
 
@@ -120,7 +104,6 @@ var getListaConcurso = function () {
 var getListaPareja = function () {
 
     var sexo = document.getElementById('sexoParticipante').value;
-    console.log(sexo, ' sexo');
 
     $.ajax({
         url: "/AdministarParticipante/GetPareja",
@@ -162,6 +145,38 @@ var getListaParticipantes = function () {
         }
     });
 };
+
+function obtenerInfoParticipante() {
+
+    var dni = document.getElementById("usuario").value;
+
+
+    $.ajax({
+        url: "/AdministarParticipante/GetParticipanteDatos",
+        type: "GET",
+        data: { ddni: dni },
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            //var nombreAjax = $('#ajax_response');
+            //nombreAjax.add(`<small class="text-right" style="font-size:10px" id="nombre_ajax"> Documento: ${response.usuarioDatosRegistro[0].codigo}</small>`);
+            //nombreAjax.add(`<small class="text-right" style="font-size:10px" id="apaterno_ajax"> Documento: ${response.usuarioDatosRegistro[0].nombre}</small>`);
+            //nombreAjax.add(`<small class="text-right" style="font-size:10px" id="amaterno_ajax"> Documento: ${response.usuarioDatosRegistro[0].paterno}</small>`);
+            //nombreAjax.add(`<small class="text-right" style="font-size:10px" id="sexo_ajax"> Documento: ${response.usuarioDatosRegistro[0].materno}</small>`);
+
+            document.getElementById("codigo_ajax").innerHTML = response.usuarioDatosRegistro[0].codigo;
+            document.getElementById("nombre_ajax").innerHTML = response.usuarioDatosRegistro[0].nombre;
+            document.getElementById("apaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].paterno;
+            document.getElementById("amaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].materno;
+            document.getElementById("sexo_ajax").innerHTML = response.usuarioDatosRegistro[0].sexo;
+
+            console.log(response.usuarioDatosRegistro);
+
+        },
+        error: function (response){
+
+    }
+    });
+}
 
 
 function validar() {

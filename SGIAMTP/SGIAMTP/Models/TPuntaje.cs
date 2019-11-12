@@ -8,9 +8,8 @@ namespace SGIAMTP.Models
         public int PkIpCodP { get; set; }
         public int IpPuntaje { get; set; }
         public int IpNumeroJurado { get; set; }
-        public int FkIumtCodpar { get; set; }
-        public int FkIumtCodta { get; set; }
+        public string FkVumtCod { get; set; }
 
-        public TUsuarioModalidadTanda FkIumtCod { get; set; }
+        public TUsuarioModalidadTanda FkVumtCodNavigation { get; set; }
     }
 }

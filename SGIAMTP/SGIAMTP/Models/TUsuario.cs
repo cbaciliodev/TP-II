@@ -21,6 +21,7 @@ namespace SGIAMTP.Models
         public string VuNacademia { get; set; }
         public int? FkIuCodCategoria { get; set; }
         public int? FkItuTipoUsuario { get; set; }
+        public string VuFoto { get; set; }
 
         public TTipoUsuario FkItuTipoUsuarioNavigation { get; set; }
         public TCategoria FkIuCodCategoriaNavigation { get; set; }
