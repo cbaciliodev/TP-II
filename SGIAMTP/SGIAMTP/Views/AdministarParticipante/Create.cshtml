@@ -197,7 +197,7 @@
                                         <!-- DNI - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="identificacion" class="control-label">Documento:</label>
-                                            <input onchange="javascript:validarIdentificacion(this.value);" maxlength="8" type="text" class="form-control" placeholder="DNI" id="identificacion" />
+                                            <input value="44910167"  onchange="javascript:validarIdentificacion(this.value);" maxlength="8" type="text" class="form-control" placeholder="DNI" id="identificacion" />
                                             <input type="text" value="" hidden />
                                             <span class="text-danger" id="ident_result"></span>
                                         </div>
@@ -205,7 +205,7 @@
                                         <!-- Nombre - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="nombre" class="control-label">Nombre:</label>
-                                            <input onchange="javascript:validarNombre(this.value);" type="text" class="form-control" placeholder="Nombre de usuario" id="nombre" value="" />
+                                            <input  value="Christian"  onchange="javascript:validarNombre(this.value);" type="text" class="form-control" placeholder="Nombre de usuario" id="nombre"/>
                                             <span class="text-danger" id="nomb_result"></span>
                                         </div>
                                         <!--- Nombre - Fin -->
@@ -216,14 +216,14 @@
                                         <!-- Apellido Paterno - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="apaterno" class="control-label">Apellido Paterno:</label>
-                                            <input onchange="javascript:validarApaterno(this.value);" type="text" class="form-control" placeholder="Apellido Paterno" id="apaterno" />
+                                            <input value="Bacilio" onchange="javascript:validarApaterno(this.value);" type="text" class="form-control" placeholder="Apellido Paterno" id="apaterno" />
                                             <span class="text-danger" id="paterno_result"></span>
                                         </div>
                                         <!-- Apellido Paterno - Fin -->
                                         <!-- Apellido Materno - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="amaterno" class="control-label">Apellido Materno:</label>
-                                            <input onchange="javascript:validarAmaterno(this.value);" type="text" class="form-control" placeholder="Apellido Materno" id="amaterno" value="" />
+                                            <input  value="Bacilio"  onchange="javascript:validarAmaterno(this.value);" type="text" class="form-control" placeholder="Apellido Materno" id="amaterno"/>
                                             <span class="text-danger" id="materno_result"></span>
                                         </div>
                                         <!-- Apellido Paterno - Fin -->
@@ -233,14 +233,14 @@
                                         <!--Fecha de Nacimiento - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="nacimiento" class="control-label">Fecha de Nacimiento:</label>
-                                            <input onchange="javascript:calcularEdad(this.value);" type="date" class="form-control pull-right" id="nacimiento" onchange="javascript: calcularEdad();" />
-                                            <span class="text-danger" id="resultado"></span>
+                                            <input onchange="javascript:calcularEdad(this.value);" type="date" class="form-control pull-right" id="nacimiento" />
+                                            <span class="text-danger" id="nacimiento_result"></span>
                                         </div>
                                         <!--Fecha de Nacimiento - Fin -->
                                         <!--Contraseña - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="password" class="control-label">Contraseña:</label>
-                                            <input onchange="javascript:validarPassword(this.value);" type="password" class="form-control" placeholder="Contraseña" id="password" value="" /><br>
+                                            <input onchange="javascript:validarPassword(this.value);" type="password" class="form-control" placeholder="Contraseña" id="password" value="123" /><br>
                                             <span class="text-danger" id="pass_result"></span>
                                         </div>
                                         <!--Contraseña - Fin -->
@@ -285,7 +285,7 @@
                                         <!--Foto - Inicio -->
                                         <div class="form-group  col-xs-12 col-md-12 col-lg-12">
                                             <label for="academia" class="control-label">Nombre de Academia:</label>
-                                            <input onchange="javascript:validarAcademia(this.value);" type="text" class="form-control" placeholder="Nombre de Academia" id="academia" value="" />
+                                            <input onchange="javascript:validarAcademia(this.value);" type="text" class="form-control" placeholder="Nombre de Academia" id="academia" value="Academia" />
                                             <span class="text-danger" id="academia_result"></span>
                                         </div>
                                         <!--Foto - Fin -->
@@ -314,6 +314,7 @@
 </div>
 
 @section Scripts {
+    <script src="~/js/site.js"></script>
     <script src="~/js/AdministrarParticipante.js"></script>
     <script src="~/js/RegistrarUsuario.js"></script>
     <script src="~/js/Usuario.js"></script>

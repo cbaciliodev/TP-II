@@ -12,12 +12,11 @@ namespace SGIAMTP.Controllers
     {
 
         private readonly DB_A4F05E_SGIAMTPContext _context;
-        private List<IdentityError> identityError;
-        private string des = "";
+        private UsuarioModels usuarioModel;
         public RegistarUsuarioAdminController(DB_A4F05E_SGIAMTPContext context)
         {
             _context = context;
-            identityError = new List<IdentityError>();
+            usuarioModel = new UsuarioModels(context);
         }
 
         public IActionResult RegistroUsuarioModal()
@@ -30,7 +29,7 @@ namespace SGIAMTP.Controllers
         {
 
             var listaCategoria = (from c in _context.TCategoria
-                                 // where c.FkIecIdEstado == 1
+                                      // where c.FkIecIdEstado == 1
                                   select new CategoriaUsuario()
                                   {
                                       codigo = c.PkIcCodCat,
@@ -40,43 +39,37 @@ namespace SGIAMTP.Controllers
             return Json(new { categoria = listaCategoria });
         }
 
-        public List<IdentityError> guardarUsuario(List<TUsuario> response, int funcion) 
+        public List<IdentityError> agregarUsuario(
+            int PkIuDni,
+            string VuNombre,
+            string VuApaterno,
+            string VuAmaterno,
+            DateTime DuFechaNacimiento,
+            string VuContraseña,
+            string VuSexo,
+            string VuNacademia,
+            int FkIuCodCategoria,
+            int FkItuTipoUsuario,
+            string VuFoto
+            )
         {
 
-            var UsuarioRegister = new TUsuario
-            {
-                PkIuDni = response[0].PkIuDni,
-                VuNombre = response[0].VuNombre,
-                VuApaterno = response[0].VuApaterno,
-                VuAmaterno = response[0].VuAmaterno,
-                DuFechaNacimiento = response[0].DuFechaNacimiento,
-                VuContraseña = response[0].VuContraseña,
-                VuSexo = response[0].VuSexo,
-                VuNacademia = response[0].VuNacademia,
-                FkIuCodCategoria = response[0].FkIuCodCategoria
-
-            };
-            try
-            {
-                _context.Update(UsuarioRegister);
-                _context.SaveChanges();
-                des = "Save";
-            }
-            catch (Exception ex)
-            {
-                des = ex.Message;
-            }
-            identityError.Add(new IdentityError
-            {
-                Description = des
-            });
-
-            return identityError;
+            Console.WriteLine("DNI este es eñ dmo" + PkIuDni);
+            return usuarioModel.agregarUsuario(
+                PkIuDni,
+                VuNombre,
+                VuApaterno,
+                VuAmaterno,
+                DuFechaNacimiento,
+                VuContraseña,
+                VuSexo,
+                VuNacademia,
+                FkIuCodCategoria,
+                FkItuTipoUsuario,
+                VuFoto
+         );
         }
     }
-
- 
-
 
     public class CategoriaUsuario
     {
@@ -84,4 +77,3 @@ namespace SGIAMTP.Controllers
         public string nombre { get; set; }
     }
 }
-

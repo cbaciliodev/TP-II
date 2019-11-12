@@ -10,10 +10,12 @@ namespace SGIAMTP.Models
             TPuntaje = new HashSet<TPuntaje>();
         }
 
+        public string PkVumtCod { get; set; }
         public int FkIumtCodPart { get; set; }
         public int FkIumtCodTan { get; set; }
         public int? IumtPuntajeTotal { get; set; }
         public int? IumtPista { get; set; }
+        public int? IumtEstado { get; set; }
 
         public TUsuarioModalidad FkIumtCodPartNavigation { get; set; }
         public TTanda FkIumtCodTanNavigation { get; set; }
