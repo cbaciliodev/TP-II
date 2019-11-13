@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SGIAMTP.Models;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,11 +13,38 @@ namespace SGIAMTP.Controllers
     public class AdministarParticipanteController : Controller
     {
         private readonly DB_A4F05E_SGIAMTPContext _context;
-
+        private readonly ModelContex usuarioModel;
         public AdministarParticipanteController(DB_A4F05E_SGIAMTPContext context)
         {
             _context = context;
+            usuarioModel = new ModelContex(context);
         }
+
+        public List<IdentityError> AgregarUsuarioParticipante(
+           int FkIuDni,
+           int FkIcIdConcurso,
+           int FkImIdModalidad,
+           string IumFase,
+           int FkIuDniPareja,
+           DateTime DumFechaIns,
+           string VmUmArchivoDni,
+           string VmUmArchivoB,
+           int FkIeEstado)
+        {
+            return usuarioModel.AgregarParticipante(
+                 FkIuDni,
+             FkIcIdConcurso,
+             FkImIdModalidad,
+             IumFase,
+             FkIuDniPareja,
+             DumFechaIns,
+             VmUmArchivoDni,
+             VmUmArchivoB,
+             FkIeEstado);
+        }
+
+
+
 
         // GET: AdministarParticipante
         public async Task<IActionResult> Index()
@@ -22,6 +52,9 @@ namespace SGIAMTP.Controllers
             var dB_A4F05E_SGIAMTPContext = _context.TUsuarioModalidad.Include(t => t.FkIcIdConcursoNavigation).Include(t => t.FkImIdModalidadNavigation).Include(t => t.FkIuDniNavigation).Include(t => t.FkIuDniParejaNavigation);
             return View(await dB_A4F05E_SGIAMTPContext.ToListAsync());
         }
+
+
+
 
         // GET: AdministarParticipante/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -261,7 +294,13 @@ namespace SGIAMTP.Controllers
             return Json(new { usuarioDatosRegistro = usuarioDatos });//dos listas vacias
         }
 
-        public class Concurso
+        
+    
+
+
+
+
+    public class Concurso
         {
             public int Codigo { get; set; }
             public string Nombre { get; set; }

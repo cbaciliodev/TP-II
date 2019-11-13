@@ -57,7 +57,7 @@ var guardarRegistroUsuario = () => {
 
 var guardarRegistroParticipante = () => {
 
-    var accion = "RegistarUsuarioAdmin/AgregarParticipante";
+    var accion_participante = "AdministarParticipante/AgregarUsuarioParticipante";
     var FkIuDni = document.getElementById('usuario').value;
     var FkIcIdConcurso = document.getElementById('codigoConcurso').value;
     var FkImIdModalidad = document.getElementById('modalidadConcurso').value;
@@ -70,7 +70,7 @@ var guardarRegistroParticipante = () => {
 
 
     var usuarioModalidad = new UsuarioModalidad(
-        accion,
+        accion_participante,
         FkIuDni,
         FkIcIdConcurso,
         FkImIdModalidad,
@@ -81,8 +81,6 @@ var guardarRegistroParticipante = () => {
         VmUmArchivoB,
         FkIeEstado
     );
-    console.log("*************");
-
     usuarioModalidad.guardarParticipante();
 };
 

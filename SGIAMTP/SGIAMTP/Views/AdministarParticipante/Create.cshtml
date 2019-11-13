@@ -126,7 +126,7 @@
                                 <div class="input-group">
 
                                     <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
-                                    <input onchange="javascript:archivoDnipdf();" id="VmUmArchivoDni" aria-describedby="basic-addon3" name="archivoDni" type="file" accept="application/pdf" class="form-control" />
+                                    <input onchange="javascript:archivoDnipdf();" id="VmUmArchivoDni" aria-describedby="basic-addon3" name="archivoDni" type="file" accept="application/pdf" class="form-control" value="a"/>
                                     <span class="text-danger" id="dni_result"></span>
                                     @*<span asp-validation-for="VmUmArchivoB" class="text-danger"></span>*@
                                     @*<textarea value="" asp-for="VmUmArchivoDni" id="data" hidden></textarea>*@
@@ -145,7 +145,7 @@
                                 <div class="input-group">
 
                                     <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
-                                    <input onchange="javascript: reciboPago();" id="archivoPago" aria-describedby="basic-addon3" name="archivoPago" type="file" accept="application/pdf" class="form-control" />
+                                    <input onchange="javascript: reciboPago();" id="archivoPago" aria-describedby="basic-addon3" name="archivoPago" type="file" accept="application/pdf" class="form-control" value="a"/>
                                     <span class="text-danger" id="recibo_result"></span>
                                     @*<span asp-validation-for="VmUmArchivoB" class="text-danger"></span>*@
                                     @*<textarea asp-for="VmUmArchivoB" id="recibo" hidden></textarea>*@
@@ -296,14 +296,14 @@
 
                                     <div class="row col-xs-12 col-md-12 col-lg-12">
                                         <!--Foto - Inicio -->
-                                        <div class="form-group  col-xs-11 col-md-11 col-lg-11">
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="imagen" class="control-label">Imagen:</label>
                                             <input onchange="javascript:validarImagen(this.value);" type="file" class="form-control" placeholder="Imagen" id="imagen" value="" />
                                             <span class="text-danger" id="imagen_result"></span>
                                         </div>
                                         <!--Foto - Fin -->
                                         <!--Preview - Inicio -->
-                                        <div class="form-group  col-xs-1 col-md-1 col-lg-1">
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="imagen" class="control-label">Ver</label>
                                             <button type="button" class="btn btn-warning">ver</button>
                                         </div>

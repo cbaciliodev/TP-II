@@ -19,7 +19,7 @@ function archivoDnipdf() {
 
         fileReader.onload = function (fileLoadedEvent) {
             base64 = fileLoadedEvent.target.result;
-            document.getElementById("data").innerHTML = base64;
+            //document.getElementById("data").innerHTML = base64;
         }
     };
 
@@ -40,7 +40,7 @@ function reciboPago() {
 
         fileReader.onload = function (fileLoadedEvent) {
             base64 = fileLoadedEvent.target.result;
-            document.getElementById("recibo").innerHTML = base64;
+            //document.getElementById("recibo").innerHTML = base64;
         }
     };
 

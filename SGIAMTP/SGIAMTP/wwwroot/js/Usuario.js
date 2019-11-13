@@ -163,6 +163,8 @@ class Usuario {
 
                                                             }, success: (response) => {
                                                                 if ("Save" == response[0].code) {
+                                                                    console.log(response)
+
                                                                     swal('Usuario', 'Registrado correctamente.', 'success');
 
                                                                     this.restablecer();
@@ -170,6 +172,7 @@ class Usuario {
                                                                     console.log(response[0].code)
                                                                     swal('Usuario', `El usuario ${PkIuDni} ya existe en la Base de datos.`, 'info');
                                                                 } else {
+                                                                    console.log(response)
                                                                     swal('Error', `Ocurrio un error en el servidor.`, 'error');
                                                                 }
                                                             }
