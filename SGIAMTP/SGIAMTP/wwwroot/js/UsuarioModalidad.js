@@ -33,42 +33,37 @@ class UsuarioModalidad {
 
     guardarParticipante() {
 
-        if (this.accion_participante = "") {
+        if (this.accion_participante == "") {
             console.log("No ingrese accion");
         } else {
-
             if (this.FkIuDni == 0) {
                 document.getElementById('usuario').focus();
                 document.getElementById("usuario_result").innerHTML = `Este Campo es requerido`;
             } else {
-
                 if (this.FkIcIdConcurso == 0) {
                     document.getElementById('codigoConcurso').focus();
                     document.getElementById("codigoConcurso_result").innerHTML = `Este Campo es requerido`;
                 } else {
-
                     if (this.DumFechaIns == "") {
                         document.getElementById('fechaIncripcion').focus();
                         document.getElementById("fecha_result").innerHTML = `Este Campo es requerido`;
                     } else {
-
                         if (this.VmUmArchivoDni == "") {
                             document.getElementById('VmUmArchivoDni').focus();
                             document.getElementById("dni_result").innerHTML = `Este Campo es requerido`;
                         } else {
-
                             if (this.VmUmArchivoB == "") {
                                 document.getElementById('archivoPago').focus();
                                 document.getElementById("recibo_result").innerHTML = `Este Campo es requerido`;
                             } else {
-
                                 if (this.FkIeEstado == "") {
                                     console.log('Ingrese el estado');
                                 } else {
 
-                                   
+                                    console.log(this.accion_participante + " this.accion_participante");
 
-                                    var _accion_participante = this.accion_participante;                                   
+
+                                    var _accion_participante = this.accion_participante;
                                     var FkIuDni = this.FkIuDni;
                                     var FkIcIdConcurso = this.FkIcIdConcurso;
                                     var FkImIdModalidad = this.FkImIdModalidad;
@@ -78,9 +73,6 @@ class UsuarioModalidad {
                                     var VmUmArchivoDni = this.VmUmArchivoDni;
                                     var VmUmArchivoB = this.VmUmArchivoB;
                                     var FkIeEstado = this.FkIeEstado;
-
-                                    console.log('aqui sale el post ' + _accion_participante);
-
                                     $.ajax({
 
                                         type: "POST",
@@ -109,13 +101,14 @@ class UsuarioModalidad {
                                         }
                                     });
 
+
+
                                 }
                             }
                         }
                     }
                 }
             }
-
         }
     }
 
@@ -148,7 +141,3 @@ function validarFecha(fecha) {
         document.getElementById("fecha_result").innerHTML = ``;
     }
 }
-
-
-
-

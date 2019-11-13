@@ -44,28 +44,31 @@ namespace SGIAMTP.Models
 
             try
             {
-                Console.WriteLine(usuarioModalidad.FkIuDni);
+                //Console.WriteLine(usuarioModalidad.FkIuDni);
                 //var codigoUsuario = _context.TUsuario.SingleOrDefault(u => u.PkIuDni == usuario.PkIuDni);
-
+                /*
                 var codigoParticipante = (from u in _context.TUsuarioModalidad
                                           where u.FkIuDni == usuarioModalidad.FkIuDni
                                           select u.FkIuDni);
 
                 int cantidad = codigoParticipante.Count();
+                */
 
+                _context.Add(usuarioModalidad);
+                _context.SaveChanges();
+                code = "Save";
+                des = "Save";
+/*
                 if (cantidad == 0)
                 {
-                    _context.Add(codigoParticipante);
-                    _context.SaveChanges();
-                    code = "Save";
-                    des = "Save";
+                    
                 }
                 else
                 {
                     code = "Existe";
                     //des = "Save";
                 }
-
+                */
             }
             catch (Exception e)
             {

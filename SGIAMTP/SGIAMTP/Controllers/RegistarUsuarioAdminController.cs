@@ -68,7 +68,7 @@ namespace SGIAMTP.Controllers
                 VuFoto
          );
         }
-
+        /*
         public List<IdentityError> AgregarParticipante(
            int FkIuDni,
            int FkIcIdConcurso,
@@ -91,6 +91,7 @@ namespace SGIAMTP.Controllers
              VmUmArchivoB,
              FkIeEstado);
         }
+        */
     }
 
     public class CategoriaUsuario
