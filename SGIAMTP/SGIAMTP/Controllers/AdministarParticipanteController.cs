@@ -32,7 +32,7 @@ namespace SGIAMTP.Controllers
            int FkIeEstado)
         {
             return usuarioModel.AgregarParticipante(
-                 FkIuDni,
+             FkIuDni,
              FkIcIdConcurso,
              FkImIdModalidad,
              IumFase,
@@ -52,9 +52,6 @@ namespace SGIAMTP.Controllers
             var dB_A4F05E_SGIAMTPContext = _context.TUsuarioModalidad.Include(t => t.FkIcIdConcursoNavigation).Include(t => t.FkImIdModalidadNavigation).Include(t => t.FkIuDniNavigation).Include(t => t.FkIuDniParejaNavigation);
             return View(await dB_A4F05E_SGIAMTPContext.ToListAsync());
         }
-
-
-
 
         // GET: AdministarParticipante/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -127,7 +124,7 @@ namespace SGIAMTP.Controllers
                 return NotFound();
             }
             ViewData["FkIcIdConcurso"] = new SelectList(_context.TConcurso, "PkIcIdConcurso", "VcLugarCon", tUsuarioModalidad.FkIcIdConcurso);
-            ViewData["FkImIdModalidad"] = new SelectList(_context.TModalidadCon, "PkImIdModalidad", "PkImIdModalidad", tUsuarioModalidad.FkImIdModalidad);
+            ViewData["FkImIdModalidad"] = new SelectList(_context.TModalidadCon, "PkImIdModalidad", "VmNombreMod", tUsuarioModalidad.FkImIdModalidad);
             ViewData["FkIuDni"] = new SelectList(_context.TUsuario, "PkIuDni", "PkIuDni", tUsuarioModalidad.FkIuDni);
             ViewData["FkIuDniPareja"] = new SelectList(_context.TUsuario, "PkIuDni", "PkIuDni", tUsuarioModalidad.FkIuDniPareja);
             return View(tUsuarioModalidad);

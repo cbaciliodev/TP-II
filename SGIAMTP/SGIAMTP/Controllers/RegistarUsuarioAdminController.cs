@@ -52,8 +52,6 @@ namespace SGIAMTP.Controllers
             string VuFoto
             )
         {
-
-            Console.WriteLine("DNI este es eñ dmo" + PkIuDni);
             return usuarioModel.AgregarUsuario(
                 PkIuDni,
                 VuNombre,
@@ -68,30 +66,6 @@ namespace SGIAMTP.Controllers
                 VuFoto
          );
         }
-        /*
-        public List<IdentityError> AgregarParticipante(
-           int FkIuDni,
-           int FkIcIdConcurso,
-           int FkImIdModalidad,
-           string IumFase,
-           int FkIuDniPareja,
-           DateTime DumFechaIns,
-           string VmUmArchivoDni,
-           string VmUmArchivoB,
-           int FkIeEstado)
-        {
-            return usuarioModel.AgregarParticipante(
-                 FkIuDni,
-             FkIcIdConcurso,
-             FkImIdModalidad,
-             IumFase,
-             FkIuDniPareja,
-             DumFechaIns,
-             VmUmArchivoDni,
-             VmUmArchivoB,
-             FkIeEstado);
-        }
-        */
     }
 
     public class CategoriaUsuario

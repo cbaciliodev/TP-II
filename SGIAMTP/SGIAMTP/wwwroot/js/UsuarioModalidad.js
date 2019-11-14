@@ -49,11 +49,11 @@ class UsuarioModalidad {
                         document.getElementById("fecha_result").innerHTML = `Este Campo es requerido`;
                     } else {
                         if (this.VmUmArchivoDni == "") {
-                            document.getElementById('VmUmArchivoDni').focus();
+                            document.getElementById('data_VmUmArchivoDni_participante').focus();
                             document.getElementById("dni_result").innerHTML = `Este Campo es requerido`;
                         } else {
                             if (this.VmUmArchivoB == "") {
-                                document.getElementById('archivoPago').focus();
+                                document.getElementById('recibo_archivoPago_participante').focus();
                                 document.getElementById("recibo_result").innerHTML = `Este Campo es requerido`;
                             } else {
                                 if (this.FkIeEstado == "") {
@@ -89,12 +89,14 @@ class UsuarioModalidad {
                                             FkIeEstado
                                         }, success: (response) => {
 
+                                            console.log(response[0].code);
+
                                             if ("Save" == response[0].code) {
-                                                swal('Participante', 'Registrado correctamente.', 'success');
+                                                swal('Participante', `El Participante: ${FkIuDni} fue Registrado correctamente.`, 'success');
                                                 this.restablecer();
                                             } else if ("Existe" == response[0].code) {
                                                 console.log(response[0].code);
-                                                swal('Usuario', `El usuario ${PkIuDni} ya existe en la Base de datos.`, 'info');
+                                                swal('Participante', `El Participante ${FkIuDni} ya existe en la Base de datos.`, 'info');
                                             } else {
                                                 swal('Error', `Ocurrio un error en el servidor.`, 'error');
                                             }
@@ -114,16 +116,14 @@ class UsuarioModalidad {
 
     restablecer() {
 
-        document.getElementById('identificacion').value = "";
-        document.getElementById('nombre').value = "";
-        document.getElementById('apaterno').value = "";
-        document.getElementById('amaterno').value = "";
-        document.getElementById('nacimiento').value = "";
-        document.getElementById('password').value = "";
-        document.getElementById('sexo').value = "";
-        document.getElementById('categoria').selectedIndex = 0;
-        document.getElementById('imagen').value = "";
-        document.getElementById('academia').value = "";
+        document.getElementById('usuario').selectedIndex = 0;
+        document.getElementById('codigoConcurso').selectedIndex = 0;
+        document.getElementById('modalidadConcurso').selectedIndex = 0;
+        document.getElementById('faseModalidad').selectedIndex = 0;
+        document.getElementById('pareja').selectedIndex = 0;
+        document.getElementById('fechaIncripcion').value = "";
+        document.getElementById('VmUmArchivoDni').value = "";
+        document.getElementById('archivoPago').value = "";
     };
 
 }
@@ -139,5 +139,243 @@ function validarConcurso(concurso) {
 function validarFecha(fecha) {
     if (fecha != "") {
         document.getElementById("fecha_result").innerHTML = ``;
+    }
+}
+
+
+$(document).ready(function () {
+
+    getListaConcurso();
+    getListaPareja();
+    getListaParticipantes();
+    getListarModaliad();
+});
+
+
+function validarDniParticipante(dni) {
+    alert(dni)
+    if (dni != "") {
+        encodeDni();
+        document.getElementById("dni_result").innerHTML = ``;
+    }
+};
+
+
+function validarPagoParticipante(pago) {
+    alert(pago)
+    if (pago != "") {
+        encodePago();
+        document.getElementById("recibo_result").innerHTML = ``;
+    }
+};
+
+function habilitar() {
+
+    var valor = document.getElementById("modalidadConcurso").value;
+
+    if (valor == 1) {
+
+        var letra = "Final Uno"
+        //document.getElementById("fase").value = letra;
+        document.getElementById("faseModalidad").value = letra;
+        document.getElementById("pareja").disabled = true;
+
+    } else if (valor == 2) {
+
+        var todos = "Eliminatorio"
+        //document.getElementById("fase").value = todos;
+        document.getElementById("faseModalidad").value = todos;
+        document.getElementById("pareja").disabled = false;
+        getListaPareja();
+
+    } else {
+
+        if (valor == 0) {
+            document.getElementById("faseModalidad").value = "";
+            document.getElementById("pareja").value = "";
+
+            var selectPareja = $('#pareja');
+            selectPareja.html('<option value= 0 >' + 'Seleccione' + '</option>');
+        }
+
+        document.getElementById("pareja").disabled = true;
+    }
+}
+
+
+var getListaConcurso = function () {
+
+    $.ajax({
+        url: "/AdministarParticipante/GetConcurso",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+
+            var selectConcurso = $('#codigoConcurso');
+            selectConcurso.find('option').remove();
+            selectConcurso.append('<option value= 0 >' + 'Seleccione' + '</option>');
+
+            $.each(response.concurso, function (key, value) {
+                selectConcurso.append('<option value=' + value.codigo + '>' + value.nombre + '</option>');
+            });
+        },
+        error: function (response) {
+        }
+    });
+};
+
+
+var getListarModaliad = function () {
+
+    $.ajax({
+        url: "/AdministarParticipante/GetModalidad",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            console.log(response.modalidad)
+
+            var selectConcurso = $('#modalidadConcurso');
+            selectConcurso.find('option').remove();
+            selectConcurso.append('<option value= 0 >' + 'Seleccione' + '</option>');
+
+            $.each(response.modalidad, function (key, value) {
+                selectConcurso.append('<option value=' + value.codigo + '>' + value.nombre + '</option>');
+            });
+        },
+        error: function (response) {
+        }
+    });
+};
+
+
+var getListaPareja = function () {
+
+    var sexo = document.getElementById('sexoParticipante').value;
+
+    $.ajax({
+        url: "/AdministarParticipante/GetPareja",
+        type: "GET",
+        data: { ssexo: sexo },
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+
+            var selectPareja = $('#pareja');
+
+            selectPareja.find('option').remove();
+            selectPareja.append('<option value= 0 >' + 'Seleccione' + '</option>');
+
+            $.each(response.parejaLista, function (key, value) { //temp es la lista que va recorrer 
+                selectPareja.append('<option value=' + value.codigo + '>' + value.nombre + ' ' + value.paterno + ' ' + value.materno + '</option>');
+            });
+        },
+        error: function (response) {
+        }
+    });
+};
+
+var getListaParticipantes = function () {
+
+    $.ajax({
+        url: "/AdministarParticipante/GetParticipante",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            var selectPareja = $('#usuario');
+            selectPareja.find('option').remove();
+            selectPareja.append('<option value= 0 >' + 'Seleccione' + '</option>');
+
+            $.each(response.participanteLista, function (key, value) {
+                selectPareja.append('<option value=' + value.codigo + '>' + value.nombre + ' ' + value.paterno + ' ' + value.materno + '</option>');
+            });
+        },
+        error: function (response) {
+        }
+    });
+};
+
+function obtenerInfoParticipante() {
+
+    var dni = document.getElementById("usuario").value;
+
+    $.ajax({
+        url: "/AdministarParticipante/GetParticipanteDatos",
+        type: "GET",
+        data: { ddni: dni },
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+
+            document.getElementById("codigo_ajax").innerHTML = response.usuarioDatosRegistro[0].codigo;
+            document.getElementById("nombre_ajax").innerHTML = response.usuarioDatosRegistro[0].nombre;
+            document.getElementById("apaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].paterno;
+            document.getElementById("amaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].materno;
+            document.getElementById("sexo_ajax").innerHTML = response.usuarioDatosRegistro[0].sexo;
+
+            console.log(response.usuarioDatosRegistro);
+
+        },
+        error: function (response) {
+
+        }
+    });
+
+    document.getElementById("usuario_result").innerHTML = ``;
+}
+
+
+function validar() {
+    var selectedFileDni = document.getElementById("data").value;
+    var selectedFileRecibo = document.getElementById("recibo").value;
+}
+
+function openModal() {
+
+    $('#OpenModalRegistroUsuario').modal({ show: true, backdrop: 'static', keyboard: false });
+}
+
+function encodeDni() {
+
+    var selectedfile = document.getElementById("VmUmArchivoDni_participante").files;
+    if (selectedfile.length > 0) {
+        var imageFile = selectedfile[0];
+        var fileReader = new FileReader();
+
+        fileReader.onload = function (fileLoadedEvent) {
+
+            var srcData = fileLoadedEvent.target.result;
+
+            var newImage = document.createElement('img');
+            newImage.src = srcData;
+            newImage.style.height = "100px";
+            newImage.style.width = "100px";
+            //document.getElementById("verFoto").innerHTML = newImage.outerHTML;
+            //document.getElementById("codigoFoto").value = document.getElementById("verFoto").innerHTML;
+            document.getElementById("data_VmUmArchivoDni_participante").value = srcData;
+            console.log(srcData)
+        }
+        fileReader.readAsDataURL(imageFile);
+    }
+}
+
+function encodePago() {
+
+    var selectedfile = document.getElementById("archivoPago_participante").files;
+    if (selectedfile.length > 0) {
+        var imageFile = selectedfile[0];
+        var fileReader = new FileReader();
+
+        fileReader.onload = function (fileLoadedEvent) {
+
+            var srcData = fileLoadedEvent.target.result;
+
+            var newImage = document.createElement('img');
+            newImage.src = srcData;
+            newImage.style.height = "100px";
+            newImage.style.width = "100px";
+            //document.getElementById("verFoto").innerHTML = newImage.outerHTML;
+            //document.getElementById("codigoFoto").value = document.getElementById("verFoto").innerHTML;
+            document.getElementById("recibo_archivoPago_participante").value = srcData;
+            console.log(srcData)
+        }
+        fileReader.readAsDataURL(imageFile);
     }
 }

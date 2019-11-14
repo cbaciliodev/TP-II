@@ -8,7 +8,7 @@ namespace SGIAMTP.Models
     public class ModelContex
     {
         private readonly DB_A4F05E_SGIAMTPContext _context;
-        private List<IdentityError> _identityError;
+        private readonly List<IdentityError> _identityError;
         private string code = "", des = "";
 
         public ModelContex(DB_A4F05E_SGIAMTPContext _context)
@@ -42,33 +42,33 @@ namespace SGIAMTP.Models
                 FkIeEstado = FkIeEstado
             };
 
+            Console.WriteLine(usuarioModalidad);
+
             try
             {
-                //Console.WriteLine(usuarioModalidad.FkIuDni);
-                //var codigoUsuario = _context.TUsuario.SingleOrDefault(u => u.PkIuDni == usuario.PkIuDni);
-                /*
-                var codigoParticipante = (from u in _context.TUsuarioModalidad
-                                          where u.FkIuDni == usuarioModalidad.FkIuDni
-                                          select u.FkIuDni);
+                if (usuarioModalidad.FkIuDniPareja == 0)
+                {
+                    usuarioModalidad.FkIuDniPareja = null;
+                }
 
-                int cantidad = codigoParticipante.Count();
-                */
+                var codigoUsuarioModalidad = (from m in _context.TUsuarioModalidad
+                                              where m.FkIuDni == usuarioModalidad.FkIuDni
+                                              select m.FkIuDni);
 
-                _context.Add(usuarioModalidad);
-                _context.SaveChanges();
-                code = "Save";
-                des = "Save";
-/*
+                int cantidad = codigoUsuarioModalidad.Count();
+
                 if (cantidad == 0)
                 {
-                    
+                    _context.Add(usuarioModalidad);
+                    _context.SaveChanges();
+                    code = "Save";
+                    des = "Save";
                 }
                 else
                 {
                     code = "Existe";
-                    //des = "Save";
+                  
                 }
-                */
             }
             catch (Exception e)
             {
@@ -115,13 +115,8 @@ namespace SGIAMTP.Models
                 VuFoto = VuFoto
             };
 
-
-
             try
             {
-                Console.WriteLine(usuario.PkIuDni);
-                //var codigoUsuario = _context.TUsuario.SingleOrDefault(u => u.PkIuDni == usuario.PkIuDni);
-
                 var codigoUsuario = (from u in _context.TUsuario
                                      where u.PkIuDni == usuario.PkIuDni
                                      select u.PkIuDni);
@@ -138,7 +133,6 @@ namespace SGIAMTP.Models
                 else
                 {
                     code = "Existe";
-                    //des = "Save";
                 }
 
             }

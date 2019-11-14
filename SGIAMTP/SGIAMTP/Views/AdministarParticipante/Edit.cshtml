@@ -4,65 +4,98 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+    <style>
+        #contenedor {
+            margin-top: 20px;
+        }
 
-<h4>TUsuarioModalidad</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PkIumCodUm" />
-            <div class="form-group">
-                <label asp-for="FkIuDni" class="control-label"></label>
-                <select asp-for="FkIuDni" class="form-control" asp-items="ViewBag.FkIuDni"></select>
-                <span asp-validation-for="FkIuDni" class="text-danger"></span>
+        #temporal {
+            margin-top: 10px;
+        }
+    </style>
+<div id="contenedor" class="container-fluid" style="font-size:16px; font-family:'Century Gothic'">
+    <div class="row col-xs-12 col-md-12 col-lg-12">
+        <div class="col-lg-2"></div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div>
+                    <h4 class="panel-title">Editar Participantes - Administardor</h4>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="FkIcIdConcurso" class="control-label"></label>
-                <select asp-for="FkIcIdConcurso" class="form-control" asp-items="ViewBag.FkIcIdConcurso"></select>
-                <span asp-validation-for="FkIcIdConcurso" class="text-danger"></span>
+
+            <div class="panel panel-body form-group">
+
+                <div class="form-group">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="PkIumCodUm" />
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="FkIuDni" class="control-label">Dni:</label>
+                                @*<select asp-for="FkIuDni" class="form-control" asp-items="ViewBag.FkIuDni"></select>*@
+                                <input asp-for="FkIuDni" class="form-control" />
+                                <span asp-validation-for="FkIuDni" class="text-danger"></span>
+                            </div>
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="FkIcIdConcurso" class="control-label">Concurso:</label>
+                                <select asp-for="FkIcIdConcurso" class="form-control" asp-items="ViewBag.FkIcIdConcurso"></select>
+                                <span asp-validation-for="FkIcIdConcurso" class="text-danger"></span>
+                            </div>
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="FkImIdModalidad" class="control-label">Modalidad:</label>
+                                <select asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad"></select>
+                                <span asp-validation-for="FkImIdModalidad" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="IumFase" class="control-label">Fase:</label>
+                                <input asp-for="IumFase" class="form-control" />
+                                <span asp-validation-for="IumFase" class="text-danger"></span>
+                            </div>
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="FkIuDniPareja" class="control-label">Pareja:</label>
+                                <select asp-for="FkIuDniPareja" class="form-control" asp-items="ViewBag.FkIuDniPareja"></select>
+                                <span asp-validation-for="FkIuDniPareja" class="text-danger"></span>
+                            </div>
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="DumFechaIns" class="control-label">Fecha de Inscripción:</label>
+                                <input asp-for="DumFechaIns" class="form-control" />
+                                <span asp-validation-for="DumFechaIns" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="row col-xs-12 col-md-12 col-lg-12">
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="VmUmArchivoDni" class="control-label">Archivo Dni:</label>
+                                <input asp-for="VmUmArchivoDni" class="form-control" type="file" />
+                                <span asp-validation-for="VmUmArchivoDni" class="text-danger"></span>
+                            </div>
+                            <div class="form-group  col-xs-4 col-md-4 col-lg-4">
+                                <label asp-for="VmUmArchivoB" class="control-label">Archivo Pago:</label>
+                                <input asp-for="VmUmArchivoB" class="form-control" type="file" />
+                                <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
+                            </div>
+                            <div class="form-group  col-xs-2 col-md-2 col-lg-2">
+                                <label class="control-label"> </label>
+                                <input type="submit" value="Actualizar" class="form-control btn btn-success" />
+                            </div>
+                            <div class="form-group  col-xs-2 col-md-2 col-lg-2">
+                                <label class="control-label"> </label>
+                                <a asp-action="Index" class="form-control btn btn-danger">Volver</a>
+                            </div>
+                        </div>
+                           
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="FkImIdModalidad" class="control-label"></label>
-                <select asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad"></select>
-                <span asp-validation-for="FkImIdModalidad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IumFase" class="control-label"></label>
-                <input asp-for="IumFase" class="form-control" />
-                <span asp-validation-for="IumFase" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FkIuDniPareja" class="control-label"></label>
-                <select asp-for="FkIuDniPareja" class="form-control" asp-items="ViewBag.FkIuDniPareja"></select>
-                <span asp-validation-for="FkIuDniPareja" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DumFechaIns" class="control-label"></label>
-                <input asp-for="DumFechaIns" class="form-control" />
-                <span asp-validation-for="DumFechaIns" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VmUmArchivoDni" class="control-label"></label>
-                <input asp-for="VmUmArchivoDni" class="form-control" />
-                <span asp-validation-for="VmUmArchivoDni" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VmUmArchivoB" class="control-label"></label>
-                <input asp-for="VmUmArchivoB" class="form-control" />
-                <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

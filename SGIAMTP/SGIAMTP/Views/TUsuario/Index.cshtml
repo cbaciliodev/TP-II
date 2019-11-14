@@ -33,9 +33,9 @@
                                 <th class="text-center">
                                     Fecha de Nacimiento
                                 </th>
-                                <th class="text-center">
+                                @*<th class="text-center">
                                     Contraseña
-                                </th>
+                                </th>*@
                                 <th class="text-center">
                                     Genero
                                 </th>
@@ -51,49 +51,53 @@
                                 <th class="text-center">
                                     Categoria
                                 </th>
-                                <th class="text-center" colspan="3">Acci&oacute;n</th>
+                                <th class="text-center" colspan="2">Acci&oacute;n</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.VuNombre)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.VuApaterno)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.VuAmaterno)
-                                    </td>
-                                    <td class="text-center">
-                                        @Html.DisplayFor(modelItem => item.DuFechaNacimiento)
-                                    </td>
-                                    <td class="text-center">
-                                        @Html.DisplayFor(modelItem => item.VuContraseña)
-                                    </td>
-                                    <td class="text-center">
-                                        @Html.DisplayFor(modelItem => item.VuSexo)
-                                    </td>
-                                    <td class="text-center">
-                                        @Html.DisplayFor(modelItem => item.VuNacademia)
-                                    </td>
-                                    <td class="text-center">
-                                        @Html.DisplayFor(modelItem => item.FkIuCodCategoria)
-                                    </td>
-                                    <td class="text-center">
-                                        @Html.DisplayFor(modelItem => item.FkItuTipoUsuarioNavigation.VtuNombreTipoUsuario)
-                                    </td>
-                                    <td class="text-center">
-                                        @Html.DisplayFor(modelItem => item.FkIuCodCategoriaNavigation.VcNomCategoria)
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PkIuDni">Editar</a>
-                                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PkIuDni">Detalle</a>
-                                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PkIuDni">Eliminar</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VuNombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VuApaterno)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VuAmaterno)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.DuFechaNacimiento)
+                                </td>
+                                @*<td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.VuContraseña)
+                                </td>*@
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.VuSexo)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.VuNacademia)
+                                </td>
+                                <td class="text-center">
+                                    <img src="@Html.DisplayFor(modelItem => item.VuFoto)" alt="Alternate Text" style="height:50px"/>
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.FkItuTipoUsuarioNavigation.VtuNombreTipoUsuario)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.FkIuCodCategoriaNavigation.VcNomCategoria)
+                                </td>
+                                <td class="text-center">
+                                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PkIuDni">Editar</a>
+                                </td>
+                                @*<td class="text-center">
+                                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PkIuDni">Detalle</a>
+                                </td>*@
+                                <td class="text-center">
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PkIuDni">Eliminar</a>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>

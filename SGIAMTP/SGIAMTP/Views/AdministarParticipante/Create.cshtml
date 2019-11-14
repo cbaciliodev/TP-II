@@ -1,4 +1,4 @@
-﻿@model SGIAMTP.Models.TUsuarioModalidad
+﻿@*@model SGIAMTP.Models.TUsuarioModalidad*@
 
 @{
     ViewData["Title"] = "Create";
@@ -39,14 +39,10 @@
                     <h4 class="panel-title">Registro de Participantes - Administardor</h4>
                 </div>
             </div>
-
             <div class="panel panel-body form-group">
-
                 <div class="form-group">
-
-
                     @*<form method="post" asp-controller="TUsuarioModalidad" asp-action="Create">*@
-                    <form>
+                    <form asp-action="">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="row col-xs-12 col-md-12 col-lg-12">
@@ -59,13 +55,13 @@
                                 </select>
                                 <span class="text-danger" id="usuario_result"></span>
                                 @*<input asp-for="FkIuDni" type="text" value="" id="FkIuDni" hidden />
-                                    <span asp-validation-for="FkIuDni" class="text-danger"></span>*@
+                                <span asp-validation-for="FkIuDni" class="text-danger"></span>*@
                             </div>
                             <!--Codigo de Participante - Fin -->
                             <!--Concurso - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label for="codigoConcurso" class="control-label">Concurso:</label>
-                                <select  onclick="javascript: validarConcurso(this.value);" class="form-control" id="codigoConcurso">
+                                <select onclick="javascript: validarConcurso(this.value);" class="form-control" id="codigoConcurso">
                                     <option value="0">Seleccione</option>
                                 </select>
                                 <span class="text-danger" id="codigoConcurso_result"></span>
@@ -82,9 +78,7 @@
                             </div>
                             <!--Modalidad - Fin -->
                         </div>
-
                         <div class="row col-xs-12 col-md-12 col-lg-12">
-
                             <!--Fase - Inicio -->
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
 
@@ -95,7 +89,7 @@
                                     <option value="Final Uno">Final Uno</option>
                                 </select>
                                 @*<span asp-validation-for="IumFase" class="text-danger"></span>
-                                    <input asp-for="IumFase" type="text" value="" id="fase" hidden />*@
+                                <input asp-for="IumFase" type="text" value="" id="fase" hidden />*@
                             </div>
                             <!--Fase - Fin -->
                             <!--Pareja - Inicio -->
@@ -115,47 +109,31 @@
                             </div>
                             <!--Fecha de Inscripcion - Fin -->
                         </div>
-
                         <div class="row col-xs-12 col-md-12 col-lg-12">
-
                             <!--Archivo adjunto DNI - Inicio -->
                             <div class="form-group  col-xs-6 col-md-6 col-lg-6">
-
                                 <label class="control-label">Archivo Adjunto DNI:</label>
-
                                 <div class="input-group">
-
                                     <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
-                                    <input onchange="javascript:archivoDnipdf();" id="VmUmArchivoDni" aria-describedby="basic-addon3" name="archivoDni" type="file" accept="application/pdf" class="form-control" value="a"/>
+                                    <input onchange="javascript:validarDniParticipante(this.value);" id="VmUmArchivoDni_participante" aria-describedby="basic-addon3" name="archivoDni" type="file"  class="form-control" value="a" />
                                     <span class="text-danger" id="dni_result"></span>
                                     @*<span asp-validation-for="VmUmArchivoB" class="text-danger"></span>*@
-                                    @*<textarea value="" asp-for="VmUmArchivoDni" id="data" hidden></textarea>*@
+                                    <textarea id="data_VmUmArchivoDni_participante" hidden ></textarea>
                                 </div>
-
-
-
-
                             </div>
                             <!--Archivo adjunto DNI - Fin -->
                             <!--Archivo adjunto Boleta de Pago - Inicio -->
                             <div class="form-group  col-xs-6 col-md-6 col-lg-6">
-
                                 <label class="control-label">Voucher de Pago:</label>
-
                                 <div class="input-group">
 
                                     <span class="input-group-addon" id="basic-addon3"><i class="fa fa-cloud"></i></span>
-                                    <input onchange="javascript: reciboPago();" id="archivoPago" aria-describedby="basic-addon3" name="archivoPago" type="file" accept="application/pdf" class="form-control" value="a"/>
+                                    <input onchange="javascript: validarPagoParticipante(this.value);" id="archivoPago_participante" aria-describedby="basic-addon3" name="archivoPago" type="file" class="form-control" value="a" />
                                     <span class="text-danger" id="recibo_result"></span>
                                     @*<span asp-validation-for="VmUmArchivoB" class="text-danger"></span>*@
-                                    @*<textarea asp-for="VmUmArchivoB" id="recibo" hidden></textarea>*@
+                                    <textarea  id="recibo_archivoPago_participante" hidden ></textarea>
                                 </div>
-
-
-
                             </div>
-
-
                             <!--Archivo adjunto Boleta de Pago - Fin -->
                         </div>
 
@@ -284,7 +262,7 @@
                                         <!--Categoria - Inicio -->
                                         <div class="form-group  col-xs-6 col-md-6 col-lg-6">
                                             <label for="categoria" class="control-label">Categoria:</label>
-                                            <select id="categoria" class="form-control">
+                                            <select id="categoria" class="form-control" disabled>
                                                 <option value="0" selected>Seleccione...</option>
 
                                             </select>
@@ -301,23 +279,33 @@
                                             <input onchange="javascript:validarImagen(this.value);" type="file" class="form-control" placeholder="Imagen" id="imagen" value="" />
                                             <span class="text-danger" id="imagen_result"></span>
                                         </div>
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                            <label for="academia" class="control-label">Nombre de Academia:</label>
+                                            <input onchange="javascript:validarAcademia(this.value);" type="text" class="form-control" placeholder="Nombre de Academia" id="academia" value="Academia" />
+                                            <span class="text-danger" id="academia_result"></span>
+                                        </div>
+
                                         <!--Foto - Fin -->
                                         <!--Preview - Inicio -->
-                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
-                                            <label for="imagen" class="control-label">Ver</label>
-                                            <button type="button" class="btn btn-warning">ver</button>
-                                        </div>
                                         <!--Preview - Fin -->
                                     </div>
 
                                     <div class="row col-xs-12 col-md-12 col-lg-12">
                                         <!--Foto - Inicio -->
-                                        <div class="form-group  col-xs-12 col-md-12 col-lg-12">
-                                            <label for="academia" class="control-label">Nombre de Academia:</label>
-                                            <input onchange="javascript:validarAcademia(this.value);" type="text" class="form-control" placeholder="Nombre de Academia" id="academia" value="Academia" />
-                                            <span class="text-danger" id="academia_result"></span>
-                                        </div>
+                                        @*<div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                                <label for="academia" class="control-label">Nombre de Academia:</label>
+                                                <input onchange="javascript:validarAcademia(this.value);" type="text" class="form-control" placeholder="Nombre de Academia" id="academia" value="Academia" />
+                                                <span class="text-danger" id="academia_result"></span>
+                                            </div>*@
                                         <!--Foto - Fin -->
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6">
+                                            <textarea id="codigoFoto" hidden></textarea>
+                                        </div>
+
+                                        <div class="form-group  col-xs-6 col-md-6 col-lg-6" id="verFoto">
+                                            @*<label for="imagen" class="control-label">Ver</label>
+                                                <button type="button" class="btn btn-warning">ver</button>*@
+                                        </div>
                                     </div>
 
                                     <div class="row col-xs-12 col-md-12 col-lg-12">
@@ -345,8 +333,6 @@
 @section Scripts {
 
     <script src="~/js/site.js"></script>
-    <script src="~/js/AdministrarParticipante.js"></script>
-    <script src="~/js/RegistrarUsuario.js"></script>
     <script src="~/js/Usuario.js"></script>
     <script src="~/js/UsuarioModalidad.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

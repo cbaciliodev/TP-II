@@ -17,9 +17,11 @@ var guardarRegistroUsuario = () => {
     var VuContraseña = document.getElementById('password').value;
     var VuSexo = document.getElementById('sexo').value;
     var FkIuCodCategoria = document.getElementById('categoria').value;
-    var VuFoto = document.getElementById('imagen').value;
+    var VuFoto = document.getElementById('codigoFoto').value;
     var VuNacademia = document.getElementById('academia').value;
     var FkItuTipoUsuario = 1;
+
+    //alert(VuFoto);
 
     console.log('SiTE INICIO');
     console.log(accion + ' accion ');
@@ -64,8 +66,8 @@ var guardarRegistroParticipante = () => {
     var IumFase = document.getElementById('faseModalidad').value;
     var FkIuDniPareja = document.getElementById('pareja').value;
     var DumFechaIns = document.getElementById('fechaIncripcion').value;
-    var VmUmArchivoDni = document.getElementById('VmUmArchivoDni').value;
-    var VmUmArchivoB = document.getElementById('archivoPago').value;
+    var VmUmArchivoDni = document.getElementById('data_VmUmArchivoDni_participante').value;
+    var VmUmArchivoB = document.getElementById('recibo_archivoPago_participante').value;
     var FkIeEstado = 3;
 
 

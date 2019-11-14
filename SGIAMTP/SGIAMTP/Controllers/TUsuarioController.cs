@@ -82,8 +82,8 @@ namespace SGIAMTP.Controllers
             {
                 return NotFound();
             }
-            ViewData["FkItuTipoUsuario"] = new SelectList(_context.TTipoUsuario, "PkItuTipoUsuario", "PkItuTipoUsuario", tUsuario.FkItuTipoUsuario);
-            ViewData["FkIuCodCategoria"] = new SelectList(_context.TCategoria, "PkIcCodCat", "PkIcCodCat", tUsuario.FkIuCodCategoria);
+            ViewData["FkItuTipoUsuario"] = new SelectList(_context.TTipoUsuario, "PkItuTipoUsuario", "VtuNombreTipoUsuario", tUsuario.FkItuTipoUsuario);
+            ViewData["FkIuCodCategoria"] = new SelectList(_context.TCategoria, "PkIcCodCat", "VcNomCategoria", tUsuario.FkIuCodCategoria);
             return View(tUsuario);
         }
 

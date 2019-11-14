@@ -53,7 +53,7 @@
                             <th class="text-center">
                                 Pareja
                             </th>
-                            <th class="text-center" colspan="3">Acci&oacute;n</th>
+                            <th class="text-center" colspan="2">Acci&oacute;n</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -92,9 +92,9 @@
                                     <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PkIumCodUm">Editar</a>
                                 </td>
 
-                                <td class="text-center">
+                                @*<td class="text-center">
                                     <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PkIumCodUm">Detalles</a>
-                                </td>
+                                </td>*@
 
                                 <td class="text-center">
                                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PkIumCodUm">Eliminar</a>
@@ -117,7 +117,7 @@
                 <button type="button" class="close" data-dismiss="modal">×</button>
                 <h4 class="modal-title">Archivo Adjunto</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-center">
                 <embed id="mostarPdf" width="580" height="375"
                        type="application/pdf" src="">
             </div>
