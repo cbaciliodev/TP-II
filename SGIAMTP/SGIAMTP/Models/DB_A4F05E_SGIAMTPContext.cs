@@ -30,8 +30,9 @@ namespace SGIAMTP.Models
             {
                 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                // optionsBuilder.UseSqlServer("Server=sql5047.site4now.net;Database=DB_A4F05E_SGIAMTP;User Id=DB_A4F05E_SGIAMTP_admin;Password=123456789gg;MultipleActiveResultSets=True;");
-                optionsBuilder.UseSqlServer("Data Source=LENOVO;Initial Catalog=DB_A4F05E_SGIAMTP;Integrated Security=True");
-                
+                //optionsBuilder.UseSqlServer("Data Source=LENOVO;Initial Catalog=DB_A4F05E_SGIAMTP;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=LACING202A-06;Initial Catalog=DB_A4F05E_SGIAMTP;Integrated Security=True");
+
             }
         }
 

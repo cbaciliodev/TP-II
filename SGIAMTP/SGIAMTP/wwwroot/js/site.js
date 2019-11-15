@@ -8,7 +8,8 @@
 
 var guardarRegistroUsuario = () => {
 
-    var accion = "RegistarUsuarioAdmin/AgregarUsuario";
+    //var accion = "AgregarUsuario";
+    var accion = "/RegistarUsuarioAdmin/AgregarUsuario";
     var PkIuDni = document.getElementById('identificacion').value;
     var VuNombre = document.getElementById('nombre').value;
     var VuApaterno = document.getElementById('apaterno').value;

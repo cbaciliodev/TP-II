@@ -16,7 +16,7 @@ namespace SGIAMTP.Models
         public string VuNombre { get; set; }
         public string VuApaterno { get; set; }
         public string VuAmaterno { get; set; }
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? DuFechaNacimiento { get; set; }
         public string VuContraseña { get; set; }
         public string VuSexo { get; set; }

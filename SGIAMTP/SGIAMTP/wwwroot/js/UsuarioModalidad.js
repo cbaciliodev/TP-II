@@ -102,9 +102,6 @@ class UsuarioModalidad {
                                             }
                                         }
                                     });
-
-
-
                                 }
                             }
                         }
@@ -127,8 +124,6 @@ class UsuarioModalidad {
     };
 
 }
-
-
 
 function validarConcurso(concurso) {
     if (concurso != "") {
@@ -153,7 +148,7 @@ $(document).ready(function () {
 
 
 function validarDniParticipante(dni) {
-    alert(dni)
+    //alert(dni)
     if (dni != "") {
         encodeDni();
         document.getElementById("dni_result").innerHTML = ``;
@@ -162,7 +157,7 @@ function validarDniParticipante(dni) {
 
 
 function validarPagoParticipante(pago) {
-    alert(pago)
+    //alert(pago)
     if (pago != "") {
         encodePago();
         document.getElementById("recibo_result").innerHTML = ``;
