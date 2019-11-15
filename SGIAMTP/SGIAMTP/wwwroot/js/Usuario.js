@@ -367,7 +367,7 @@ function encode() {
         fileReader.onload = function (fileLoadedEvent) {
 
             var srcData = fileLoadedEvent.target.result;
-
+            alert(srcData);
             var newImage = document.createElement('img');
             newImage.src = srcData;
             newImage.style.height = "100px";

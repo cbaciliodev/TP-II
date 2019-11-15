@@ -1,4 +1,12 @@
-﻿var promesa = new Promise((resolve, reject) => {
+﻿$(document).ready(function () {
+
+    getListaConcurso_Gestor();
+    //getListaPareja_Gestor();
+    getListaParticipantes_Gestor();
+    getListarModaliad_Gestor();
+});
+
+var promesa = new Promise((resolve, reject) => {
 
 });
 
@@ -28,8 +36,6 @@ class UsuarioModalidad {
         this.VmUmArchivoB = VmUmArchivoB;
         this.FkIeEstado = FkIeEstado;
     }
-
-
 
     guardarParticipante() {
 
@@ -61,7 +67,6 @@ class UsuarioModalidad {
                                 } else {
 
                                     console.log(this.accion_participante + " this.accion_participante");
-
 
                                     var _accion_participante = this.accion_participante;
                                     var FkIuDni = this.FkIuDni;
@@ -119,15 +124,15 @@ class UsuarioModalidad {
         document.getElementById('faseModalidad').selectedIndex = 0;
         document.getElementById('pareja').selectedIndex = 0;
         document.getElementById('fechaIncripcion').value = "";
-        document.getElementById('VmUmArchivoDni').value = "";
-        document.getElementById('archivoPago').value = "";
+        document.getElementById('VmUmArchivoDni_participante').value = "";
+        document.getElementById('recibo_archivoPago_participante').value = "";
     };
 
 }
 
 function validarConcurso(concurso) {
     if (concurso != "") {
-        document.getElementById("codigoConcurso_result").innerHTML = ``;
+        document.getElementById("codigoConcurso_result").innerHTML = ``;       
     }
 }
 
@@ -137,16 +142,6 @@ function validarFecha(fecha) {
     }
 }
 
-
-$(document).ready(function () {
-
-    getListaConcurso();
-    getListaPareja();
-    getListaParticipantes();
-    getListarModaliad();
-});
-
-
 function validarDniParticipante(dni) {
     //alert(dni)
     if (dni != "") {
@@ -154,7 +149,6 @@ function validarDniParticipante(dni) {
         document.getElementById("dni_result").innerHTML = ``;
     }
 };
-
 
 function validarPagoParticipante(pago) {
     //alert(pago)
@@ -164,7 +158,7 @@ function validarPagoParticipante(pago) {
     }
 };
 
-function habilitar() {
+function habilitar_Fase() {
 
     var valor = document.getElementById("modalidadConcurso").value;
 
@@ -180,8 +174,8 @@ function habilitar() {
         var todos = "Eliminatorio"
         //document.getElementById("fase").value = todos;
         document.getElementById("faseModalidad").value = todos;
+        getListaPareja_Gestor();
         document.getElementById("pareja").disabled = false;
-        getListaPareja();
 
     } else {
 
@@ -197,8 +191,7 @@ function habilitar() {
     }
 }
 
-
-var getListaConcurso = function () {
+var getListaConcurso_Gestor = function () {
 
     $.ajax({
         url: "/AdministarParticipante/GetConcurso",
@@ -219,8 +212,7 @@ var getListaConcurso = function () {
     });
 };
 
-
-var getListarModaliad = function () {
+var getListarModaliad_Gestor = function () {
 
     $.ajax({
         url: "/AdministarParticipante/GetModalidad",
@@ -238,15 +230,15 @@ var getListarModaliad = function () {
             });
         },
         error: function (response) {
-        }
+        }        
     });
 };
 
 
-var getListaPareja = function () {
-
-    var sexo = document.getElementById('sexoParticipante').value;
-
+//var getListaPareja_Gestor = function () {
+function getListaPareja_Gestor() {
+    var sexo = document.getElementById('sexo_pareja').value;
+    console.log(sexo +  " sexo participante");
     $.ajax({
         url: "/AdministarParticipante/GetPareja",
         type: "GET",
@@ -268,7 +260,7 @@ var getListaPareja = function () {
     });
 };
 
-var getListaParticipantes = function () {
+var getListaParticipantes_Gestor = function () {
 
     $.ajax({
         url: "/AdministarParticipante/GetParticipante",
@@ -292,27 +284,38 @@ function obtenerInfoParticipante() {
 
     var dni = document.getElementById("usuario").value;
 
-    $.ajax({
-        url: "/AdministarParticipante/GetParticipanteDatos",
-        type: "GET",
-        data: { ddni: dni },
-        contentType: "application/json; charset=utf-8",
-        success: function (response) {
+    if (dni == 0) {
+        console.log(dni + " cuando es 0");
+        document.getElementById('modalidadConcurso').selectedIndex = 0;
+        document.getElementById('faseModalidad').selectedIndex = 0;
+        document.getElementById('pareja').selectedIndex=0;
 
-            document.getElementById("codigo_ajax").innerHTML = response.usuarioDatosRegistro[0].codigo;
-            document.getElementById("nombre_ajax").innerHTML = response.usuarioDatosRegistro[0].nombre;
-            document.getElementById("apaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].paterno;
-            document.getElementById("amaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].materno;
-            document.getElementById("sexo_ajax").innerHTML = response.usuarioDatosRegistro[0].sexo;
+    } else if (dni != 0) {
+        document.getElementById('modalidadConcurso').selectedIndex = 0;
+        document.getElementById('faseModalidad').selectedIndex = 0;
+        document.getElementById('pareja').selectedIndex = 0;
+        console.log(dni + " cuando es diferente a 0");
 
-            console.log(response.usuarioDatosRegistro);
+        $.ajax({
+            url: "/AdministarParticipante/GetParticipanteDatos",
+            type: "GET",
+            data: { ddni: dni },
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
 
-        },
-        error: function (response) {
+                document.getElementById("codigo_ajax").innerHTML = response.usuarioDatosRegistro[0].codigo;
+                document.getElementById("nombre_ajax").innerHTML = response.usuarioDatosRegistro[0].nombre;
+                document.getElementById("apaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].paterno;
+                document.getElementById("amaterno_ajax").innerHTML = response.usuarioDatosRegistro[0].materno;
+                document.getElementById("sexo_ajax").innerHTML = response.usuarioDatosRegistro[0].sexo;
+                document.getElementById("sexo_pareja").value = response.usuarioDatosRegistro[0].sexo;
 
-        }
+                console.log(response.usuarioDatosRegistro);
+            },
+            error: function (response) {
+            }
     });
-
+    }
     document.getElementById("usuario_result").innerHTML = ``;
 }
 

@@ -60,7 +60,7 @@ var guardarRegistroUsuario = () => {
 
 var guardarRegistroParticipante = () => {
 
-    var accion_participante = "AdministarParticipante/AgregarUsuarioParticipante";
+    var accion_participante = "/AdministarParticipante/AgregarUsuarioParticipante";
     var FkIuDni = document.getElementById('usuario').value;
     var FkIcIdConcurso = document.getElementById('codigoConcurso').value;
     var FkImIdModalidad = document.getElementById('modalidadConcurso').value;

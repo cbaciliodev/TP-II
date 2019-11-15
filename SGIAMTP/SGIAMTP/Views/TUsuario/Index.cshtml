@@ -7,7 +7,8 @@
 <div class="container-fluid col-xs-12 col-md-12 col-lg-12" style="font-size:16px; font-family:'Century Gothic'">
 
     <div class="form-group " style="margin-top:10px">
-        <a asp-controller="AdministarParticipante" asp-action="Index" class="btn btn-primary">Lista Participantes</a>        
+        @*<a asp-controller="AdministarParticipante" asp-action="Index" class="btn btn-primary">Lista Participantes</a>*@
+        <a class="btn btn-danger" asp-controller="Home" asp-action="About">Volver al Menú</a>
     </div>
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -57,44 +58,44 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>
+                            <tr >
+                                <td style="vertical-align:middle;">
                                     @Html.DisplayFor(modelItem => item.VuNombre)
                                 </td>
-                                <td>
+                                <td style="vertical-align:middle;"> 
                                     @Html.DisplayFor(modelItem => item.VuApaterno)
                                 </td>
-                                <td>
+                                <td style="vertical-align:middle;">
                                     @Html.DisplayFor(modelItem => item.VuAmaterno)
                                 </td>
-                                <td class="text-center">
+                                <td style="vertical-align:middle;" class="text-center">
                                     @Html.DisplayFor(modelItem => item.DuFechaNacimiento)
                                 </td>
                                 @*<td class="text-center">
                                         @Html.DisplayFor(modelItem => item.VuContraseña)
                                     </td>*@
-                                <td class="text-center">
+                                <td style="vertical-align:middle;" class="text-center">
                                     @Html.DisplayFor(modelItem => item.VuSexo)
                                 </td>
-                                <td class="text-center">
+                                <td style="vertical-align:middle;" class="text-center">
                                     @Html.DisplayFor(modelItem => item.VuNacademia)
                                 </td>
-                                <td class="text-center">
-                                    <img src="@Html.DisplayFor(modelItem => item.VuFoto)" alt="Alternate Text" style="height:50px" />
+                                <td style="vertical-align:middle;" class="text-center">
+                                    <img src="@Html.DisplayFor(modelItem => item.VuFoto)" alt="Alternate Text" style="height:60px" />
                                 </td>
-                                <td class="text-center">
+                                <td style="vertical-align:middle;" class="text-center">
                                     @Html.DisplayFor(modelItem => item.FkItuTipoUsuarioNavigation.VtuNombreTipoUsuario)
                                 </td>
-                                <td class="text-center">
+                                <td style="vertical-align:middle;" class="text-center">
                                     @Html.DisplayFor(modelItem => item.FkIuCodCategoriaNavigation.VcNomCategoria)
                                 </td>
-                                <td class="text-center">
+                                <td style="vertical-align:middle;" class="text-center">
                                     <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PkIuDni">Editar</a>
                                 </td>
                                 @*<td class="text-center">
                                         <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PkIuDni">Detalle</a>
                                     </td>*@
-                                <td class="text-center">
+                                <td style="vertical-align:middle;" class="text-center">
                                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PkIuDni">Eliminar</a>
                                 </td>
                             </tr>
