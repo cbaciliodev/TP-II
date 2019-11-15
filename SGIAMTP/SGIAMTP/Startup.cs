@@ -32,9 +32,9 @@ namespace SGIAMTP
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
 
-            //var connection = @"Server=sql5047.site4now.net;Database=DB_A4F05E_SGIAMTP;User Id=DB_A4F05E_SGIAMTP_admin;Password=123456789gg;MultipleActiveResultSets=True;ConnectRetryCount=0";
+            var connection = @"Server=sql5047.site4now.net;Database=DB_A4F05E_SGIAMTP;User Id=DB_A4F05E_SGIAMTP_admin;Password=123456789gg;MultipleActiveResultSets=True;ConnectRetryCount=0";
             //var connection = @"Data Source=LENOVO;Initial Catalog=DB_A4F05E_SGIAMTP;Integrated Security=True";
-            var connection = @"Data Source=LACING202A-06;Initial Catalog=DB_A4F05E_SGIAMTP;Integrated Security=True";
+            //var connection = @"Data Source=LACING202A-06;Initial Catalog=DB_A4F05E_SGIAMTP;Integrated Security=True";
             services.AddDbContext<DB_A4F05E_SGIAMTPContext>(options => options.UseSqlServer(connection));
 
             //Data Source=LACING202A-06;Initial Catalog=DB_A4F05E_SGIAMTP;Integrated Security=True
