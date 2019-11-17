@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     $('#usuario option[value=' + codigoUsuario + ']').attr("selected", true);
 
-    document.getElementById("FkIuDni").value = codigoUsuario;
+    document.getElementById("codigo_ajax").value = codigoUsuario;
 });
 
 

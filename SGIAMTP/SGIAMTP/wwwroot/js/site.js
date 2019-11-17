@@ -8,7 +8,8 @@
 
 var guardarRegistroUsuario = () => {
 
-    var accion = "RegistarUsuarioAdmin/AgregarUsuario";
+    //var accion = "AgregarUsuario";
+    var accion = "/RegistarUsuarioAdmin/AgregarUsuario";
     var PkIuDni = document.getElementById('identificacion').value;
     var VuNombre = document.getElementById('nombre').value;
     var VuApaterno = document.getElementById('apaterno').value;
@@ -59,7 +60,7 @@ var guardarRegistroUsuario = () => {
 
 var guardarRegistroParticipante = () => {
 
-    var accion_participante = "AdministarParticipante/AgregarUsuarioParticipante";
+    var accion_participante = "/AdministarParticipante/AgregarUsuarioParticipante";
     var FkIuDni = document.getElementById('usuario').value;
     var FkIcIdConcurso = document.getElementById('codigoConcurso').value;
     var FkImIdModalidad = document.getElementById('modalidadConcurso').value;

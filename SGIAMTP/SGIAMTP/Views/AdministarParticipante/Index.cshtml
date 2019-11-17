@@ -15,7 +15,8 @@
 <br />
 <div id="contenedor" class="container-fluid" style="font-size:16px; font-family:'Century Gothic'">
 
-    <a class="btn btn-success" asp-action="Create">Registrar Participante</a>
+    @*<a class="btn btn-success" asp-action="Create">Registrar Participante</a>*@
+    <a class="btn btn-danger" asp-controller="Home" asp-action="About">Volver al Menú</a>
     <br /><br />
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -93,8 +94,8 @@
                                 </td>
 
                                 @*<td class="text-center">
-                                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PkIumCodUm">Detalles</a>
-                                </td>*@
+                                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PkIumCodUm">Detalles</a>
+                                    </td>*@
 
                                 <td class="text-center">
                                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PkIumCodUm">Eliminar</a>
