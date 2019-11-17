@@ -18,15 +18,9 @@ namespace SGIAMTP.Controllers
             usuarioModel = new ModelContex(context);
         }
 
-        public IActionResult RegistroUsuarioModal()
-        {
-            return View();
-        }
-
         [HttpGet]
         public IActionResult GetListaCategoria()
         {
-
             var listaCategoria = (from c in _context.TCategoria
                                       // where c.FkIecIdEstado == 1
                                   select new CategoriaUsuario()
@@ -37,7 +31,6 @@ namespace SGIAMTP.Controllers
 
             return Json(new { categoria = listaCategoria });
         }
-
         public List<IdentityError> AgregarUsuario(
             int PkIuDni,
             string VuNombre,

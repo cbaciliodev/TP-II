@@ -40,7 +40,7 @@ class UsuarioModalidad {
     guardarParticipante() {
 
         if (this.accion_participante == "") {
-            console.log("No ingrese accion");
+            //console.log("No ingrese accion");
         } else {
             if (this.FkIuDni == 0) {
                 document.getElementById('usuario').focus();
@@ -63,10 +63,10 @@ class UsuarioModalidad {
                                 document.getElementById("recibo_result").innerHTML = `Este Campo es requerido`;
                             } else {
                                 if (this.FkIeEstado == "") {
-                                    console.log('Ingrese el estado');
+                                   // console.log('Ingrese el estado');
                                 } else {
 
-                                    console.log(this.accion_participante + " this.accion_participante");
+                                   // console.log(this.accion_participante + " this.accion_participante");
 
                                     var _accion_participante = this.accion_participante;
                                     var FkIuDni = this.FkIuDni;
@@ -78,6 +78,7 @@ class UsuarioModalidad {
                                     var VmUmArchivoDni = this.VmUmArchivoDni;
                                     var VmUmArchivoB = this.VmUmArchivoB;
                                     var FkIeEstado = this.FkIeEstado;
+
                                     $.ajax({
 
                                         type: "POST",
@@ -94,13 +95,13 @@ class UsuarioModalidad {
                                             FkIeEstado
                                         }, success: (response) => {
 
-                                            console.log(response[0].code);
+                                            //console.log(response[0].code);
 
                                             if ("Save" == response[0].code) {
                                                 swal('Participante', `El Participante: ${FkIuDni} fue Registrado correctamente.`, 'success');
                                                 this.restablecer();
                                             } else if ("Existe" == response[0].code) {
-                                                console.log(response[0].code);
+                                                //console.log(response[0].code);
                                                 swal('Participante', `El Participante ${FkIuDni} ya existe en la Base de datos.`, 'info');
                                             } else {
                                                 swal('Error', `Ocurrio un error en el servidor.`, 'error');
@@ -125,7 +126,11 @@ class UsuarioModalidad {
         document.getElementById('pareja').selectedIndex = 0;
         document.getElementById('fechaIncripcion').value = "";
         document.getElementById('VmUmArchivoDni_participante').value = "";
+        document.getElementById('archivoPago_participante').value = "";
+        document.getElementById('data_VmUmArchivoDni_participante').value = "";
         document.getElementById('recibo_archivoPago_participante').value = "";
+        
+        
     };
 
 }
@@ -219,7 +224,7 @@ var getListarModaliad_Gestor = function () {
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (response) {
-            console.log(response.modalidad)
+            //console.log(response.modalidad)
 
             var selectConcurso = $('#modalidadConcurso');
             selectConcurso.find('option').remove();
@@ -237,8 +242,9 @@ var getListarModaliad_Gestor = function () {
 
 //var getListaPareja_Gestor = function () {
 function getListaPareja_Gestor() {
+
     var sexo = document.getElementById('sexo_pareja').value;
-    console.log(sexo +  " sexo participante");
+   // console.log(sexo +  " sexo participante");
     $.ajax({
         url: "/AdministarParticipante/GetPareja",
         type: "GET",
@@ -285,16 +291,17 @@ function obtenerInfoParticipante() {
     var dni = document.getElementById("usuario").value;
 
     if (dni == 0) {
-        console.log(dni + " cuando es 0");
+        //console.log(dni + " cuando es 0");
         document.getElementById('modalidadConcurso').selectedIndex = 0;
         document.getElementById('faseModalidad').selectedIndex = 0;
         document.getElementById('pareja').selectedIndex=0;
 
     } else if (dni != 0) {
+
         document.getElementById('modalidadConcurso').selectedIndex = 0;
         document.getElementById('faseModalidad').selectedIndex = 0;
         document.getElementById('pareja').selectedIndex = 0;
-        console.log(dni + " cuando es diferente a 0");
+        //console.log(dni + " cuando es diferente a 0");
 
         $.ajax({
             url: "/AdministarParticipante/GetParticipanteDatos",
@@ -310,7 +317,7 @@ function obtenerInfoParticipante() {
                 document.getElementById("sexo_ajax").innerHTML = response.usuarioDatosRegistro[0].sexo;
                 document.getElementById("sexo_pareja").value = response.usuarioDatosRegistro[0].sexo;
 
-                console.log(response.usuarioDatosRegistro);
+                //console.log(response.usuarioDatosRegistro);
             },
             error: function (response) {
             }
@@ -348,7 +355,7 @@ function encodeDni() {
             //document.getElementById("verFoto").innerHTML = newImage.outerHTML;
             //document.getElementById("codigoFoto").value = document.getElementById("verFoto").innerHTML;
             document.getElementById("data_VmUmArchivoDni_participante").value = srcData;
-            console.log(srcData)
+            //console.log(srcData)
         }
         fileReader.readAsDataURL(imageFile);
     }
@@ -357,7 +364,9 @@ function encodeDni() {
 function encodePago() {
 
     var selectedfile = document.getElementById("archivoPago_participante").files;
+
     if (selectedfile.length > 0) {
+
         var imageFile = selectedfile[0];
         var fileReader = new FileReader();
 
@@ -372,8 +381,9 @@ function encodePago() {
             //document.getElementById("verFoto").innerHTML = newImage.outerHTML;
             //document.getElementById("codigoFoto").value = document.getElementById("verFoto").innerHTML;
             document.getElementById("recibo_archivoPago_participante").value = srcData;
-            console.log(srcData)
+            //console.log(srcData)
         }
+
         fileReader.readAsDataURL(imageFile);
     }
 }

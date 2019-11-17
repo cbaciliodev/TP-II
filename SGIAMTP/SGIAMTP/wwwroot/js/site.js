@@ -23,7 +23,7 @@ var guardarRegistroUsuario = () => {
     var FkItuTipoUsuario = 1;
 
     //alert(VuFoto);
-
+    /*
     console.log('SiTE INICIO');
     console.log(accion + ' accion ');
     console.log(PkIuDni + ' PkIuDni ');
@@ -38,7 +38,7 @@ var guardarRegistroUsuario = () => {
     console.log(FkItuTipoUsuario + ' FkItuTipoUsuario ');
     console.log(VuFoto + ' VuFoto ');
     console.log('SiTE fin');
-
+    */
     var usuario = new Usuario(
         accion,
         PkIuDni,

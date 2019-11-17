@@ -43,9 +43,6 @@ namespace SGIAMTP.Controllers
              FkIeEstado);
         }
 
-
-
-
         // GET: AdministarParticipante
         public async Task<IActionResult> Index()
         {

@@ -17,7 +17,7 @@ class Usuario {
         FkItuTipoUsuario,
         VuFoto) {
 
-        console.log(accion + " 1");
+       // console.log(accion + " 1");
         this.accion = accion;
         this.PkIuDni = PkIuDni;
         this.VuNombre = VuNombre;
@@ -30,7 +30,7 @@ class Usuario {
         this.FkIuCodCategoria = FkIuCodCategoria;
         this.FkItuTipoUsuario = FkItuTipoUsuario;
         this.VuFoto = VuFoto;
-
+        /*
         console.log('Usuario INICIO');
         console.log(accion + ' accion ');
         console.log(PkIuDni + ' PkIuDni ');
@@ -58,6 +58,7 @@ class Usuario {
         console.log(this.FkItuTipoUsuario + ' FkItuTipoUsuario ');
         console.log(this.VuFoto + ' VuFoto ');
         console.log('Usuario Fin');
+        */
     }
 
 
@@ -65,7 +66,7 @@ class Usuario {
     agregarUsuario() {
 
         if (this.accion == "") {
-            console.log("No ingrese accion");
+           // console.log("No ingrese accion");
 
         } else {
 
@@ -115,7 +116,7 @@ class Usuario {
                                                     } else {
 
                                                         //aqui entra el post
-                                                        console.log('aqui entra el post' + this.accion);
+                                                       // console.log('aqui entra el post' + this.accion);
 
                                                         var _accion = this.accion;
                                                         var PkIuDni = this.PkIuDni;
@@ -129,7 +130,7 @@ class Usuario {
                                                         var FkIuCodCategoria = this.FkIuCodCategoria;
                                                         var FkItuTipoUsuario = this.FkItuTipoUsuario;
                                                         var VuFoto = this.VuFoto;
-
+/*
                                                         console.log('AJAx INICIO');
                                                         console.log(_accion + " _accion")
                                                         console.log(PkIuDni + ' PkIuDni ');
@@ -144,7 +145,7 @@ class Usuario {
                                                         console.log(FkItuTipoUsuario + ' FkItuTipoUsuario ');
                                                         console.log(VuFoto + ' VuFoto ');
                                                         console.log('AJax fin');
-
+*/
                                                         $.ajax({
                                                             type: "POST",
                                                             url: _accion,
@@ -163,16 +164,16 @@ class Usuario {
 
                                                             }, success: (response) => {
                                                                 if ("Save" == response[0].code) {
-                                                                    console.log(response)
+                                                                    //console.log(response)
 
                                                                     swal('Usuario', 'Registrado correctamente.', 'success');
 
                                                                     this.restablecer();
                                                                 } else if ("Existe" == response[0].code) {
-                                                                    console.log(response[0].code)
+                                                                    //console.log(response[0].code)
                                                                     swal('Usuario', `El usuario ${PkIuDni} ya existe en la Base de datos.`, 'info');
                                                                 } else {
-                                                                    console.log(response)
+                                                                    //console.log(response)
                                                                     swal('Error', `Ocurrio un error en el servidor.`, 'error');
                                                                 }
                                                             }
@@ -246,17 +247,17 @@ function calcularEdadUsuario() {
         var cumpleanos = new Date(fecha);
 
         var edad = hoy.getFullYear() - cumpleanos.getFullYear();
-        console.log(edad);
+        //console.log(edad);
         var m = hoy.getMonth() - cumpleanos.getMonth();
 
         if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
-            console.log(edad);
+           // console.log(edad);
             edad--;
         }
 
         var categoria = document.getElementById("categoria");
 
-        console.log(edad);
+        //console.log(edad);
         if (4 <= edad && edad <= 6) {
             categoria.selectedIndex = 3;
         }
@@ -270,7 +271,7 @@ function calcularEdadUsuario() {
             categoria.selectedIndex = 5;
         }
         else if (18 <= edad && edad <= 21) {
-            alert(edad);
+            //alert(edad);
             çategoria.selectedIndex = 6;
         }
         else if (22 <= edad && edad <= 34) {
@@ -287,7 +288,7 @@ function calcularEdadUsuario() {
             categoria.selectedIndex = 0;
         }
 
-        console.log(edad);
+        //console.log(edad);
 
     }
 
@@ -367,7 +368,7 @@ function encode() {
         fileReader.onload = function (fileLoadedEvent) {
 
             var srcData = fileLoadedEvent.target.result;
-            alert(srcData);
+            //alert(srcData);
             var newImage = document.createElement('img');
             newImage.src = srcData;
             newImage.style.height = "100px";
@@ -375,7 +376,7 @@ function encode() {
             //document.getElementById("verFoto").innerHTML = newImage.outerHTML;
             //document.getElementById("codigoFoto").value = document.getElementById("verFoto").innerHTML;
             document.getElementById("codigoFoto").value = srcData;
-            console.log(srcData)
+            //console.log(srcData)
         }
         fileReader.readAsDataURL(imageFile);
     }
