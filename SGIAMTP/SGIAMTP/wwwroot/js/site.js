@@ -69,7 +69,7 @@ var guardarRegistroParticipante = () => {
     var DumFechaIns = document.getElementById('fechaIncripcion').value;
     var VmUmArchivoDni = document.getElementById('data_VmUmArchivoDni_participante').value;
     var VmUmArchivoB = document.getElementById('recibo_archivoPago_participante').value;
-    var FkIeEstado = 3;
+    var FkIeEstado = 4;
 
 
     var usuarioModalidad = new UsuarioModalidad(

@@ -16,8 +16,6 @@ D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAM
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.TagHelpers.output.cache
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\SGIAMTP.RazorCoreGenerate.cache
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\AdministarParticipante\Create.cshtml.g.cs
-D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\AdministarParticipante\Delete.cshtml.g.cs
-D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\AdministarParticipante\Details.cshtml.g.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\AdministarParticipante\Edit.cshtml.g.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\AdministarParticipante\Index.cshtml.g.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
@@ -39,8 +37,6 @@ D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuarioModalidad\Edit.cshtml.g.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuarioModalidad\Index.cshtml.g.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Create.cshtml.g.cs
-D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Delete.cshtml.g.cs
-D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Details.cshtml.g.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Edit.cshtml.g.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuario\Index.cshtml.g.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
