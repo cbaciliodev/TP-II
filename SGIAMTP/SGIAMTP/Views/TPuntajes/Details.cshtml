@@ -1,0 +1,36 @@
+﻿@model SGIAMTP.Models.TPuntaje
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TPuntaje</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IpPuntaje)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IpPuntaje)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IpNumeroJurado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IpNumeroJurado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FkVumtCodNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FkVumtCodNavigation.PkVumtCod)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PkIpCodP">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

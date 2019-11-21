@@ -1,0 +1,209 @@
+﻿@model IEnumerable<SGIAMTP.Models.TTanda>
+@{
+    ViewData["Title"] = "Buscar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<style type="text/css">
+    .table th, .table td {
+        text-align: center;
+    }
+
+    .btn-inline {
+        margin-top: 20px;
+    }
+
+    .ui-jqgrid-view {
+        background-color: white;
+        /*height: 315px;
+        width: 1050px;
+        background-color: white;*/
+    }
+
+    /*cuerpo*/
+    .ui-jqgrid .ui-jqgrid-btable tbody tr.jqgrow td {
+        overflow: hidden;
+        /*white-space: normal;
+        padding-right: 2px;
+        cursor: pointer;
+        height:auto;
+    overflow:hidden;*/
+        cursor: pointer;
+        height: auto;
+        padding-right: 4px;
+        padding-top: 2px;
+        position: relative;
+        vertical-align: text-top;
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid-bdiv {
+        height: auto !important;
+    }
+    /*cabecera*/
+    table.ui-jqgrid-htable thead th {
+        height: 40px;
+        padding: 0 2px 0 2px;
+        background: #d3dfec;
+        color: black;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+        font-style: initial;
+    }
+
+    .table-responsives {
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+    }
+
+    .table tbody td {
+        padding: 1px 7px 1px 7px !important;
+        height: 30px;
+        font-size: 13px;
+        vertical-align: inherit;
+    }
+    table.ui-pager-table tbody td {
+        padding: 4px 7px 4px 7px !important;
+        background: #d3dfec;
+    }
+    #table-listar-tandas tr td {
+        vertical-align: middle;
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid #ddd;
+        background-color: snow;
+        color: black;
+    }
+    .ui-jqgrid tr.jqgrow td {
+        white-space: nowrap !important;
+        width: 100%;
+        height: 50px;
+    }
+    </style>*@
+<style type="text/css">
+    .card-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+<h2>CALIFICAR</h2>
+<a class="btn btn-danger" asp-controller="Jurado" asp-action="JuradoView">Volver al Menú</a>
+<br /><br />
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="form-group">
+                <label class="text-center text-dark font-weight-bold" for="name">Tanda</label>
+                <select class="col-lg-6 col-md-6 col-sm-6 form-control" id="tandaa">
+                    <option selected>Seleccione</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12" style="width : 20% ; margin: 15px 0px 50px 65px">
+            <div class="form-group">
+                <button onclick="getlistpuntajes(true)" , class="btn btn-dark text-danger" style="margin: 0px 0px 0px 280px"><span class="glyphicon glyphicon-search"></span> Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table" hidden="hidden">
+    <thead>
+        <tr>
+            <th>
+                Tanda
+            </th>
+            <th>
+                Modalidad
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Tipo Tanda
+            </th>
+            <th>
+                Acion
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PkItCodTan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VtDescripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VtDescripcion1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VtTipoTanda)
+                </td>
+                <td>
+                    @if (item.ItEstado == 1)
+                    {
+                        @*<a asp-action="Edit" asp-route-id="@item.PkItCodTan">Edit</a> |*@
+                        @*<a asp-action="Details" asp-route-id="@item.PkItCodTan">Details</a> |*@
+                        @*<a asp-action="Delete" asp-route-id="@item.PkItCodTan">Delete</a>*@
+                        <a asp-action="BuscarT" asp-route-id="@item.PkItCodTan" class="btn btn-block btn-info glyphicon glyphicon-check">Calificar</a>
+                    }
+                    else
+                    {
+                        <p class="text-center text-primary">YA CALIFICADO!</p>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" align="center">
+                <table id="table-listar-tandas" class="table table-responsive"></table>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <div id="pager-listar-tandas" class="card-footer"></div>
+
+            </div>
+
+            <div id="pager-listar-tandas"></div>
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/jquery-1.10.2.min.js"></script>
+    <script src="~/lib/jqGrid/js/i18n/grid.locale-es.js"></script>
+    <script src="~/lib/jqGrid/js/jquery.jqGrid.js"></script>
+    <script src="~/js/JSBuscarTanda.js"></script>
+
+    @*//$(document).ready(function () {
+        //    $("#SearchBtn").click(function () {
+        //        var SearchValue = $("#id").val();
+        //        var SetData = $("#DataSearching");
+        //        SetData.html("");
+        //        $.ajax({
+        //            type: "post",
+        //            url: "/TTandas/Buscar1?SearchValue=" + SearchValue + "",
+        //            contentType:"html",
+        //            success=function (result) {
+
+        //            }
+        //        })
+        //    });
+
+        //}
+        //);*@
+
+}

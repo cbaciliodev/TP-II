@@ -1,0 +1,143 @@
+﻿@model SGIAMTP.Models.TPuntaje
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .btn-dark {
+        background-color: black;
+        text-emphasis-color: crimson;
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<h2>CALIFICAR PARTICIPANTE</h2>
+
+<hr />
+<div class="row">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <h3 class="col-lg-6 col-md-6 col-xs-6 control-label">Nº Tanda:</h3>
+                @*<label class="text-info" name="tanda" id="codt" value="2"></label>*@
+                <input id="codt" value="@TempData["tanda"]" class="form-control col-lg-6 col-md-6 col-xs-6" disabled />
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="col-lg-6 col-md-4 col-xs-12">
+                    <h3 class="control-label">Modalidad:</h3><select class="form-control" id="modalidad" disabled></select>
+                </div>
+                <div class="col-lg-6 col-md-4 col-xs-12">
+                    <h3 class="text-info" name="categ">Categoria:</h3><select class="form-control" id="categoria" disabled></select>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+    <div class="col-lg-offset-12"> <p> </p> </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="col-md-6 col-xs-12 text-center">
+                <a class="btn btn-block btn-lg btn-dark text-danger" data-toggle="modal" data-target="#exampleModal">PISTA 1</a>
+            </div>
+            <hr />
+            <div class="col-md-6 col-xs-12 text-center">
+                <a class="btn btn-block btn-lg btn-dark text-danger" data-toggle="modal" data-target="#exampleModal">PISTA 2</a>
+            </div>
+        </div>
+        <hr />
+        <div class="col-md-12">
+
+            <div class="col-md-6 col-xs-12 text-center">
+                <a class="btn btn-block btn-lg btn-dark text-danger" data-toggle="modal" data-target="#exampleModal">PISTA 3</a>
+            </div>
+            <hr />
+            <div class="col-md-6 col-xs-12 text-center">
+                <a class="btn btn-block btn-lg btn-dark text-danger" data-toggle="modal" data-target="#exampleModal">PISTA 4</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="TTandas" asp-action="Buscar" class="btn btn-group-xs btn-danger">← Elegir tanda</a>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title font-weight-bold">CALIFICAR</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @*<input id="codtA" value="@TempData["tanda"]" class="form-control col-lg-6 col-md-6 col-xs-6" hidden/>*@
+                    <div class="form-group">
+                        <label asp-for="IpNumeroJurado" class="control-label">N° Jurado</label>
+                        <select id="ipnumJu" asp-for="IpNumeroJurado" class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <span asp-validation-for="IpNumeroJurado" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FkVumtCod" class="control-label">Codigo Participante:</label>
+                        <select id="partTan" asp-for="FkVumtCod" class="form-control" asp-items="ViewBag.FkVumtCod"></select>
+                    </div>
+                    <div class="form-group" hidden>
+                        <label class="control-label">Codigo Participante:</label>
+                        <select id="selectParticipante" class="form-control">
+                        </select>
+                        <input id="codtp" class="form-control col-lg-6 col-md-6 col-xs-6" disabled />
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IpPuntaje" class="control-label">Puntaje</label>
+                        <select id="ipPuntaje" asp-for="IpPuntaje" class="form-control">
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <span asp-validation-for="IpPuntaje" class="text-danger"></span>
+                    </div>
+                    <div class="form-group float-right">
+                        <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal">Cerrar</button>
+                        <input type="submit" id="idt" value="Calificar" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal">Cerrar</button>*@
+
+                @*<button type="button" class="btn btn-primary btn-success" value="Create">Guardar</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+    @*<script src="~/js/jquery-1.10.2.min.js"></script>*@
+
+    <script src="~/js/CalificarParticipante.js"></script>
+    @*<script>
+            $(document).ready(function () {
+
+                $("#codt").text(localStorage.getItem("ct"));
+                $("#categoria").text(localStorage.getItem("cat"));
+                $("#modalidad").text(localStorage.getItem("mod"))
+            });
+        </script>*@
+
+}
+

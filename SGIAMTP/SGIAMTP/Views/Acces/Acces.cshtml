@@ -1,0 +1,65 @@
+﻿@model SGIAMTP.Models.Login
+@{
+    ViewData["Title"] = "Iniciar Sesion";
+}
+<head>
+    <link rel="stylesheet" href="~/css/StyleSheetLogIn.css">
+</head>
+
+<div class="container " >
+    <div class="row text-center login-page">
+        <div class="col-md-12 login-form">
+
+            <form asp-controller="Acces" asp-action="LogIn" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-12 login-form-header">
+                        <img src="~/images/logo.png" id="icon" alt="LogoTUSUY" style="height:80px"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label asp-for="Dni">DNI</label>
+                    <div class="col-md-12 login-from-row">
+                        <input asp-for="Dni" name="DNI" class="form-control" />
+                        <span asp-validation-for="Dni" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <label asp-for="Contra">Contraseña</label>
+                    <div class="col-md-12 login-from-row">
+                        <input asp-for="Contra" name="Contra" class="form-control" />
+                        <span asp-validation-for="Contra" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*<div class=form-group>
+                    <div class="checkbox">
+                        <label asp-for="Rememberme">
+                            <input asp-for="Rememberme" name="Rememberme" />
+                            @Html.DisplayNameFor(m => m.Rememberme)
+                        </label>
+                    </div>
+                </div>*@
+                <div class="row">
+                    <div class="col-md-12 login-from-row">
+                        <button type="submit" class="waves-effect waves-light btn" onclick="pass();">Ingresar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        @*<label id="loginMessage" class="error">@Html.DisplayFor(m => m.ErrorMessage)</label>*@
+    </div>
+    @*@ViewData["biw"]*@
+</div>
+
+@*<script type="text/javascript">
+        function pass() {
+        var contra = document.getElementById('pass').value;
+        alert(contra)
+        }
+
+    </script>*@
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

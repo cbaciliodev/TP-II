@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SGIAMTP.Models.TPuntaje>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IpPuntaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IpNumeroJurado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkVumtCodNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IpPuntaje)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IpNumeroJurado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FkVumtCodNavigation.PkVumtCod)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PkIpCodP">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PkIpCodP">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PkIpCodP">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

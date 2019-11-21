@@ -263,7 +263,7 @@ namespace SGIAMTP.Controllers
         {
 
             var participante = (from u in _context.TUsuario
-                                    //where u.VuSexo != ssexo
+                                   where u. FkItuTipoUsuarioNavigation.PkItuTipoUsuario!= 4
                                 select new Participante()
                                 {
                                     Codigo = u.PkIuDni,

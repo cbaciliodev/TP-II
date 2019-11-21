@@ -1,0 +1,58 @@
+﻿@model SGIAMTP.Models.TUsuarioModalidadTanda
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GANADOR</h2>
+
+
+<div class="col s12 m7 " style="text-align:center">
+    <div class="row" align="center">
+        <img style="width: 40% ;margin-top:160px;margin-left: initial;margin-right:initial;display:compact " src="~/images/30.png" />
+    </div>
+    <br />
+    <div class="col-sm-12">
+        <label for="name" style="text-align:center">Codigo Participante:</label>
+        <label id="codParticipante" for="name" style="text-align: center"></label>
+    </div>
+    <div class="col-sm-12">
+        <label for="name" style="text-align:center">Modalidad:</label>
+        <label id="modalida" for="name" style="text-align: center"></label>
+    </div>
+
+    <div class="row" style="text-align:center">
+        <div class="col-sm-12">
+            <label for="name" style="text-align:center">Categoria: </label>
+            <label id="category" for="name" style="text-align:center"></label>
+        </div>
+    </div>
+    <div class="row" style="text-align:center">
+        <div class="col-sm-12">
+            <label for="name" style="text-align:center">Puntaje total:</label>
+            <label id="punta" for="name" style="text-align:center"></label>
+        </div>
+    </div>
+
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+
+            $("#codParticipante").text(localStorage.getItem("cpa"));
+            $("#category").text(localStorage.getItem("cat"));
+            $("#modalida").text(localStorage.getItem("mod"));
+            $("#punta").text(localStorage.getItem("pun"));
+        });
+    </script>
+}
+

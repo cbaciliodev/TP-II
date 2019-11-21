@@ -1,4 +1,7 @@
-﻿namespace SGIAMTP.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace SGIAMTP.Models
 {
     public partial class TPuntaje
     {
