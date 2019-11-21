@@ -117,3 +117,9 @@ D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Jurado\JuradoView.cshtml.g.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TTandas\Buscar.cshtml.g.cs
 D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\Gerente\GerenteView.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TUsuarioModalidad\Index1.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TMarineras\Create.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TMarineras\Delete.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TMarineras\Details.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TMarineras\Edit.cshtml.g.cs
+D:\universidad\taller de proyectos\SGIAMTP\SGIAMTP\obj\Debug\netcoreapp2.1\Razor\Views\TMarineras\Index.cshtml.g.cs

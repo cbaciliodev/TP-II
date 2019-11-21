@@ -1,0 +1,121 @@
+﻿@model IEnumerable<SGIAMTP.Models.TMarinera>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Mostrar Marinera</h1>
+
+
+<form>
+    <div class="form-group">
+        <div>
+            <button class="btn btn-info" asp-action="Create">Ingresar Marinera</button>
+            <button type="button" onclick="probando();" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Escoger Marinera
+            </button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table id="prueba" class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="text-center">
+                        Número Canción
+                    </th>
+                    <th class="text-center">
+                        @*@Html.DisplayNameFor(model => model.VmNombre)*@
+                        Nombre de Canción
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.PkImCod)
+                        </td>
+                        <td id="idcelda" class="celdas text-center" >
+                            @Html.DisplayFor(modelItem => item.VmNombre)
+                        </td>
+                        @*<td>
+                                <a asp-action="Edit" asp-route-id="@item.PkImCod">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.PkImCod">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.PkImCod">Delete</a>
+                            </td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>
+
+
+<!--Modal-->
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">La Marinera Seleccionada es: </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <img src="~/images/Captura.JPG" class="rounded mx-auto d-block" alt="Responsive image" style="height: 200px"  />
+                </div>
+                <div class="form-group">
+                    <p class="text-center font-weight-bold" id="txtarea"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="location.reload();" class="btn btn-secondary" data-dismiss="modal">Otra Canción</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //function modal() {
+    //    $('.modal').modal('show');
+    //    setTimeout(function () {
+    //        console.log('completed');
+    //        $('.modal').modal('hide');
+    //    }, 3000);
+    //}
+
+    var celdas = document.getElementsByClassName("celdas");
+    var up = document.getElementById("prueba");
+    var todo = [];
+    for (let i = 1; i < (up.rows.length); i++) {
+        var ocells = up.rows.item(i).cells;
+        var nombres = ocells.item(1).innerText;
+        //todo += up[i].innerText;
+        todo.push(nombres);
+    }
+
+
+    function probando() {
+        var muestra = "La cancion : " + aleatorio();
+        return muestra;
+        console.log(muestra);
+    }
+    document.getElementById("txtarea").innerText = probando();
+    console.log(up.rows.length);
+    console.log(celdas.length);
+    console.log(todo);
+
+    function random(mn, mx) {
+        return Math.random() * (mx - mn) + mn;
+    }
+
+    function aleatorio() {
+        return todo[Math.floor(random(1, 21)) - 1];
+    }
+</script>
+

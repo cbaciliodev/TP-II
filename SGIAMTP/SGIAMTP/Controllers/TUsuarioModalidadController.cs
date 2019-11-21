@@ -6,6 +6,7 @@ using SGIAMTP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
 namespace SGIAMTP.Controllers
@@ -15,12 +16,29 @@ namespace SGIAMTP.Controllers
         private readonly DB_A4F05E_SGIAMTPContext _context;
         private readonly ModelContex participanteModel;
 
+
+  
+
         public TUsuarioModalidadController(DB_A4F05E_SGIAMTPContext context)
         {
             _context = context;
             participanteModel = new ModelContex(context);
         }
 
+       
+        public async Task<IActionResult> Index1()
+        {
+            Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<TUsuarioModalidad, TUsuario> dB_A4F05E_SGIAMTPContext = _context.TUsuarioModalidad
+                .Include(t => t.FkIcIdConcursoNavigation)
+                .Include(t => t.FkIeEstadoNavigation)
+                .Include(t => t.FkImIdModalidadNavigation)
+                .Include(t => t.FkIuDniNavigation)
+                .Include(t => t.FkIuDniParejaNavigation);
+
+
+
+            return View(await dB_A4F05E_SGIAMTPContext.ToListAsync());
+        }
 
         // GET: TUsuarioModalidad
         public async Task<IActionResult> Index()
@@ -32,6 +50,16 @@ namespace SGIAMTP.Controllers
                 .Include(t => t.FkIuDniParejaNavigation);
 
             return View(await dB_A4F05E_SGIAMTPContext.ToListAsync());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ActualizarEstado([FromBody] UpdateEstado model)
+        {
+            var usuarioModalidad = await _context.TUsuarioModalidad.FirstOrDefaultAsync(s => s.PkIumCodUm == model.idUsuarioModalidad);
+            usuarioModalidad.FkIeEstado = model.idEstado;
+            _context.Update(usuarioModalidad);
+            await _context.SaveChangesAsync();
+            return Json(new { });
         }
 
         // GET: TUsuarioModalidad/Details/5
@@ -234,6 +262,8 @@ namespace SGIAMTP.Controllers
         }
 
 
+
+
         public List<IdentityError> AgregarParticipante(
             int FkIuDni,
             int FkIcIdConcurso,
@@ -273,4 +303,17 @@ namespace SGIAMTP.Controllers
         public string Paterno { get; set; }
         public string Materno { get; set; }
     }
+
+
+
+    [DataContract]
+    public class UpdateEstado
+    {
+        [DataMember]
+        public int idUsuarioModalidad { get; set; }
+        [DataMember]
+        public int idEstado { get; set; }
+    }
+
+    
 }

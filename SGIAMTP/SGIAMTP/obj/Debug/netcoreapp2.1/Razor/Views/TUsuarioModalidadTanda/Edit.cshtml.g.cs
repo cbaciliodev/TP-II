@@ -67,7 +67,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n<h2>GANADOR</h2>\r\n\r\n\r\n<div class=\"col s12 m7 \" style=\"text-align:center\">\r\n    <div class=\"row\" align=\"center\">\r\n        ");
             EndContext();
             BeginContext(258, 125, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5821ac7d042c4b5db803f49c848639a9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "26b24b4017a04c87bdcc34b786937ddb", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -115,7 +115,7 @@ using SGIAMTP.Models;
     ");
             EndContext();
             BeginContext(1367, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4d31e09c7c524f0aae3e65ccb99ace68", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19c73bb8eb754e34b6b3af45fc2655a4", async() => {
                 BeginContext(1389, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

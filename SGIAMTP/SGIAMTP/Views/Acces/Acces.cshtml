@@ -4,13 +4,22 @@
 }
 <head>
     <link rel="stylesheet" href="~/css/StyleSheetLogIn.css">
+    <style>
+        #login_formulario{
+            background-color:darkred;
+            color:white;
+        }
+        .btn{
+            color:black
+        }
+    </style>
 </head>
 
 <div class="container " >
     <div class="row text-center login-page">
-        <div class="col-md-12 login-form">
+        <div class="col-md-12 login-form" id="login_formulario">
 
-            <form asp-controller="Acces" asp-action="LogIn" method="post">
+            <form asp-controller="Acces" asp-action="LogIn" method="post" >
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="row">
                     <div class="col-md-12 login-form-header">
@@ -42,7 +51,7 @@
                 </div>*@
                 <div class="row">
                     <div class="col-md-12 login-from-row">
-                        <button type="submit" class="waves-effect waves-light btn" onclick="pass();">Ingresar</button>
+                        <button type="submit" class="waves-effect waves-light btn btn btn-success" onclick="pass();">Ingresar</button>
                     </div>
                 </div>
             </form>

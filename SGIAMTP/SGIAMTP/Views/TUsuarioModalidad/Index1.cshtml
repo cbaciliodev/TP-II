@@ -1,0 +1,153 @@
+﻿@model IEnumerable<SGIAMTP.Models.TUsuarioModalidad>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid col-xs-12 col-md-12 col-lg-12" style="font-size:16px; font-family:'Century Gothic'">
+    <br />
+    <br />
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div>
+                <h4 class="panel-title">Lista de Participantes</h4>
+            </div>
+        </div>
+        <div class="panel panel-body form-group">
+            <div class="table-responsive">
+                <table class="table table-condensed table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                Fecha Inscripci&oacute;n
+                            </th>
+                            <th class="text-center">
+                                Dni
+                            </th>
+                            <th class="text-center">
+                                Pago
+                            </th>
+                            <th class="text-center">
+                                Concurso
+                            </th>
+                            <th class="text-center">
+                                Modalidad
+                            </th>
+                            <th class="text-center">
+                                Participante
+                            </th>
+                            <th class="text-center">
+                                Pareja
+                            </th>
+                            <th class="text-center">
+                                Estado
+                            </th>
+                            <th class="text-center" colspan="3">Acci&oacute;n</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.ValueFor(modelItem => item.DumFechaIns, "{0:dd/MM/yyyy}")
+                                </td>
+                                <td class="text-center">
+                                    <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoDni)" class="btn btn-success openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
+                                </td>
+                                <td class="text-center">
+                                    <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoB)" class="btn btn-success openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.FkIcIdConcursoNavigation.VcNombreCon)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.FkImIdModalidadNavigation.VmNombreMod)
+                                </td>
+                                <td class="text-justify">
+                                    @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuNombre)
+                                    @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuApaterno)
+                                    @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuAmaterno)
+                                </td>
+                                <td class="text-justify">
+                                    @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuNombre)
+                                    @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuApaterno)
+                                    @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuAmaterno)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.FkIeEstadoNavigation.VeNombreEsta)
+                                </td>
+                                @if (item.FkIeEstado == 3)
+                                {
+                                    <td class="text-center">
+                                        <a class="btn btn-info" onclick="cambiarEstado(4,@item.PkIumCodUm)">Aceptado</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a class="btn btn-warning" onclick="cambiarEstado(5,@item.PkIumCodUm)">Rechazado</a>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="text-center">
+                                    </td>
+                                    <td class="text-center">
+                                    </td>
+                                }
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Archivo Adjunto</h4>
+            </div>
+            <div class="modal-body">
+                <embed id="mostarPdf" width="580" height="375"
+                       type="application/pdf" src="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    function openModal(value) {
+
+
+        $("#mostarPdf").attr("src", value);
+
+        $('#myModal').modal({ show: true, backdrop: 'static', keyboard: false });
+
+    }
+
+    function cambiarEstado(idEstado,idUsarioModifico) {
+        var model = {
+            idUsuarioModalidad: idUsarioModifico,
+            idEstado: idEstado
+        };
+        var result = JSON.stringify(model);
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("ActualizarEstado", "TUsuarioModalidad")',
+            data: result,
+            contentType: 'application/json',
+            success: function (data) {
+                window.location.href = '@Url.Action("Index1", "TUsuarioModalidad")';
+            }
+        });
+    }
+</script>
+

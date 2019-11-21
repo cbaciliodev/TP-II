@@ -26,6 +26,11 @@ namespace SGIAMTP.Controllers
             var dB_A4F05E_SGIAMTPContext = _context.TUsuarioModalidadTanda.Include(t => t.FkIumtCodPartNavigation).Include(t => t.FkIumtCodTanNavigation);
             return View(await dB_A4F05E_SGIAMTPContext.ToListAsync());
         }
+
+
+
+
+
         [HttpGet]
         public IActionResult GetComboBox()
         {
