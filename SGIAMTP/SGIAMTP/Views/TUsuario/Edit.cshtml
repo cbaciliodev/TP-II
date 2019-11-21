@@ -52,7 +52,8 @@
                         <div class="row col-xs-12 col-md-12 col-lg-12">
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="DuFechaNacimiento" class="control-label">Fecha de Nacimiento:</label>
-                                <input asp-for="DuFechaNacimiento" class="form-control" />
+                                <input asp-for="DuFechaNacimiento" class="form-control" disabled/>
+                                <input asp-for="DuFechaNacimiento" hidden/>
                                 <span asp-validation-for="DuFechaNacimiento" class="text-danger"></span>
                             </div>
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
@@ -62,7 +63,14 @@
                             </div>
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="VuSexo" class="control-label">Sexo:</label>
-                                <input asp-for="VuSexo" class="form-control" />
+
+                                <select asp-for="VuSexo" class="form-control">
+                                    <option value="" selected>Seleccione...</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
+
+                                @*<input asp-for="VuSexo" disabled class="form-control" />*@
                                 <span asp-validation-for="VuSexo" class="text-danger"></span>
                             </div>
                         </div>
@@ -75,12 +83,14 @@
                             </div>
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkIuCodCategoria" class="control-label">Categoria:</label>
-                                <select asp-for="FkIuCodCategoria" class="form-control" asp-items="ViewBag.FkIuCodCategoria"></select>
+                                <select disabled asp-for="FkIuCodCategoria" class="form-control" asp-items="ViewBag.FkIuCodCategoria"></select>
+                                <input hidden asp-for="FkIuCodCategoria" />
                                 <span asp-validation-for="FkIuCodCategoria" class="text-danger"></span>
                             </div>
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkItuTipoUsuario" class="control-label">Tipo de Usuario:</label>
-                                <select asp-for="FkItuTipoUsuario" class="form-control" asp-items="ViewBag.FkItuTipoUsuario"></select>
+                                <select disabled asp-for="FkItuTipoUsuario" class="form-control" asp-items="ViewBag.FkItuTipoUsuario"></select>
+                                <input asp-for="FkItuTipoUsuario" hidden />
                                 <span asp-validation-for="FkItuTipoUsuario" class="text-danger"></span>
                             </div>
                         </div>

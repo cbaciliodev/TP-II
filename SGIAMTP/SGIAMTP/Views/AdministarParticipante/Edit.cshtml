@@ -35,7 +35,8 @@
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkIuDni" class="control-label">Dni:</label>
                                 @*<select asp-for="FkIuDni" class="form-control" asp-items="ViewBag.FkIuDni"></select>*@
-                                <input asp-for="FkIuDni" class="form-control" />
+                                <input asp-for="FkIuDni" class="form-control"  disabled/>
+                                <input asp-for="FkIuDni" hidden/>
                                 <span asp-validation-for="FkIuDni" class="text-danger"></span>
                             </div>
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
@@ -45,19 +46,22 @@
                             </div>
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkImIdModalidad" class="control-label">Modalidad:</label>
-                                <select asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad"></select>
+                                <select disabled asp-for="FkImIdModalidad" class="form-control" asp-items="ViewBag.FkImIdModalidad"></select>
+                                <input asp-for="FkImIdModalidad" hidden/>
                                 <span asp-validation-for="FkImIdModalidad" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="row col-xs-12 col-md-12 col-lg-12">
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="IumFase" class="control-label">Fase:</label>
-                                <input asp-for="IumFase" class="form-control" />
+                                <input asp-for="IumFase" class="form-control" disabled/>
                                 <span asp-validation-for="IumFase" class="text-danger"></span>
+                                <input asp-for="IumFase" hidden/>
                             </div>
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="FkIuDniPareja" class="control-label">Pareja:</label>
-                                <select asp-for="FkIuDniPareja" class="form-control" asp-items="ViewBag.FkIuDniPareja"></select>
+                                <select disabled asp-for="FkIuDniPareja" class="form-control" asp-items="ViewBag.FkIuDniPareja"></select>
+                                <input asp-for="FkIuDniPareja" hidden />
                                 <span asp-validation-for="FkIuDniPareja" class="text-danger"></span>
                             </div>
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
@@ -71,13 +75,15 @@
                         <div class="row col-xs-12 col-md-12 col-lg-12">
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="VmUmArchivoDni" class="control-label">Archivo Dni:</label>
-                                <input asp-for="VmUmArchivoDni" class="form-control" type="file" />
+                                <input onchange="javascript:encodeFotoEdit()"  class="form-control" type="file"  id="VmUmArchivoDni_Edit"/>
                                 <span asp-validation-for="VmUmArchivoDni" class="text-danger"></span>
+                                <textarea hidden asp-for="VmUmArchivoDni" id="text_foto_edit"></textarea>
                             </div>
                             <div class="form-group  col-xs-4 col-md-4 col-lg-4">
                                 <label asp-for="VmUmArchivoB" class="control-label">Archivo Pago:</label>
-                                <input asp-for="VmUmArchivoB" class="form-control" type="file" id="VmUmArchivoB_Edit" />
+                                <input onchange="javascript:encodeReciboEdit()" class="form-control" type="file" id="VmUmArchivoB_Edit" />
                                 <span asp-validation-for="VmUmArchivoB" class="text-danger"></span>
+                                <textarea hidden asp-for="VmUmArchivoB" id="text_recibo_edit"></textarea>
                             </div>
                             <div class="form-group  col-xs-2 col-md-2 col-lg-2">
                                 <label class="control-label"> </label>
@@ -101,30 +107,59 @@
 
     function encodeFotoEdit() {
 
-    var selectedfile = document.getElementById("VmUmArchivoB_Edit").files;
+        var selectedfile = document.getElementById("VmUmArchivoDni_Edit").files;
 
-    if (selectedfile.length > 0) {
+        if (selectedfile.length > 0) {
 
-        var imageFile = selectedfile[0];
-        var fileReader = new FileReader();
+            var imageFile = selectedfile[0];
+            var fileReader = new FileReader();
 
-        fileReader.onload = function (fileLoadedEvent) {
+            fileReader.onload = function (fileLoadedEvent) {
 
-            var srcData = fileLoadedEvent.target.result;
+                var srcData = fileLoadedEvent.target.result;
 
-            var newImage = document.createElement('img');
-            newImage.src = srcData;
-            newImage.style.height = "100px";
-            newImage.style.width = "100px";
-            //document.getElementById("verFoto").innerHTML = newImage.outerHTML;
-            //document.getElementById("codigoFoto").value = document.getElementById("verFoto").innerHTML;
-            document.getElementById("recibo_archivoPago_participante").value = srcData;
-            //console.log(srcData)
+                var newImage = document.createElement('img');
+                newImage.src = srcData;
+                newImage.style.height = "100px";
+                newImage.style.width = "100px";
+                //document.getElementById("verFoto").innerHTML = newImage.outerHTML;
+                //document.getElementById("codigoFoto").value = document.getElementById("verFoto").innerHTML;
+                document.getElementById("text_foto_edit").value = srcData;
+                //console.log(srcData)
+            }
+
+            fileReader.readAsDataURL(imageFile);
         }
 
-        fileReader.readAsDataURL(imageFile);
     }
 
+    function encodeReciboEdit() {
+
+        var selectedfile = document.getElementById("VmUmArchivoB_Edit").files;
+
+        if (selectedfile.length > 0) {
+
+            var imageFile = selectedfile[0];
+            var fileReader = new FileReader();
+
+            fileReader.onload = function (fileLoadedEvent) {
+
+                var srcData = fileLoadedEvent.target.result;
+
+                var newImage = document.createElement('img');
+                newImage.src = srcData;
+                newImage.style.height = "100px";
+                newImage.style.width = "100px";
+                //document.getElementById("verFoto").innerHTML = newImage.outerHTML;
+                //document.getElementById("codigoFoto").value = document.getElementById("verFoto").innerHTML;
+                document.getElementById("text_recibo_edit").value = srcData;
+                //console.log(srcData)
+            }
+
+            fileReader.readAsDataURL(imageFile);
+        }
+
+    }
 </script>
 
 

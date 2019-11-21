@@ -46,7 +46,12 @@ namespace SGIAMTP.Controllers
         // GET: AdministarParticipante
         public async Task<IActionResult> Index()
         {
-            var dB_A4F05E_SGIAMTPContext = _context.TUsuarioModalidad.Include(t => t.FkIcIdConcursoNavigation).Include(t => t.FkImIdModalidadNavigation).Include(t => t.FkIuDniNavigation).Include(t => t.FkIuDniParejaNavigation);
+            var dB_A4F05E_SGIAMTPContext = _context.TUsuarioModalidad
+                .Include(t => t.FkIcIdConcursoNavigation)
+                .Include(t => t.FkImIdModalidadNavigation)
+                .Include(t => t.FkIuDniNavigation)
+                .Include(t => t.FkIuDniParejaNavigation)
+                .Include(t=>t.FkIeEstadoNavigation);
             return View(await dB_A4F05E_SGIAMTPContext.ToListAsync());
         }
 

@@ -54,54 +54,61 @@
                             <th class="text-center">
                                 Pareja
                             </th>
+                            <th class="text-center">
+                                Estado
+                            </th>
                             <th class="text-center" colspan="2">Acci&oacute;n</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td class="text-center">
-                                    @Html.DisplayFor(modelItem => item.IumFase)
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(modelItem => item.DumFechaIns)
-                                </td>
-                                <td class="text-center">
-                                    <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoDni)" class="btn btn-success openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
-                                </td>
-                                <td class="text-center">
-                                    <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoB)" class="btn btn-success openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(modelItem => item.FkIcIdConcursoNavigation.VcNombreCon)
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(modelItem => item.FkImIdModalidadNavigation.VmNombreMod)
-                                </td>
-                                <td class="text-justify">
-                                    @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuNombre)
-                                    @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuApaterno)
-                                    @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuAmaterno)
-                                </td>
-                                <td class="text-justify">
-                                    @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuNombre)
-                                    @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuApaterno)
-                                    @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuAmaterno)
-                                </td>
-                                <td class="text-center">
-                                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PkIumCodUm">Editar</a>
-                                </td>
+                        <tr>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.IumFase)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.DumFechaIns)
+                            </td>
+                            <td class="text-center">
+                                <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoDni)" class="btn btn-success openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
+                            </td>
+                            <td class="text-center">
+                                <button value="@Html.DisplayFor(modelItem => item.VmUmArchivoB)" class="btn btn-success openBtn" id="verModal" onclick="openModal(this.value)">Ver</button>
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.FkIcIdConcursoNavigation.VcNombreCon)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.FkImIdModalidadNavigation.VmNombreMod)
+                            </td>
+                            <td class="text-justify">
+                                @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuNombre)
+                                @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuApaterno)
+                                @Html.DisplayFor(modelItem => item.FkIuDniNavigation.VuAmaterno)
+                            </td>
+                            <td class="text-justify">
+                                @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuNombre)
+                                @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuApaterno)
+                                @Html.DisplayFor(modelItem => item.FkIuDniParejaNavigation.VuAmaterno)
+                            </td>
 
-                                @*<td class="text-center">
-                                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PkIumCodUm">Detalles</a>
-                                    </td>*@
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.FkIeEstadoNavigation.VeNombreEsta)
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PkIumCodUm">Editar</a>
+                            </td>
 
-                                <td class="text-center">
-                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PkIumCodUm">Eliminar</a>
-                                </td>
+                            @*<td class="text-center">
+            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PkIumCodUm">Detalles</a>
+        </td>*@
 
-                            </tr>
+                            @*<td class="text-center">
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PkIumCodUm">Eliminar</a>
+                            </td>*@
+
+                        </tr>
                         }
                     </tbody>
                 </table>
