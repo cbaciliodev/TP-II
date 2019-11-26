@@ -94,7 +94,7 @@ Write(ViewData["dni"]);
             ");
             EndContext();
             BeginContext(641, 107, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c526dd0ab7d44a9b87192d3684a26e85", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9157776e7c954d6a9f59e06a029b1acb", async() => {
                 BeginContext(727, 17, true);
                 WriteLiteral("Mostrar Resultado");
                 EndContext();
@@ -119,7 +119,7 @@ Write(ViewData["dni"]);
             WriteLiteral("\r\n            ");
             EndContext();
             BeginContext(762, 94, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e94b53fbe1224c32a35a4d349ce982c1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "746c78c8ca2248dea2bf045c8e4b32a3", async() => {
                 BeginContext(836, 16, true);
                 WriteLiteral("Mostrar Marinera");
                 EndContext();
@@ -144,7 +144,7 @@ Write(ViewData["dni"]);
             WriteLiteral("\r\n            ");
             EndContext();
             BeginContext(870, 96, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cebc1cf36e04e3883df1cd021c2c6b8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7e6800e288394e569966836fddeff4ea", async() => {
                 BeginContext(945, 17, true);
                 WriteLiteral("Ingresar Marinera");
                 EndContext();
@@ -169,7 +169,7 @@ Write(ViewData["dni"]);
             WriteLiteral("\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group \" style=\"margin-top:10px\">\r\n        ");
             EndContext();
             BeginContext(1061, 91, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8b5a9483ae844ca7a3f811c91b31c55f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "73d8b4e96d2941f29799e9100ab64d7d", async() => {
                 BeginContext(1136, 12, true);
                 WriteLiteral("salir sesion");
                 EndContext();
