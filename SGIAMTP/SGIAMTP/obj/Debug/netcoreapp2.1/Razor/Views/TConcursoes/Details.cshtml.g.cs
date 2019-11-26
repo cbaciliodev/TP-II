@@ -143,7 +143,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n                </dd>\r\n            </dl>\r\n            <div>\r\n                ");
             EndContext();
             BeginContext(1712, 92, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08227491275c4eb5a98e88c001de3d1a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "49c247d064dc440a9e95cc923c1d75fe", async() => {
                 BeginContext(1794, 6, true);
                 WriteLiteral("Editar");
                 EndContext();
@@ -179,7 +179,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(1822, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "33911b9a8b0c47a9969e704c2759268a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "02a3c8a6f46147c6b89c1fcb392f8894", async() => {
                 BeginContext(1867, 8, true);
                 WriteLiteral("Regresar");
                 EndContext();

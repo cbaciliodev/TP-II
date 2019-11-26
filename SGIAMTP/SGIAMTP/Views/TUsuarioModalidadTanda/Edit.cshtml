@@ -37,7 +37,7 @@
                     <label id="punta" for="name" style="text-align:left"></label>
                 </div>
                 <div class="col-sm-12" style="margin-top:10px">
-                    <button class="btn btn-danger">Regresar</button>
+                    <a asp-action="Index" class="btn btn-danger">Regresar</a>
                 </div>
             </div>
         </div>
@@ -78,9 +78,7 @@
     </div>*@
 
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
