@@ -92,7 +92,7 @@ Write(ViewData["dni"]);
             ");
             EndContext();
             BeginContext(627, 93, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb6a8bcf8c0445c8ad89794a42046fa5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aa9bdc6693294e65a523b147fa184692", async() => {
                 BeginContext(702, 14, true);
                 WriteLiteral("Crear Concurso");
                 EndContext();
@@ -117,7 +117,7 @@ Write(ViewData["dni"]);
             WriteLiteral("\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group \" style=\"margin-top:10px\">\r\n        ");
             EndContext();
             BeginContext(815, 91, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "25f7218b1f834217a07dbb3098be94fa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "67a3234b5680486cb819d6bffa0ce322", async() => {
                 BeginContext(890, 12, true);
                 WriteLiteral("salir sesion");
                 EndContext();

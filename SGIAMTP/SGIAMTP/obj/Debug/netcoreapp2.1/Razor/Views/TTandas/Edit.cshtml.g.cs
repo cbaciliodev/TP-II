@@ -67,7 +67,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(162, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc69e34b28114ac0b29bfbfbd7146457", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ec3e403e2a174029abb6fed262beaf67", async() => {
                 BeginContext(185, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -218,7 +218,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n                </td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1733, 61, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1950e80bf0b8406ab3342e0b6e8b7c66", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2dfd9d31fe104dd79ed07f6b3b5ec37a", async() => {
                 BeginContext(1786, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -253,7 +253,7 @@ using SGIAMTP.Models;
             WriteLiteral(" |\r\n                    ");
             EndContext();
             BeginContext(1818, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90b00e17dff84d27b39946c4185d336b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe5d895245a445b195ae2647cc89548a", async() => {
                 BeginContext(1874, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -288,7 +288,7 @@ using SGIAMTP.Models;
             WriteLiteral(" |\r\n                    ");
             EndContext();
             BeginContext(1909, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4f25273e8b454c9c875815b8cb8774bd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "33bf45e4850549b9bcaa616aaddd617f", async() => {
                 BeginContext(1964, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

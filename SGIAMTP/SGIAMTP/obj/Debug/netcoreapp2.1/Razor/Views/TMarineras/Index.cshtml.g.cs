@@ -71,12 +71,12 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n\r\n<h1>Mostrar Marinera</h1>\r\n\r\n\r\n");
             EndContext();
             BeginContext(124, 1788, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "762c94e2be3541e39fde24f6ab545c89", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7f172c652b403d87d6a16af106633a", async() => {
                 BeginContext(130, 59, true);
                 WriteLiteral("\r\n    <div class=\"form-group\">\r\n        <div>\r\n            ");
                 EndContext();
                 BeginContext(189, 75, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "765591beb67e4dabb913b9218d696293", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9787b5c0bae4409290939f647935db4a", async() => {
                     BeginContext(238, 17, true);
                     WriteLiteral("Ingresar Marinera");
                     EndContext();
@@ -190,7 +190,7 @@ using SGIAMTP.Models;
                     ");
             EndContext();
             BeginContext(2629, 112, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "835c47f6343d41ce86baeaa608d72712", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "fe408100ebd149e18d7daedc71b15662", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
