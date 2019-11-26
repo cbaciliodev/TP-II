@@ -93,7 +93,7 @@ namespace SGIAMTP.Controllers
                 {
                     ViewData["dni"] = user.Dni  ;
                     ViewBag.dni = user.Dni;
-                    return RedirectToAction("About", "Home");
+                    return RedirectToAction("PresentadorView", "Presentador");
                 }
                 else if (dni == true && contra == true && us2.tipousr == 3) //ariana
                 {
@@ -101,7 +101,7 @@ namespace SGIAMTP.Controllers
                 }
                 else if (dni == true && contra == true && us2.tipousr == 4) //ariana
                 {
-                    return RedirectToAction("PresentadorView", "Presentador");
+                    return RedirectToAction("About", "Home");
                 }
                 else if (dni == true && contra == true && us2.tipousr == 5) //ariana
                 {

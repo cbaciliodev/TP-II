@@ -71,7 +71,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n<div class=\"container-fluid col-xs-12 col-md-12 col-lg-12\" style=\"font-size:16px; font-family:\'Century Gothic\'\">\r\n    <div class=\"form-group \" style=\"margin-top:10px\">\r\n        ");
             EndContext();
             BeginContext(268, 165, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bb42922cac94b8ca6a7ff01a65b51ab", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5a280bcd0054ee9b30e86b5c6ed4ce4", async() => {
                 BeginContext(315, 114, true);
                 WriteLiteral("\r\n            Registar Concurso\r\n            <span class=\"glyphicon glyphicon-registration-mark\"></span>\r\n        ");
                 EndContext();
@@ -94,7 +94,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n        ");
             EndContext();
             BeginContext(443, 92, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fd0af9ef5a5c40fe9c6e746947bd6f24", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3103994729074724996463d2d1191d51", async() => {
                 BeginContext(517, 14, true);
                 WriteLiteral("Volver al Menú");
                 EndContext();
@@ -205,7 +205,7 @@ using SGIAMTP.Models;
             WriteLiteral("                                        ");
             EndContext();
             BeginContext(2839, 226, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54d8a1a3bbf04fdab62d6a1c3b603213", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa20baf15701456d9a9b675317e1d1a5", async() => {
                 BeginContext(2923, 138, true);
                 WriteLiteral("\r\n                                            <span class=\"glyphicon glyphicon-eye-open\"></span>\r\n                                        ");
                 EndContext();
@@ -251,7 +251,7 @@ using SGIAMTP.Models;
             WriteLiteral("                                        ");
             EndContext();
             BeginContext(3227, 221, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c77ac9e3887441908bd72b5ebfaee3a3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c26874844e9f4de58a9d9006e36b498f", async() => {
                 BeginContext(3308, 136, true);
                 WriteLiteral("\r\n                                            <span class=\"glyphicon glyphicon-pencil\"></span>\r\n                                        ");
                 EndContext();
@@ -287,7 +287,7 @@ using SGIAMTP.Models;
             WriteLiteral("\r\n                                        ");
             EndContext();
             BeginContext(3490, 221, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7f73c7e54af547fbafa385f10df4e756", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4d98cb9f8d8041e0a34d261ecdd5db36", async() => {
                 BeginContext(3572, 135, true);
                 WriteLiteral("\r\n                                            <span class=\"glyphicon glyphicon-trash\"></span>\r\n                                        ");
                 EndContext();
